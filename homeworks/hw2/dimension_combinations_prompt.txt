@@ -1,0 +1,26 @@
+PROMPT FOR GENERATING RECIPE BOT TEST COMBINATIONS
+
+You are helping create test cases for a Recipe Bot by generating diverse combinations of cooking dimensions.
+
+DIMENSIONS AND VALUES:
+1. cuisine_type: Italian, Mexican, Asian, Mediterranean, American, Indian
+2. dietary_restriction: vegetarian, vegan, gluten-free, keto, dairy-free, none
+3. time_constraint: quick (15 minutes), moderate (30 minutes), extended (60+ minutes), no-rush
+4. main_ingredient: chicken, salmon, eggs, pasta, vegetables, beef
+
+TASK:
+Generate exactly 18 unique combinations (tuples) that combine one value from each dimension. 
+
+REQUIREMENTS:
+- Each combination should be realistic and testable
+- Ensure good variety across all dimensions
+- Avoid combinations that are impossible (e.g., "vegan" + "chicken")
+- Include both common and edge-case combinations
+- Format as: (cuisine_type: 'value', dietary_restriction: 'value', time_constraint: 'value', main_ingredient: 'value')
+
+EXAMPLE OUTPUT FORMAT:
+1. (cuisine_type: 'Italian', dietary_restriction: 'vegetarian', time_constraint: 'quick', main_ingredient: 'pasta')
+2. (cuisine_type: 'Mexican', dietary_restriction: 'none', time_constraint: 'moderate', main_ingredient: 'chicken')
+3. (cuisine_type: 'Asian', dietary_restriction: 'vegan', time_constraint: 'extended', main_ingredient: 'vegetables')
+
+Please generate 18 unique, realistic combinations following this format.

@@ -1,0 +1,36 @@
+NATURAL LANGUAGE QUERIES FOR RECIPE BOT TESTING
+
+Generated from 6 selected combinations using varied conversational styles:
+
+## Query 1
+**Combination:** (cuisine_type: 'Mediterranean', dietary_restriction: 'gluten-free', time_constraint: 'quick', main_ingredient: 'salmon')
+**Natural Language Query:** "Hey, need a quick Mediterranean salmon recipe that's gluten-free - something I can make in 15 minutes?"
+
+## Query 2
+**Combination:** (cuisine_type: 'Mexican', dietary_restriction: 'vegetarian', time_constraint: 'quick', main_ingredient: 'eggs')
+**Natural Language Query:** "Quick! Need a vegetarian Mexican egg recipe ASAP - what can you suggest?"
+
+## Query 3
+**Combination:** (cuisine_type: 'Indian', dietary_restriction: 'vegetarian', time_constraint: 'moderate', main_ingredient: 'vegetables')
+**Natural Language Query:** "Could you recommend an Indian vegetarian recipe using vegetables that takes about 30 minutes to prepare?"
+
+## Query 4
+**Combination:** (cuisine_type: 'Mexican', dietary_restriction: 'dairy-free', time_constraint: 'extended', main_ingredient: 'chicken')
+**Natural Language Query:** "Looking for a dairy-free Mexican chicken recipe - I have plenty of time to cook something special tonight"
+
+## Query 5
+**Combination:** (cuisine_type: 'Mediterranean', dietary_restriction: 'vegetarian', time_constraint: 'no-rush', main_ingredient: 'pasta')
+**Natural Language Query:** "I want to make a really good Mediterranean vegetarian pasta dish this weekend - time is no issue, looking for something authentic"
+
+## Query 6
+**Combination:** (cuisine_type: 'American', dietary_restriction: 'gluten-free', time_constraint: 'quick', main_ingredient: 'eggs')
+**Natural Language Query:** "What's a simple American-style gluten-free egg recipe I can whip up quickly for breakfast?"
+
+---
+
+SUMMARY:
+- Query styles vary from casual ("Hey, need...") to formal ("Could you recommend...")
+- Time constraints expressed naturally ("15 minutes", "ASAP", "plenty of time")
+- All dietary restrictions clearly stated
+- Cuisine types integrated naturally into requests
+- Realistic user language and urgency levels represented

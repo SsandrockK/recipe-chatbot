@@ -1,0 +1,28 @@
+GENERATED RECIPE BOT TEST COMBINATIONS
+
+1. (cuisine_type: 'Italian', dietary_restriction: 'vegetarian', time_constraint: 'quick', main_ingredient: 'pasta')
+2. (cuisine_type: 'Mexican', dietary_restriction: 'none', time_constraint: 'moderate', main_ingredient: 'chicken')
+3. (cuisine_type: 'Asian', dietary_restriction: 'vegan', time_constraint: 'extended', main_ingredient: 'vegetables')
+4. (cuisine_type: 'Mediterranean', dietary_restriction: 'gluten-free', time_constraint: 'quick', main_ingredient: 'salmon')
+5. (cuisine_type: 'American', dietary_restriction: 'keto', time_constraint: 'moderate', main_ingredient: 'beef')
+6. (cuisine_type: 'Indian', dietary_restriction: 'dairy-free', time_constraint: 'no-rush', main_ingredient: 'vegetables')
+7. (cuisine_type: 'Italian', dietary_restriction: 'none', time_constraint: 'extended', main_ingredient: 'salmon')
+8. (cuisine_type: 'Mexican', dietary_restriction: 'vegetarian', time_constraint: 'quick', main_ingredient: 'eggs')
+9. (cuisine_type: 'Asian', dietary_restriction: 'gluten-free', time_constraint: 'moderate', main_ingredient: 'chicken')
+10. (cuisine_type: 'Mediterranean', dietary_restriction: 'vegan', time_constraint: 'quick', main_ingredient: 'vegetables')
+11. (cuisine_type: 'American', dietary_restriction: 'none', time_constraint: 'no-rush', main_ingredient: 'pasta')
+12. (cuisine_type: 'Indian', dietary_restriction: 'vegetarian', time_constraint: 'moderate', main_ingredient: 'vegetables')
+13. (cuisine_type: 'Italian', dietary_restriction: 'keto', time_constraint: 'quick', main_ingredient: 'eggs')
+14. (cuisine_type: 'Mexican', dietary_restriction: 'dairy-free', time_constraint: 'extended', main_ingredient: 'chicken')
+15. (cuisine_type: 'Asian', dietary_restriction: 'none', time_constraint: 'moderate', main_ingredient: 'salmon')
+16. (cuisine_type: 'Mediterranean', dietary_restriction: 'vegetarian', time_constraint: 'no-rush', main_ingredient: 'pasta')
+17. (cuisine_type: 'American', dietary_restriction: 'gluten-free', time_constraint: 'quick', main_ingredient: 'eggs')
+18. (cuisine_type: 'Indian', dietary_restriction: 'none', time_constraint: 'extended', main_ingredient: 'beef')
+
+SELECTED COMBINATIONS FOR NATURAL LANGUAGE QUERIES (6 combinations):
+- Combination #4: (cuisine_type: 'Mediterranean', dietary_restriction: 'gluten-free', time_constraint: 'quick', main_ingredient: 'salmon')
+- Combination #8: (cuisine_type: 'Mexican', dietary_restriction: 'vegetarian', time_constraint: 'quick', main_ingredient: 'eggs')
+- Combination #12: (cuisine_type: 'Indian', dietary_restriction: 'vegetarian', time_constraint: 'moderate', main_ingredient: 'vegetables')
+- Combination #14: (cuisine_type: 'Mexican', dietary_restriction: 'dairy-free', time_constraint: 'extended', main_ingredient: 'chicken')
+- Combination #16: (cuisine_type: 'Mediterranean', dietary_restriction: 'vegetarian', time_constraint: 'no-rush', main_ingredient: 'pasta')
+- Combination #17: (cuisine_type: 'American', dietary_restriction: 'gluten-free', time_constraint: 'quick', main_ingredient: 'eggs')
