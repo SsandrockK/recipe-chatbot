@@ -16,6 +16,8 @@ endpoint concurrently, and stores the results for later manual evaluation.
 import argparse
 import csv
 import datetime as dt
+import json
+import datetime
 from typing import List, Tuple, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -34,6 +36,9 @@ DEFAULT_CSV: Path = Path("data/sample_queries.csv")
 RESULTS_DIR: Path = Path("results")
 RESULTS_DIR.mkdir(exist_ok=True)
 
+TRACES_DIR: Path = Path("annotation/traces")
+TRACES_DIR.mkdir(parents=True, exist_ok=True)
+
 MAX_WORKERS = 32 # For ThreadPoolExecutor
 
 # -----------------------------------------------------------------------------
@@ -49,6 +54,21 @@ def process_query_sync(query_id: str, query: str) -> Tuple[str, str, str]:
     try:
         # get_agent_response now returns the full history
         updated_history = get_agent_response(initial_messages)
+
+        # Save trace file (similar to main.py)
+        ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        trace_path = TRACES_DIR / f"trace_{ts}.json"
+        with open(trace_path, "w") as f:
+            json.dump({
+                "request": {
+                    "messages": [{"role": "system", "content": SYSTEM_PROMPT},
+                                {"role": "user", "content": query}]
+                },
+                "response": {
+                    "messages": updated_history
+                }
+            }, f, indent=2)
+
         # Extract the last assistant message for the result
         assistant_reply = ""
         if updated_history and updated_history[-1]["role"] == "assistant":

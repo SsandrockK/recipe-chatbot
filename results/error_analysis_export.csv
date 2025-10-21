@@ -1,0 +1,44 @@
+Trace_ID,User_Query,Bot_Response_Summary,Open_Code_Notes,Inaccessible measurement presentation,Unclear Technique Guidance,Inaccurate Time Estimates,Missing Serving Size Information,Missing Equipment Specifications,Dietary Restriction Non-Compliance
+20251021_100936_627699,Quick! Need a vegetarian Mexican egg recipe ASAP - what can you suggest?,"## Vegetarian Mexican Scrambled Eggs (Huevos a la Mexicana)
+
+A quick, colorful, and flavorful Mexican-style scrambled egg dish with tomatoes, onions, and peppers. Perfect for a speedy, wholesome breakfast or brunch!
+
+### Ingredients
+- 4 large eggs  
+- 1 small tomato, diced (about 100g)  
+- 1/4 cup o...",precise measurements are difficult for beginners - should include rule of thumb measurements as well,1,0,0,1,1,0
+20251021_100936_997034,"Hey, need a quick Mediterranean salmon recipe that's gluten-free - something I can make in 15 minutes?","## Quick Mediterranean Salmon (Gluten-Free)
+
+A fresh, vibrant, and quick Mediterranean-inspired salmon dish ready in just 15 minutes. Perfectly seasoned with simple herbs and lemon to highlight the salmon’s natural flavors, and it’s naturally gluten-free!
+
+### Ingredients
+- 2 salmon fillets (about 1...","lemon action is included in the ingredients list, implying that the lemon should be juiced and zested prior to using - order of operations issue
+
+should provide guidance on flake test - unclear instructions for a beginner
+",0,1,0,1,1,0
+20251021_100937_088692,What's a simple American-style gluten-free egg recipe I can whip up quickly for breakfast?,"## Quick Gluten-Free American-Style Scrambled Eggs
+
+A simple, classic scrambled egg recipe that's naturally gluten-free and ready in under 10 minutes — perfect for a speedy, hearty breakfast.
+
+### Ingredients
+- 3 large eggs  
+- 2 tablespoons milk (dairy or any plant-based milk)  
+- 1 tablespoon butt...","no servings info, no equipment specs",0,0,0,1,1,0
+20251021_100939_181941,"I want to make a really good Mediterranean vegetarian pasta dish this weekend - time is no issue, looking for something authentic","## Mediterranean Vegetarian Pasta with Roasted Vegetables and Feta
+
+A vibrant and authentic Mediterranean pasta dish featuring roasted seasonal vegetables, fragrant herbs, and creamy feta cheese. Perfectly balanced with olive oil and fresh lemon for bright flavor.
+
+### Ingredients
+- 350 grams penne ...",uses grams - difficult to discern exact amounts. use rule of thumb measurements when unclear as well as precise measurements for people who prefer precision,1,0,0,1,1,0
+20251021_100939_465681,Looking for a dairy-free Mexican chicken recipe - I have plenty of time to cook something special tonight,"## Dairy-Free Mexican Chicken
+
+This flavorful and tender Mexican chicken recipe is completely dairy-free and perfect for a special dinner. It features a delicious blend of spices, lime, and fresh herbs to bring authentic Mexican flavors to your table without any dairy ingredients.
+
+### Ingredients
+-...",servings + equipment,0,0,0,1,1,0
+20251021_101036_868571,Could you recommend an Indian vegetarian recipe using vegetables that takes about 30 minutes to prepare?,"## Quick Mixed Vegetable Sabzi (Indian-style Stir-fry)
+
+A vibrant, quick-cooking Indian mixed vegetable sabzi that blends common vegetables with fragrant spices. Perfect for a wholesome vegetarian meal ready in about 30 minutes and pairs well with chapati or rice.
+
+### Ingredients
+- 2 tablespoons oi...",does not comply with time constraints - would take longer for full prep (does not factor ingredient prep into cooking time),0,0,1,1,1,0
