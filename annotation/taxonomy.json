@@ -1,0 +1,51 @@
+{
+  "failure_modes": [
+    {
+      "title": "Inaccessible measurement presentation",
+      "definition": "Recipe uses only precise measurements without providing rule-of-thumb alternatives that would help beginners estimate   quantities.",
+      "examples": [
+        "Mexican egg recipe specifies \"1/4 cup onion, finely chopped (about 40g)\" without alternatives like \"about half a small onion\"\r\n",
+        "Mediterranean pasta uses \"350 grams penne\" without mentioning \"about 3 cups dried pasta\""
+      ]
+    },
+    {
+      "title": "Unclear Technique Guidance",
+      "definition": "Recipe references cooking techniques without explaining how to perform or verify them, leaving beginners uncertain about   execution.",
+      "examples": [
+        "Mediterranean salmon says \"flakes easily with a fork\" without explaining what a flake test is or how to perform it\r\n"
+      ]
+    },
+    {
+      "title": "Inaccurate Time Estimates",
+      "definition": "Recipe's stated preparation time doesn't account for all necessary steps, particularly ingredient preparation, leading to    unrealistic expectations.",
+      "examples": [
+        "Indian vegetable curry claims \"30 minutes to prepare\" but doesn't factor in chopping all vegetables (onion, garlic, ginger, tomatoes, carrot, potato, cauliflower, beans)",
+        "Recipe claims \"15 minute dinner\" but requires marinating meat for 30 minutes"
+      ]
+    },
+    {
+      "title": "Missing Serving Size Information",
+      "definition": "Recipe fails to specify how many servings the ingredient quantities will produce.",
+      "examples": [
+        "Recipe lists \"4 large eggs, 1 small tomato\" without indicating if this serves 1, 2, or 4 people",
+        "Pasta recipe doesn't specify whether \"400g pasta\" serves 2 or 4 people"
+      ]
+    },
+    {
+      "title": "Missing Equipment Specifications",
+      "definition": "Recipe assumes availability of specific equipment without mentioning alternatives or noting the requirement upfront.",
+      "examples": [
+        "Recipe requires \"non-stick skillet\" but doesn't suggest alternatives like cast iron with more oil",
+        "Recipe needs blender but doesn't mention this in ingredient list or suggest immersion blender alternative"
+      ]
+    },
+    {
+      "title": "Dietary Restriction Non-Compliance",
+      "definition": "Recipe fails to fully honor stated dietary restrictions or doesn't verify ingredient compatibility.",
+      "examples": [
+        "Vegetarian recipe suggests \"parmesan cheese\" without noting it often contains animal rennet",
+        "Gluten-free recipe uses \"soy sauce\" without warning to check if it's wheat-free"
+      ]
+    }
+  ]
+}

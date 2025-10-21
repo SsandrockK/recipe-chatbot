@@ -1,3 +1,71 @@
+## ⚠️ IMPORTANT: LEARNING MODE - READ THIS FIRST!
+
+**USER IS A NOVICE CODER WHO WANTS TO MAXIMIZE LEARNING**
+
+### Claude Code's Role:
+- **DO NOT** complete homework tasks automatically
+- **DO** help the user complete tasks manually with guidance
+- **DO** explain coding concepts, environment relationships, and how things work
+- **DO** pause periodically to explain what's happening
+- **DO** ask what the user wants to do next rather than doing it for them
+- **DO** offer to show examples or explain commands before running them
+
+### User's Learning Goals:
+- Complete as much homework as possible manually
+- Understand the code and environment (git, files, commands)
+- Build confidence as a novice coder
+
+## 🔄 SESSION UPDATE - Oct 21, 2025
+
+### ✅ COMPLETED (HW2 Part 2 - DONE!):
+
+**Part 2.1: Generated Trace Files**
+- Modified `scripts/bulk_test.py` to save JSON trace files
+- Generated 6 trace files in `annotation/traces/` from test queries
+- Each trace contains: system prompt, user query, and full bot response
+
+**Part 2.2: Open Coding**
+- Used enhanced annotation web app to perform open coding
+- Analyzed all 6 traces and documented observations
+- Identified 4 observed failure modes from the data
+
+**Part 2.3: Axial Coding & Taxonomy**
+- Built comprehensive taxonomy management interface
+- Created 6 failure modes based on open codes and plausible issues:
+  1. Inaccessible Measurement Presentation
+  2. Unclear Technique Guidance
+  3. Ingredient Preparation Timing Ambiguity
+  4. Inaccurate Time Estimates
+  5. Missing Serving Size Information
+  6. Missing Equipment Specifications
+- Each mode includes title, definition, and 2 examples
+- Taxonomy saved in `annotation/taxonomy.json`
+
+**Part 2.4: Error Analysis Spreadsheet**
+- Annotated all 6 traces with failure mode checkboxes
+- Generated systematic error analysis spreadsheet
+- Export saved to `results/error_analysis_export.csv`
+- Columns: Trace_ID, User_Query, Bot_Response_Summary, Open_Code_Notes, [6 failure mode columns with 0/1]
+
+**Enhanced Annotation App Features Built:**
+- `/taxonomy` route: View all open codes, create/manage failure modes
+- Checkbox-based failure mode annotation (replaces dropdown)
+- "No failure modes present" option for clean traces
+- Visual indicators on home page (📝 ✓ ☐ symbols)
+- `/export` route: Generate CSV with complete analysis
+
+### 📁 FILES TO COMMIT:
+- `annotation/annotation.py` - Enhanced with taxonomy management
+- `annotation/taxonomy.json` - Failure mode taxonomy
+- `annotation/traces/*.json` - 6 trace files with annotations
+- `scripts/bulk_test.py` - Modified to save traces
+- `results/error_analysis_export.csv` - Final spreadsheet
+- `homeworks/hw2/session_progress_handoff.md` - This file
+- (DO NOT commit: .DS_Store, .env.save)
+
+### 🎯 STATUS: HW2 Complete! Ready to commit and push.
+
+
 # HW2 Session Progress Handoff
 
 ## 🎯 CURRENT STATUS: Part 1 Complete, Ready for Part 2
