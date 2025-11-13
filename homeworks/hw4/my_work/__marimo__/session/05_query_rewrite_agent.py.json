@@ -1,0 +1,622 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.7"
+  },
+  "cells": [
+    {
+      "id": "MJUe",
+      "code_hash": "189a78ba0f77482b2b3a8cf758df56f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"query-rewrite-agent-for-improved-retrieval\">Query Rewrite Agent for Improved Retrieval</h1>\n<span class=\"paragraph\"><strong>Goal:</strong> Build an LLM-powered agent to optimize queries before BM25 search, improving Recall@5 and MRR.</span>\n<h2 id=\"why-query-rewriting\">Why Query Rewriting?</h2>\n<span class=\"paragraph\">Your baseline BM25 achieved ~50% Recall@5. This means half the queries failed to find the correct recipe in the top 5!</span>\n<span class=\"paragraph\"><strong>The Problem:</strong>\nNatural language queries often don't match recipe text well:</span>\n<ul>\n<li>User: \"What air fryer settings for frozen chicken tenders?\"</li>\n<li>Recipe text: \"air fry at 400\u00b0F for 12 minutes\"</li>\n<li>BM25 issue: \"settings\" doesn't appear in recipe, query is too wordy</li>\n</ul>\n<span class=\"paragraph\"><strong>The Solution:</strong>\nUse an LLM to rewrite queries into better search terms:</span>\n<ul>\n<li>Rewritten: \"air fryer frozen chicken temperature time\"</li>\n<li>Better match: More keywords, less filler words!</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "e0257cb437a851df716cae106beb2c61",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"prediction-question\">Prediction Question \ud83e\udd14</h2>\n<span class=\"paragraph\">Before we build the agent, predict:</span>\n<span class=\"paragraph\"><strong>How much improvement do you expect from query rewriting?</strong></span>\n<span class=\"paragraph\">Think about:</span>\n<ul>\n<li>Baseline Recall@5 was ~50%</li>\n<li>Query rewriting can help with vocabulary mismatch</li>\n<li>But it might also hurt by removing important context</li>\n</ul>\n<span class=\"paragraph\"><strong>Predict new Recall@5:</strong> 65%</span>\n<span class=\"paragraph\"><strong>Predict improvement:</strong> +15%</span>\n<span class=\"paragraph\">(We'll check your intuition against actual results!)</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "431d4df562655cb638feb122bf1632c6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"three-query-rewrite-strategies\">Three Query Rewrite Strategies</h2>\n<span class=\"paragraph\">We'll test three different approaches:</span>\n<h3 id=\"1-keywords-extraction\">1. <strong>Keywords Extraction</strong></h3>\n<ul>\n<li>Extract only the most important search terms</li>\n<li>Remove filler words (what, how, the)</li>\n<li>Focus on cooking methods, ingredients, equipment</li>\n</ul>\n<h3 id=\"2-query-rewriting\">2. <strong>Query Rewriting</strong></h3>\n<ul>\n<li>Rewrite the query to match recipe language</li>\n<li>Use terms that appear in recipe instructions</li>\n<li>Keep it concise but descriptive</li>\n</ul>\n<h3 id=\"3-query-expansion\">3. <strong>Query Expansion</strong></h3>\n<ul>\n<li>Add synonyms and related cooking terms</li>\n<li>Helps catch recipes using different terminology</li>\n<li>Example: \"bake\" \u2192 \"bake roast cook oven\"</li>\n</ul>\n<span class=\"paragraph\">We'll evaluate all three and pick the best one!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "3c298c4b817ab8ba7dcfae0685506c64",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-1-build-the-query-rewrite-agent\">Step 1: Build the Query Rewrite Agent</h2>\n<span class=\"paragraph\">Let's create a simple agent class with three rewrite strategies.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "981370663333ab1f7a9a1b28c0e99de7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-2-test-on-a-single-query\">Step 2: Test on a Single Query</h2>\n<span class=\"paragraph\">Let's test all three strategies on one query to see how they work!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "a2b3b2cd0df323b335baccea213eb4d8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-3-batch-process-all-queries\">Step 3: Batch Process All Queries</h2>\n<span class=\"paragraph\">We'll process all 200 queries with all 3 strategies.</span>\n<span class=\"paragraph\"><strong>This will take a few minutes and cost ~$1-2 in API calls.</strong></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "dc5f1d7f2c810c8569fe288925f3ee6a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-4-build-bm25-index-and-evaluate\">Step 4: Build BM25 Index and Evaluate</h2>\n<span class=\"paragraph\">Now we'll evaluate each strategy against baseline BM25.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "173e5c2c95efb6cdee6577107d309105",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-5-analyze-where-rewriting-helped\">Step 5: Analyze Where Rewriting Helped</h2>\n<span class=\"paragraph\">Let's look at examples where query rewriting rescued failed queries!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dNNg",
+      "code_hash": "a320558fb6cb81ae9b93528c495bef64",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-6-save-results\">Step 6: Save Results</h2>\n<span class=\"paragraph\">Let's save the enhanced results for the final analysis.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kqZH",
+      "code_hash": "ce4d82694362a376135eeb2453914e86",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"reflection-what-did-we-learn\">\ud83e\udd14 Reflection: What Did We Learn?</h2>\n<span class=\"paragraph\">Now that you've built and evaluated the query rewrite agent, reflect on:</span>\n<h3 id=\"1-did-query-rewriting-help\">1. <strong>Did query rewriting help?</strong></h3>\n<ul>\n<li>How much did Recall@5 improve?</li>\n<li>Was it worth the extra LLM cost and latency?</li>\n</ul>\n<h3 id=\"2-which-strategy-worked-best\">2. <strong>Which strategy worked best?</strong></h3>\n<ul>\n<li>Keywords, Rewrite, or Expand?</li>\n<li>Why might that strategy be better for recipe search?</li>\n</ul>\n<h3 id=\"3-where-did-rewriting-help-most\">3. <strong>Where did rewriting help most?</strong></h3>\n<ul>\n<li>Look at rescued queries - what patterns do you see?</li>\n<li>What types of queries benefited from rewriting?</li>\n</ul>\n<h3 id=\"4-where-did-rewriting-fail\">4. <strong>Where did rewriting fail?</strong></h3>\n<ul>\n<li>Are there queries that still fail even after rewriting?</li>\n<li>What else could we try?</li>\n</ul>\n<h3 id=\"5-production-considerations\">5. <strong>Production Considerations</strong></h3>\n<ul>\n<li>Would you use this agent in production?</li>\n<li>How would you optimize cost/latency?</li>\n<li>Could you cache common rewrites?</li>\n</ul>\n<span class=\"paragraph\"><strong>Think about these for your final analysis!</strong></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "6ba9500c58f379ddfed546580680cb40",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre style='font-size: 12px'>True</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "3edecaeb5d0d86c297d32fbe0bbcb68a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\ud83d\udcca Baseline BM25 Performance:\n  Recall@5: 51.00%\n  MRR: 0.365\n  Found in top 5: 102/200\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "PKri",
+      "code_hash": "983630cce8f987c8620975c23e80125a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 200 recipes and 200 queries\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "85c64b03cfee3101c3eb536afbd26eda",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 QueryRewriteAgent class created\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "2153b6379a87612ede15310ac6013b25",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Choose a query to test:</strong></span>\n<span class=\"paragraph\"><marimo-ui-element object-id='RGSE-0' random-id='e4ed10e2-fccf-3fe1-b839-88172dd9a078'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Test Query Index&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='199' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "dab13abeb95d37f4dde4de356892ce69",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Original Query: How long do I roast whole garlic heads?\nGround Truth: 5 cheese crab lasagna with roasted garlic and vegetables\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "90327a2f1866e88eb6c27f4f69f89c6d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Testing rewrite strategies...\n\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "1. Keywords: roast whole garlic heads time\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "2. Rewritten: roast whole garlic heads oven roasting time temperature recipe\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "3. Expanded: Expanded query with synonyms:\n\n\"How long do I roast whole garlic heads? How long to bake, slow roast, or oven-cook entire garlic bulbs? What is the roasting time for full garlic cloves or whole garlic bulbs? How long to cook, caramelize, or brown whole garlic heads in the oven, convection oven, toaster oven, or air fryer? Duration for roasting, baking, or slow-cooking whole garlic bulbs or entire garlic heads wrapped in foil or unwrapped?\"\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "abaa16f60832b5a2cb15e9f8b74bfbf6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"strategy-comparison\">\ud83d\udcdd Strategy Comparison</h2>\n<span class=\"paragraph\"><strong>Original:</strong></span>\n<blockquote>\n<span class=\"paragraph\">How long do I roast whole garlic heads?</span>\n</blockquote>\n<span class=\"paragraph\"><strong>Keywords:</strong></span>\n<blockquote>\n<span class=\"paragraph\">roast whole garlic heads time</span>\n</blockquote>\n<span class=\"paragraph\"><strong>Rewritten:</strong></span>\n<blockquote>\n<span class=\"paragraph\">roast whole garlic heads oven roasting time temperature recipe</span>\n</blockquote>\n<span class=\"paragraph\"><strong>Expanded:</strong></span>\n<blockquote>\n<span class=\"paragraph\">Expanded query with synonyms:</span>\n</blockquote>\n<span class=\"paragraph\">\"How long do I roast whole garlic heads? How long to bake, slow roast, or oven-cook entire garlic bulbs? What is the roasting time for full garlic cloves or whole garlic bulbs? How long to cook, caramelize, or brown whole garlic heads in the oven, convection oven, toaster oven, or air fryer? Duration for roasting, baking, or slow-cooking whole garlic bulbs or entire garlic heads wrapped in foil or unwrapped?\"</span>\n<hr />\n<span class=\"paragraph\"><strong>Which one looks best?</strong></span>\n<ul>\n<li>Keywords: Most concise, might miss context</li>\n<li>Rewritten: Balances clarity and brevity</li>\n<li>Expanded: Most comprehensive, might be too broad</li>\n</ul>\n<span class=\"paragraph\">Let's evaluate all three on all 200 queries!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "b7957462a10c5633fc5d521ce39d2fab",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='iLit-0' random-id='687f4288-b2fc-13ca-736c-8bdaf33d5007'><marimo-button data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;\ud83d\ude80 Process All Queries with Agent&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;neutral&quot;' data-disabled='false' data-full-width='false'></marimo-button></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "0ae35271d1e36bec2b8eb5066cad6200",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 600 processed queries from file\n   Strategies: ['keywords', 'rewrite', 'expand']\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "fad09cd1821a124c47bee48c27e2e090",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Created corpus with 200 documents\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "dd9efa7f9ee7603ba505fe987bf0ba7f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 BM25 index built successfully!\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "ca63ef09922819937d17f4033fbf45d6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Evaluating 3 strategies...\n\n--- Evaluating KEYWORDS strategy ---\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "  Recall@5: 71.00%\n  MRR: 0.522\n\n--- Evaluating REWRITE strategy ---\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "  Recall@5: 63.00%\n  MRR: 0.466\n\n--- Evaluating EXPAND strategy ---\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "  Recall@5: 53.50%\n  MRR: 0.378\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "86720adae00bc3bf6125206f0d1acb0f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "5bf1e63a82f625b94ded45d98cca0d66",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ulZA-0' random-id='c05cd562-d082-4961-2b33-17070d65fb72'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Strategy&#92;&quot;:&#92;&quot;Baseline (No Rewrite)&#92;&quot;,&#92;&quot;Recall@5&#92;&quot;:&#92;&quot;51.00%&#92;&quot;,&#92;&quot;MRR&#92;&quot;:&#92;&quot;0.365&#92;&quot;,&#92;&quot;Found&#92;&quot;:&#92;&quot;102/200&#92;&quot;},{&#92;&quot;Strategy&#92;&quot;:&#92;&quot;Keywords&#92;&quot;,&#92;&quot;Recall@5&#92;&quot;:&#92;&quot;71.00%&#92;&quot;,&#92;&quot;MRR&#92;&quot;:&#92;&quot;0.522&#92;&quot;,&#92;&quot;Found&#92;&quot;:&#92;&quot;142/200&#92;&quot;},{&#92;&quot;Strategy&#92;&quot;:&#92;&quot;Rewrite&#92;&quot;,&#92;&quot;Recall@5&#92;&quot;:&#92;&quot;63.00%&#92;&quot;,&#92;&quot;MRR&#92;&quot;:&#92;&quot;0.466&#92;&quot;,&#92;&quot;Found&#92;&quot;:&#92;&quot;126/200&#92;&quot;},{&#92;&quot;Strategy&#92;&quot;:&#92;&quot;Expand&#92;&quot;,&#92;&quot;Recall@5&#92;&quot;:&#92;&quot;53.50%&#92;&quot;,&#92;&quot;MRR&#92;&quot;:&#92;&quot;0.378&#92;&quot;,&#92;&quot;Found&#92;&quot;:&#92;&quot;107/200&#92;&quot;}]&quot;' data-total-rows='4' data-total-columns='4' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Strategy&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;Recall@5&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;MRR&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;Found&quot;,[&quot;string&quot;,&quot;object&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "00faf7a3cd43f2cf4848223a09999cdd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\ud83c\udfc6 Best Strategy: KEYWORDS\n  Recall@5: 71.00% (baseline: 51.00%)\n  Absolute improvement: +20.0%\n  Relative improvement: +3921.6%\n  MRR: 0.522 (baseline: 0.365)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "7faea480f4652d659fa32611b90e3fd7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "f71f5dbe32e9dd3b6cc31981d50567f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Query rewriting rescued 46 failed queries!\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "454accdb65574ed671f19d47c5eabb81",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "8d8b9b47e2e124285a8574214fca497b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pHFh",
+      "code_hash": "aa9ef6b38f70ce74531ae93b6e2e334a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
+      "code_hash": "9b3ac9af577003f0fad725671b7652f5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aqbW",
+      "code_hash": "bc65741030f5bc23d8d6b8cae52eeb27",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": "9a307d761aeef3de88b8151bba3fc468",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TXez",
+      "code_hash": "1fa1ed368f960667321a2a558d8d0a18",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wlCL",
+      "code_hash": "bc7605e03a6554cd83094822194c1f75",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Enhanced results saved to: /Users/ssandrockk/recipe-chatbot-work/recipe-chatbot/homeworks/hw4/my_work/enhanced_evaluation_results.json\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    }
+  ]
+}

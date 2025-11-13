@@ -1,0 +1,270 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.7"
+  },
+  "cells": [
+    {
+      "id": "MJUe",
+      "code_hash": "d3732219c8227ecd7c0827230480320b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"generate-synthetic-queries-for-rag-evaluation\">Generate Synthetic Queries for RAG Evaluation</h1>\n<span class=\"paragraph\"><strong>Goal:</strong> Create evaluation queries with ground truth for testing BM25 retrieval.</span>\n<h2 id=\"the-two-step-process\">The Two-Step Process:</h2>\n<ol>\n<li><strong>Extract Salient Facts</strong> - Pull out specific cooking details (temps, times, techniques)</li>\n<li><strong>Generate Queries</strong> - Create natural questions that these facts can answer</li>\n</ol>\n<span class=\"paragraph\">This gives us:</span>\n<ul>\n<li>A synthetic query (the question)</li>\n<li>Ground truth (which recipe should be retrieved)</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "07b9a553e2d8c2b1d96ed804717ac381",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-1-extract-salient-facts\">Step 1: Extract Salient Facts</h2>\n<span class=\"paragraph\">First, we'll create a prompt to extract specific, searchable facts from recipes.</span>\n<span class=\"paragraph\">We want facts like:</span>\n<ul>\n<li>\"Bake at 350\u00b0F for 25 minutes\"</li>\n<li>\"Marinate chicken for 4 hours\"</li>\n<li>\"Whisk eggs until soft peaks form\"</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "af949973dfeb75511a5a023780e0c65f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-2-generate-query-from-fact\">Step 2: Generate Query from Fact</h2>\n<span class=\"paragraph\">Next, we'll create a prompt to turn facts into natural user queries.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "617d11478c3499936214fcc9eee03da5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"test-on-a-single-recipe\">Test on a Single Recipe</h2>\n<span class=\"paragraph\">Let's test our prompts on one recipe before processing all 200.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "144957d49b5a74a940f75cb9c6ca4de4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"reflection-before-proceeding\">\ud83e\udd14 Reflection Before Proceeding</h2>\n<span class=\"paragraph\">Before we generate queries for all 200 recipes, think about:</span>\n<ol>\n<li><strong>Is the extracted fact specific enough?</strong> Would someone actually search for this?</li>\n<li><strong>Is the query natural?</strong> Does it sound like something a real person would ask?</li>\n<li><strong>Can this recipe answer the query?</strong> Is there a clear connection?</li>\n</ol>\n<span class=\"paragraph\">If the test looks good, scroll down to process all recipes!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "b4f1bb623fe29f8bd5abfc3099696048",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"generate-queries-for-all-200-recipes\">Generate Queries for All 200 Recipes</h2>\n<span class=\"paragraph\">Now we'll process all recipes. This will:</span>\n<ol>\n<li>Extract a salient fact from each recipe</li>\n<li>Generate a natural query from that fact</li>\n<li>Save the results with ground truth</li>\n</ol>\n<span class=\"paragraph\"><strong>This will take a few minutes and cost ~<marimo-tex class=\"arithmatex\">||(0.50-||)</marimo-tex>1.00 in API calls.</strong></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "b90e733b2e73153bb81553fe3e2901bb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre style='font-size: 12px'>True</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "d81974d7ee46b4ce768056159bf3d378",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 200 recipes\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "0ee3863f33deea61f820316f6613b607",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "3ad3db809a28afabd10bc962c0bd899d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "54aed3181c9a15af34fec0b85bb3b0e2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Choose a recipe to test:</strong></span>\n<span class=\"paragraph\"><marimo-ui-element object-id='BYtC-0' random-id='fd79741e-cf40-a871-14bc-a9ced9e24aeb'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Test Recipe Index&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='199' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "c687a1e0890b129e99bec2412195a6db",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Testing with: 5 cheese crab lasagna with roasted garlic and vegetables\nSteps: 108 steps\nIngredients: 24 ingredients\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "4fd674b573eac5c4b1fdba6ada2807b8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\ud83d\udccc Extracted Salient Fact:\nRoast whole garlic heads wrapped in foil at 375\u00b0F for 40-45 minutes until tender when pierced.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "095430839c6f6655cfdb1527be6e4b4c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2753 Generated Query:\nHow long do I roast whole garlic heads?\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "31cb8c6e9f3adc5ca70f5d0f98dab3be",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"test-results\">\u2705 Test Results</h2>\n<span class=\"paragraph\"><strong>Recipe:</strong> 5 cheese crab lasagna with roasted garlic and vegetables</span>\n<span class=\"paragraph\"><strong>Salient Fact Extracted:</strong></span>\n<blockquote>\n<span class=\"paragraph\">Roast whole garlic heads wrapped in foil at 375\u00b0F for 40-45 minutes until tender when pierced.</span>\n</blockquote>\n<span class=\"paragraph\"><strong>Generated Query:</strong></span>\n<blockquote>\n<span class=\"paragraph\">How long do I roast whole garlic heads?</span>\n</blockquote>\n<hr />\n<span class=\"paragraph\"><strong>Does this look good?</strong></span>\n<ul>\n<li>Is the fact specific and searchable?</li>\n<li>Does the query sound natural?</li>\n<li>Would this recipe answer the query?</li>\n</ul>\n<span class=\"paragraph\">If yes, we're ready to process all recipes!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "2e5d754d747a300caed771596f6a95ed",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ZHCJ-0' random-id='9645839f-a222-c080-844e-6ffb0701b85e'><marimo-button data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;\ud83d\ude80 Generate All Queries&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;neutral&quot;' data-disabled='false' data-full-width='false'></marimo-button></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "3faeb345d04f6b88d3097bb06e8666b7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "4a72c7bac93f3c41cc1eba008f154164",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

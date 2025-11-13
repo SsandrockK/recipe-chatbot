@@ -1,0 +1,232 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.7"
+  },
+  "cells": [
+    {
+      "id": "MJUe",
+      "code_hash": "e4ed659648f0e37ee4633e9ad29a4fa0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"build-bm25-retrieval-engine\">Build BM25 Retrieval Engine</h1>\n<span class=\"paragraph\"><strong>Goal:</strong> Create a BM25-based search engine to retrieve recipes based on queries.</span>\n<h2 id=\"what-is-bm25\">What is BM25?</h2>\n<span class=\"paragraph\">BM25 (Best Matching 25) is a <strong>keyword-based ranking algorithm</strong> used in information retrieval. It:</span>\n<ul>\n<li>Tokenizes documents and queries into words</li>\n<li>Scores documents based on term frequency (TF) and inverse document frequency (IDF)</li>\n<li>Works well for finding documents that match specific keywords</li>\n</ul>\n<h2 id=\"why-bm25-for-recipe-retrieval\">Why BM25 for Recipe Retrieval?</h2>\n<span class=\"paragraph\">Recipes contain specific technical terms (temperatures, times, techniques) that users search for:</span>\n<ul>\n<li>\"How long to roast garlic?\" \u2192 needs recipes mentioning \"roast\" and \"garlic\"</li>\n<li>\"What temp for crispy potatoes?\" \u2192 needs recipes with \"temp\", \"crispy\", \"potatoes\"</li>\n</ul>\n<span class=\"paragraph\">BM25 is perfect for matching these specific keywords!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "2ac7ca3bdf5f3f4cac1046ae5b0256c0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-1-prepare-the-corpus\">Step 1: Prepare the Corpus</h2>\n<span class=\"paragraph\">For BM25 to work, we need to:</span>\n<ol>\n<li>Extract searchable text from each recipe</li>\n<li>Tokenize the text (split into words)</li>\n<li>Create a corpus (list of tokenized documents)</li>\n</ol>\n<span class=\"paragraph\"><strong>What text should we search?</strong></span>\n<span class=\"paragraph\">The <code>full_text</code> field in each recipe combines:</span>\n<ul>\n<li>Recipe name</li>\n<li>Description</li>\n<li>Ingredients</li>\n<li>Steps</li>\n</ul>\n<span class=\"paragraph\">This gives BM25 all the relevant information to match queries!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "af94bacfdf48e01f4457ca41f0cef2d0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-2-build-the-bm25-index\">Step 2: Build the BM25 Index</h2>\n<span class=\"paragraph\">Now we'll create the BM25 index. This:</span>\n<ol>\n<li>Analyzes all documents in the corpus</li>\n<li>Calculates term frequencies (how often each word appears)</li>\n<li>Calculates inverse document frequencies (how unique each word is)</li>\n<li>Prepares to score new queries against the corpus</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "2ff633c38c0e544b17f25b7d4e29c01e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-3-test-retrieval-with-sample-queries\">Step 3: Test Retrieval with Sample Queries</h2>\n<span class=\"paragraph\">Let's test BM25 with a few queries to see how well it retrieves recipes!</span>\n<span class=\"paragraph\"><strong>How BM25 Search Works:</strong></span>\n<ol>\n<li>Tokenize the query (split into words)</li>\n<li>Score each document based on keyword matches</li>\n<li>Return top-N highest scoring documents</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "2fbf84a8d53f7ee7f90c22acf8651e17",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"reflection-how-does-bm25-work\">\ud83e\udd14 Reflection: How Does BM25 Work?</h2>\n<span class=\"paragraph\"><strong>Prediction Question:</strong> Why might BM25 fail to retrieve the correct recipe?</span>\n<span class=\"paragraph\">Think about:</span>\n<ol>\n<li>\n<span class=\"paragraph\"><strong>Vocabulary mismatch</strong>: Query uses different words than recipe</span>\n<ul>\n<li>Query: \"How long to bake?\" vs Recipe: \"roast for 30 minutes\"</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>Lack of context</strong>: BM25 only matches keywords, doesn't understand meaning</span>\n<ul>\n<li>Query: \"crispy potatoes temp\" might match any recipe with those words</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>Common words dominate</strong>: Recipes with common query words rank higher</span>\n<ul>\n<li>Query: \"chicken\" matches many recipes, not just the target one</li>\n</ul>\n</li>\n</ol>\n<span class=\"paragraph\"><strong>When does BM25 work well?</strong></span>\n<ul>\n<li>Queries with specific, unique terms (e.g., \"375\u00b0F\", \"Dutch oven\", \"soft peaks\")</li>\n<li>Technical cooking terms that appear rarely (e.g., \"julienne\", \"blanch\", \"temper\")</li>\n</ul>\n<span class=\"paragraph\"><strong>When does it struggle?</strong></span>\n<ul>\n<li>Generic queries (e.g., \"how long to cook chicken?\")</li>\n<li>Queries with synonyms (e.g., \"bake\" vs \"roast\" vs \"cook\")</li>\n<li>Queries needing multi-step reasoning</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "8d244012eef516e7d53da02ee3c20eb1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "0423bf35fcb021ce9d9382ca5f4ec88f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 200 recipes\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "9a3b73460dbf3ee94ac025db941498f8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 200 synthetic queries\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "PKri",
+      "code_hash": "39d3d48e3bda851d04ae82a30122f4aa",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Created corpus with 200 documents\n\ud83d\udcca Average tokens per recipe: 518.4\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "03df702d7a4e6e656e6a83e63263b291",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 BM25 index built successfully!\n\ud83d\udcda Indexed 200 documents\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "2793e69e1d938b89afbd82f84938cd52",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Choose a query to test:</strong></span>\n<span class=\"paragraph\"><marimo-ui-element object-id='RGSE-0' random-id='dccce43f-221a-f26f-ba5e-bbe9726e8680'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Test Query Index&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='199' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "3876a92ce7213d8024ec31cc930285c3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Query: How long does it take to slowly brown onions?\nSalient Fact: Caramelize chopped onions on low heat for about 30 to 45 minutes, occasionally stirring.\nGround Truth Recipe: americanized slovak haluski\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "3c5eef06a37cd8bdf095de3fba694bef",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\ud83d\udd0d Query: 'How long does it take to slowly brown onions?'\n\nTop 5 Retrieved Recipes:\n\n1. alan s vegetarian vegan bean and rice burger mashup\n   Score: 11.40 \n\n2. 3 step fall off the bone ribs easy\n   Score: 10.19 \n\n3. almost healthy and surprisingly good chocolate chip cookies\n   Score: 9.90 \n\n4. amish friendship bread\n   Score: 9.45 \n\n5. aliya s grilled cheese eggs benedict\n   Score: 9.18 \n\n\u274c Ground truth recipe NOT in top 5\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "6925e62a8c36b5da99703fb076e1de45",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"retrieval-results\">\ud83c\udfaf Retrieval Results</h2>\n<span class=\"paragraph\"><strong>Query:</strong> \"How long does it take to slowly brown onions?\"</span>\n<span class=\"paragraph\"><strong>Ground Truth Recipe:</strong> americanized slovak haluski</span>\n<span class=\"paragraph\"><strong>Result:</strong> \u274c Not found in top 5</span>\n<hr />\n<span class=\"paragraph\"><strong>Why does this matter?</strong></span>\n<span class=\"paragraph\">For RAG to work well, the retrieval step must find the correct recipe. If BM25 can't retrieve the right recipe in the top results, the LLM won't have the information it needs to answer the query!</span>\n<span class=\"paragraph\"><strong>Next:</strong> We'll evaluate BM25 across ALL 200 queries to calculate metrics like Recall@5 and MRR.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

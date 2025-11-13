@@ -1,0 +1,132 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.7"
+  },
+  "cells": [
+    {
+      "id": "MJUe",
+      "code_hash": "1bb35296b990673441a8ea7f099f4a95",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"homework-4-explore-recipe-data\">Homework 4: Explore Recipe Data</h1>\n<span class=\"paragraph\"><strong>Goal:</strong> Understand the recipe dataset before building our RAG system.</span>\n<span class=\"paragraph\">This notebook will help you:</span>\n<ul>\n<li>Load and inspect the processed recipes</li>\n<li>Understand the structure of each recipe</li>\n<li>See what data is available for retrieval</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "71a0b1479eafe89d8bfbe1536521a1b6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"reflection-questions\">\ud83e\udd14 Reflection Questions</h2>\n<span class=\"paragraph\">As you browse the recipes, think about:</span>\n<ol>\n<li>\n<span class=\"paragraph\"><strong>What kinds of specific facts could you extract from the steps?</strong></span>\n<ul>\n<li>Temperatures? Times? Techniques?</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>What questions might someone ask that this recipe could answer?</strong></span>\n<ul>\n<li>Example: \"What temperature should I bake at?\"</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>Is the <code>full_text</code> field useful for BM25 search?</strong></span>\n<ul>\n<li>What information does it contain?</li>\n</ul>\n</li>\n</ol>\n<span class=\"paragraph\">These questions will guide us when we generate synthetic queries!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "8cd9a29a0626a495fb62a9cd90fb56de",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "9f16dca924baa943294124e6e47e948e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 200 recipes\n\ud83d\udcc1 Data loaded from: /Users/ssandrockk/recipe-chatbot-work/recipe-chatbot/homeworks/hw4/data/processed_recipes.json\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "1bb74dd5d8fac5f0bf9d6e13ead53055",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"dataset-overview\">Dataset Overview</h2>\n<span class=\"paragraph\">Total recipes: <strong>200</strong></span>\n<span class=\"paragraph\">Each recipe contains these fields:</span>\n<ul>\n<li><code>id</code>: Unique identifier</li>\n<li><code>name</code>: Recipe name</li>\n<li><code>description</code>: What the recipe is about</li>\n<li><code>minutes</code>: Total cooking time</li>\n<li><code>ingredients</code>: List of ingredients</li>\n<li><code>n_ingredients</code>: Number of ingredients</li>\n<li><code>steps</code>: List of cooking steps</li>\n<li><code>n_steps</code>: Number of steps</li>\n<li><code>tags</code>: Category tags (e.g., \"easy\", \"dessert\")</li>\n<li><code>nutrition</code>: Nutritional information</li>\n<li><code>full_text</code>: Combined text for BM25 search</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "fe2c7bda6c735b8055c51807e665fb15",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='lEQa-0' random-id='9085d369-4bab-8806-516c-989d5f872d4b'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;id&#92;&quot;:65007,&#92;&quot;name&#92;&quot;:&#92;&quot;5 cheese crab lasagna with roasted garlic and vegetables&#92;&quot;,&#92;&quot;minutes&#92;&quot;:245,&#92;&quot;n_ingredients&#92;&quot;:24,&#92;&quot;n_steps&#92;&quot;:108},{&#92;&quot;id&#92;&quot;:81,&#92;&quot;name&#92;&quot;:&#92;&quot;all purpose quick mix with 28 variations&#92;&quot;,&#92;&quot;minutes&#92;&quot;:40,&#92;&quot;n_ingredients&#92;&quot;:5,&#92;&quot;n_steps&#92;&quot;:36},{&#92;&quot;id&#92;&quot;:472184,&#92;&quot;name&#92;&quot;:&#92;&quot;7 day diet fat burning cabbage soup&#92;&quot;,&#92;&quot;minutes&#92;&quot;:60,&#92;&quot;n_ingredients&#92;&quot;:14,&#92;&quot;n_steps&#92;&quot;:70},{&#92;&quot;id&#92;&quot;:287008,&#92;&quot;name&#92;&quot;:&#92;&quot;alligator claws avocado fritters with chipotle lime dip&#92;&quot;,&#92;&quot;minutes&#92;&quot;:45,&#92;&quot;n_ingredients&#92;&quot;:9,&#92;&quot;n_steps&#92;&quot;:21},{&#92;&quot;id&#92;&quot;:325571,&#92;&quot;name&#92;&quot;:&#92;&quot;5 minute artisan bread&#92;&quot;,&#92;&quot;minutes&#92;&quot;:30,&#92;&quot;n_ingredients&#92;&quot;:4,&#92;&quot;n_steps&#92;&quot;:45},{&#92;&quot;id&#92;&quot;:307279,&#92;&quot;name&#92;&quot;:&#92;&quot;a ptissier s black forest cake&#92;&quot;,&#92;&quot;minutes&#92;&quot;:2915,&#92;&quot;n_ingredients&#92;&quot;:27,&#92;&quot;n_steps&#92;&quot;:51},{&#92;&quot;id&#92;&quot;:45120,&#92;&quot;name&#92;&quot;:&#92;&quot;absolutely addicitve kale moti biryani lunch that s complete&#92;&quot;,&#92;&quot;minutes&#92;&quot;:1620,&#92;&quot;n_ingredients&#92;&quot;:19,&#92;&quot;n_steps&#92;&quot;:31},{&#92;&quot;id&#92;&quot;:123710,&#92;&quot;name&#92;&quot;:&#92;&quot;amazing thin crust pizza&#92;&quot;,&#92;&quot;minutes&#92;&quot;:130,&#92;&quot;n_ingredients&#92;&quot;:17,&#92;&quot;n_steps&#92;&quot;:31},{&#92;&quot;id&#92;&quot;:411947,&#92;&quot;name&#92;&quot;:&#92;&quot;amish corn on the cob&#92;&quot;,&#92;&quot;minutes&#92;&quot;:12,&#92;&quot;n_ingredients&#92;&quot;:5,&#92;&quot;n_steps&#92;&quot;:34},{&#92;&quot;id&#92;&quot;:271012,&#92;&quot;name&#92;&quot;:&#92;&quot;a symphony of french chocolate truffles&#92;&quot;,&#92;&quot;minutes&#92;&quot;:1485,&#92;&quot;n_ingredients&#92;&quot;:11,&#92;&quot;n_steps&#92;&quot;:29}]&quot;' data-total-rows='200' data-total-columns='5' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;id&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;name&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;minutes&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;n_ingredients&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;n_steps&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "cb613f749e774ba3dfac6937684074bf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"quick-statistics\">Quick Statistics</h2>\n<span class=\"paragraph\"><strong>Cooking Time:</strong></span>\n<ul>\n<li>Average: 265.7 minutes</li>\n<li>Minimum: 2 minutes</li>\n<li>Maximum: 14460 minutes</li>\n</ul>\n<span class=\"paragraph\"><strong>Ingredients:</strong></span>\n<ul>\n<li>Average: 12.8 ingredients</li>\n<li>Minimum: 4 ingredients</li>\n<li>Maximum: 28 ingredients</li>\n</ul>\n<span class=\"paragraph\"><strong>Steps:</strong></span>\n<ul>\n<li>Average: 27.6 steps</li>\n<li>Minimum: 8 steps</li>\n<li>Maximum: 108 steps</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "d49223ce65b844b7dabee01a4dae1f41",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='Xref-0' random-id='d7cd5bf3-d276-6a51-5a78-d8a411a5949f'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Recipe Index&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='199' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "a0626547657e6eaa2a86adc92aa4420c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"recipe-116-a1-ultimate-jambalaya\">Recipe #116: a1 ultimate jambalaya</h3>\n<span class=\"paragraph\"><strong>Description:</strong> i could live on this! everybody loves this one, and agrees that its better than any jambalaya they've ever ordered in a restaurant. give it a try, you won't be disappointed i promise. the secret is the roasted red peppers and the butter. don't be put off that the dish is finished in the microwave, it just ensures that there are no burnt pans to deal with later! the only other veg that work in this i find are sweetcorn or butternut squash/pumpkin cut into chunks and added just before it all goes in the microwave. even my friends from louisiana find it hard to accept that its perhaps even better (if not a little different) than they make. enjoy!</span>\n<hr />\n<span class=\"paragraph\"><strong>\u23f1\ufe0f Cooking Time:</strong> 60 minutes\n<strong>\ud83d\udcdd Number of Steps:</strong> 17\n<strong>\ud83e\udd55 Number of Ingredients:</strong> 20</span>\n<hr />\n<span class=\"paragraph\"><strong>Ingredients:</strong></span>\n<ul>\n<li>chicken thighs</li>\n<li>chorizo sausage</li>\n<li>onions</li>\n<li>red bell pepper</li>\n<li>garlic cloves</li>\n<li>paprika</li>\n<li>cayenne pepper</li>\n<li>black pepper</li>\n<li>salt</li>\n<li>bay leaves</li>\n<li>fresh thyme</li>\n<li>rice</li>\n<li>shrimp</li>\n<li>chicken stock cube</li>\n<li>sugar</li>\n<li>butter</li>\n<li>tomatoes</li>\n<li>jars</li>\n<li>water</li>\n<li>tabasco sauce</li>\n</ul>\n<hr />\n<span class=\"paragraph\"><strong>Steps:</strong></span>\n<ol>\n<li>heat a little oil in a frying pan and brown the chicken skin side down on a high heat</li>\n<li>transfer to a large pan leaving the oil in the frying pan</li>\n<li>do the same with the chorizo sausage and keep the oil in the frying pan</li>\n<li>you only want to brown and not cook the meat as it will cook further later on</li>\n<li>next fry the onions and peppers on a medium heat for 5 minutes or so until softened and just starting to colour</li>\n<li>now add the garlic , paprika , cayenne pepper , black pepper , salt , bay leaves and thyme to the pan and fry for 2 mins stirring all the time and making sure nothing burns</li>\n<li>turn the heat down if necessary</li>\n<li>add everything to the large pan with the chicken</li>\n<li>add the rice , shrimp , sugar , stock cube and butter to the large pan</li>\n<li>in a blender put the roasted red peppers , tomatoes and water together and blend until smooth</li>\n<li>measure out 3 cups of this liquid and add to the large pan</li>\n<li>bring everything to the boil</li>\n<li>now transfer to a large glass microwavable bowl</li>\n<li>seal tightly with cling wrap and microwave on high for 15 - 20 minutes depending on your microwave</li>\n<li>if it looks like the rice is still wet , microwave again for 5 more minutes or until the rice has absorbed all of the liquid</li>\n<li>leave to stand for at least another 20 minutes but will keep warm for longer than an hour</li>\n<li>best served warm not too hot , with plenty of tabasco or other hot pepper sauce</li>\n</ol>\n<hr />\n<span class=\"paragraph\"><strong>Tags:</strong> weeknight, 60-minutes-or-less, time-to-make, course, main-ingredient, cuisine, preparation, occasion, north-american, main-dish...</span></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

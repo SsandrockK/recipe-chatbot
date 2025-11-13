@@ -1,0 +1,369 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.7"
+  },
+  "cells": [
+    {
+      "id": "MJUe",
+      "code_hash": "a8c30fc12e02bc85d3313339b696219c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"evaluate-bm25-retrieval-performance\">Evaluate BM25 Retrieval Performance</h1>\n<span class=\"paragraph\"><strong>Goal:</strong> Measure how well BM25 retrieves the correct recipes for our 200 synthetic queries.</span>\n<h2 id=\"why-evaluate\">Why Evaluate?</h2>\n<span class=\"paragraph\">We've seen that BM25 works for <em>some</em> queries but not others. Now we need to:</span>\n<ol>\n<li><strong>Quantify</strong> performance with standard metrics</li>\n<li><strong>Identify</strong> what types of queries work well vs. poorly</li>\n<li><strong>Understand</strong> where BM25 struggles</li>\n</ol>\n<span class=\"paragraph\">This will help us decide:</span>\n<ul>\n<li>Is BM25 good enough for our RAG system?</li>\n<li>How should we build an agent around this retriever?</li>\n<li>What improvements might help?</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "0f3cb26b7868ec150940a11365d9bf2e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"prediction-question\">Prediction Question \ud83e\udd14</h2>\n<span class=\"paragraph\">Before we run the evaluation, predict:</span>\n<span class=\"paragraph\"><strong>What percentage of queries will have the correct recipe in the top 5 results?</strong></span>\n<span class=\"paragraph\">Think about:</span>\n<ul>\n<li>You've seen BM25 works well when queries use specific, unique terms</li>\n<li>You've seen it struggles with generic words or synonyms</li>\n<li>Our queries were synthetically generated to be natural and varied</li>\n</ul>\n<span class=\"paragraph\">Make a prediction: 50%</span>\n<span class=\"paragraph\">(We'll check your intuition against the actual results!)</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "956716eddeeb657527bd19193ce0f236",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-1-build-bm25-index\">Step 1: Build BM25 Index</h2>\n<span class=\"paragraph\">Same as before - tokenize the corpus and build the BM25 index.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "f2160fa1c973ab6bca00bbc261b53632",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-2-run-evaluation-on-all-queries\">Step 2: Run Evaluation on All Queries</h2>\n<span class=\"paragraph\">For each of the 200 queries, we'll:</span>\n<ol>\n<li>Retrieve top-5 recipes using BM25</li>\n<li>Check if the ground truth recipe is in the results</li>\n<li>Record the rank (position) of the ground truth</li>\n</ol>\n<span class=\"paragraph\">This will let us calculate standard IR metrics!</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "3c8d8b5afd9dac30d5d1176d494d87a8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"understanding-ir-metrics\">Understanding IR Metrics</h2>\n<span class=\"paragraph\"><strong>Recall@K</strong>: Percentage of queries where the correct recipe appears in top K results</span>\n<ul>\n<li><strong>Recall@1</strong>: Did we get it right as the #1 result?</li>\n<li><strong>Recall@3</strong>: Is it in the top 3?</li>\n<li><strong>Recall@5</strong>: Is it in the top 5?</li>\n</ul>\n<span class=\"paragraph\"><strong>MRR (Mean Reciprocal Rank)</strong>: Average of 1/rank across all queries</span>\n<ul>\n<li>If correct recipe is rank 1: contributes 1.0</li>\n<li>If correct recipe is rank 2: contributes 0.5</li>\n<li>If correct recipe is rank 3: contributes 0.33</li>\n<li>If not in top K: contributes 0.0</li>\n</ul>\n<span class=\"paragraph\">Higher is better for all metrics! Perfect score = 1.0 (100%)</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "d326b20ab87f046ecf2905c887813755",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-3-calculate-metrics\">Step 3: Calculate Metrics</h2>\n<span class=\"paragraph\">Now let's compute the standard IR metrics from our results.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "d462bbdd6c615c148bf5613f416c07e4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-4-analyze-failures\">Step 4: Analyze Failures</h2>\n<span class=\"paragraph\">Let's look at the queries where BM25 failed to find the correct recipe in the top 5.</span>\n<span class=\"paragraph\">Understanding <em>why</em> it failed will help us:</span>\n<ul>\n<li>Identify patterns (vocabulary mismatch? Generic terms?)</li>\n<li>Decide how to improve retrieval</li>\n<li>Build better prompts for the agent</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "50b357a7bf4792fd594c1f503aa24e0c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-5-save-results\">Step 5: Save Results</h2>\n<span class=\"paragraph\">Let's save the detailed results to a JSON file for further analysis.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "cc1ffefc5679590bb1231b42c0e0fde4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"reflection-what-did-we-learn\">\ud83e\udd14 Reflection: What Did We Learn?</h2>\n<span class=\"paragraph\">Now that you've seen the metrics and analyzed failures, reflect on:</span>\n<h3 id=\"1-how-well-does-bm25-perform\">1. <strong>How well does BM25 perform?</strong></h3>\n<ul>\n<li>Is Recall@5 good enough for a RAG system?</li>\n<li>What does MRR tell us about typical performance?</li>\n</ul>\n<h3 id=\"2-what-types-of-queries-work-well\">2. <strong>What types of queries work well?</strong></h3>\n<ul>\n<li>Look at successful retrievals - what do they have in common?</li>\n<li>Specific terms? Unique cooking techniques?</li>\n</ul>\n<h3 id=\"3-what-types-of-queries-fail\">3. <strong>What types of queries fail?</strong></h3>\n<ul>\n<li>Look at failures - what patterns do you see?</li>\n<li>Vocabulary mismatch? Generic terms? Synonyms?</li>\n</ul>\n<h3 id=\"4-how-would-you-build-an-agent-around-this-retriever\">4. <strong>How would you build an agent around this retriever?</strong></h3>\n<ul>\n<li>Should the agent always trust top-1 result?</li>\n<li>Should it look at multiple results?</li>\n<li>How should it handle queries BM25 might struggle with?</li>\n</ul>\n<h3 id=\"5-how-could-we-improve-retrieval\">5. <strong>How could we improve retrieval?</strong></h3>\n<ul>\n<li>Better tokenization? (stemming, lemmatization)</li>\n<li>Query expansion? (add synonyms)</li>\n<li>Hybrid search? (BM25 + semantic embeddings)</li>\n<li>Re-ranking? (use LLM to rerank top results)</li>\n</ul>\n<span class=\"paragraph\"><strong>Think about these questions - you'll write a brief analysis as your final deliverable!</strong></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "29ad576298bdc4cba2ad03798149454a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "2a570df2dd4d475cf09703965ff6c853",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 200 recipes\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "0c97c6ab9df096618b525fd5457923f1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Loaded 200 synthetic queries\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Xref",
+      "code_hash": "6e5b5520b4fdd46790f5d62cddc5abcd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Created corpus with 200 documents\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "e0324fdf497389bd0fd76ab558f95a92",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 BM25 index built successfully!\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "e124b3824a652fa2880f0418a9961c0b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Evaluating BM25 on 200 queries...\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Evaluation complete!\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "7e347c1c4967d9bd7ec29bee4e0aee8d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\ud83d\udcca BM25 Retrieval Metrics:\n  Recall@1: 27.50%\n  Recall@3: 44.00%\n  Recall@5: 51.00%\n  MRR: 0.365\n\n  Found in top 5: 102/200\n  Not found: 98/200\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "59c89c89c42e7a7af54411c34e00ba4b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"results-summary\">\ud83c\udfaf Results Summary</h2>\n<table>\n<thead>\n<tr>\n<th>Metric</th>\n<th>Score</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Recall@1</strong></td>\n<td>27.50%</td>\n</tr>\n<tr>\n<td><strong>Recall@3</strong></td>\n<td>44.00%</td>\n</tr>\n<tr>\n<td><strong>Recall@5</strong></td>\n<td>51.00%</td>\n</tr>\n<tr>\n<td><strong>MRR</strong></td>\n<td>0.365</td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\"><strong>Found in top 5:</strong> 102 out of 200 queries</span>\n<span class=\"paragraph\"><strong>Not found:</strong> 98 queries</span>\n<hr />\n<span class=\"paragraph\"><strong>How does this compare to your prediction?</strong></span>\n<span class=\"paragraph\">Were you close? Higher or lower than expected?</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "c36ab3fafc33dac7f469752544b48d03",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u274c Failed queries: 98\n\nSample failures (showing first 10):\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "9fa66195ef671a4ead886ca24a1de0d1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ROlb-0' random-id='d094206d-3e48-7dbc-acbb-79e5897bd21d'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;query&#92;&quot;:&#92;&quot;How long do I roast whole garlic heads?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;5 cheese crab lasagna with roasted garlic and vegetables&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;aluminum football roast turkey&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;How long do I bake this in a loaf pan?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;all purpose quick mix with 28 variations&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;5 minute artisan bread&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;How long do I fry each side of the fritters?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;alligator claws avocado fritters with chipotle lime dip&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;aliya s grilled cheese eggs benedict&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;Do I add water to the pan while baking?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;5 minute artisan bread&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;aliya s grilled cheese eggs benedict&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;How long should I keep it covered on low heat?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;absolutely addicitve kale moti biryani lunch that s complete&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;alexandras famous brownies&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;How long should I knead dough for samosas?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;the best vegetarian vegan vegetable samosas&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;alton brown s overnight cinnamon rolls&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;How do I prevent the top from burning while baking?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;american style panettone&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;almond caramel shortbreads&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;How long do I need to boil the cabbage?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;7 day soup diet my version&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;amish friendship bread&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;Do I start roasting chicken at a lower heat first?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;50 shades of garlic roasted chicken&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;all in one roast chicken dinner&#92;&quot;},{&#92;&quot;query&#92;&quot;:&#92;&quot;Do I need to add water to the oven while baking?&#92;&quot;,&#92;&quot;ground_truth_recipe&#92;&quot;:&#92;&quot;american sandwich bread abm or oven&#92;&quot;,&#92;&quot;top_1_retrieved&#92;&quot;:&#92;&quot;a winter s walk beef and carrot stew with herb crusted dumplings&#92;&quot;}]&quot;' data-total-rows='10' data-total-columns='3' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;query&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;ground_truth_recipe&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;top_1_retrieved&quot;,[&quot;string&quot;,&quot;object&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "4fe415bc8e0ec3a76d64e03c633b0cb3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "0d1e14225d4321860478c70163d72981",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"browse-individual-results\">Browse Individual Results</h2>\n<span class=\"paragraph\"><marimo-ui-element object-id='TqIu-0' random-id='fc7fd2b7-2b36-ea33-3d79-234e453bc176'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Result Index&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='199' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='true' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "154afb077a5b64396131d6031fc553ad",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"result-2-not-found-in-top-5\">Result #2: \u274c Not found in top 5</h3>\n<span class=\"paragraph\"><strong>Query:</strong> \"How long do I bake this in a loaf pan?\"</span>\n<span class=\"paragraph\"><strong>Ground Truth Recipe:</strong> all purpose quick mix with 28 variations</span>\n<hr />\n<span class=\"paragraph\"><strong>Top 5 Retrieved Recipes:</strong></span>\n<ol>\n<li>5 minute artisan bread (score: 15.34)</li>\n<li>amish friendship bread (score: 14.91)</li>\n<li>amish cinnamon bread friendship bread (score: 14.71)</li>\n<li>almond vanilla bean biscotti (score: 14.67)</li>\n<li>amis s christmas stollen (score: 13.91)</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "3ce5c8010a1f026800055308d9123757",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Results saved to: /Users/ssandrockk/recipe-chatbot-work/recipe-chatbot/homeworks/hw4/my_work/evaluation_results.json\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    }
+  ]
+}

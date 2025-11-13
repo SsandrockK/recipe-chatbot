@@ -1,0 +1,5613 @@
+{
+  "metrics": {
+    "total_queries": 200,
+    "recall_at_1": 0.275,
+    "recall_at_3": 0.44,
+    "recall_at_5": 0.51,
+    "mrr": 0.36458333333333337,
+    "found_in_top_5_count": 102,
+    "not_found_count": 98
+  },
+  "results": [
+    {
+      "query": "How long do I roast whole garlic heads?",
+      "ground_truth_id": 65007,
+      "ground_truth_recipe": "5 cheese crab lasagna with roasted garlic and vegetables",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        151504,
+        362986,
+        450975,
+        338356,
+        511017
+      ],
+      "top_5_recipe_names": [
+        "aluminum football roast turkey",
+        "all in one roast chicken dinner",
+        "90 minute beer brined pot roast",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "50 shades of garlic roasted chicken"
+      ],
+      "top_5_scores": [
+        10.753196341385122,
+        9.860257436637063,
+        9.239172199144654,
+        7.889618555398106,
+        7.625159102760481
+      ]
+    },
+    {
+      "query": "How long do I bake this in a loaf pan?",
+      "ground_truth_id": 81,
+      "ground_truth_recipe": "all purpose quick mix with 28 variations",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        325571,
+        246125,
+        233539,
+        97188,
+        141035
+      ],
+      "top_5_recipe_names": [
+        "5 minute artisan bread",
+        "amish friendship bread",
+        "amish cinnamon bread friendship bread",
+        "almond vanilla bean biscotti",
+        "amis s christmas stollen"
+      ],
+      "top_5_scores": [
+        15.344755180701506,
+        14.908592182488874,
+        14.711532848786092,
+        14.66796831585588,
+        13.913977017215748
+      ]
+    },
+    {
+      "query": "How long should I let the soup herbs simmer?",
+      "ground_truth_id": 472184,
+      "ground_truth_recipe": "7 day diet fat burning cabbage soup",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        472184,
+        53312,
+        385599,
+        476655,
+        516267
+      ],
+      "top_5_recipe_names": [
+        "7 day diet fat burning cabbage soup",
+        "clean out the fridge soup",
+        "aash e anar pomegranate stew",
+        "7 day soup diet my version",
+        "a yummy chicken noodle soup 8 qt pressure cooker"
+      ],
+      "top_5_scores": [
+        14.858974582786301,
+        12.990787537800195,
+        12.189857856701389,
+        12.16195394334511,
+        11.120749407681789
+      ]
+    },
+    {
+      "query": "How long do I fry each side of the fritters?",
+      "ground_truth_id": 287008,
+      "ground_truth_recipe": "alligator claws avocado fritters with chipotle lime dip",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        312190,
+        27893,
+        385942,
+        465810,
+        393717
+      ],
+      "top_5_recipe_names": [
+        "aliya s grilled cheese eggs benedict",
+        "7 layer fiesta party dip",
+        "algerian chicken preserved lemon bourek",
+        "americanized slovak haluski",
+        "a grape picker s lunch sausages and lentils with thyme and wine"
+      ],
+      "top_5_scores": [
+        14.625927295584018,
+        12.531520007729217,
+        12.479411627548478,
+        12.18456205286971,
+        11.98376811746813
+      ]
+    },
+    {
+      "query": "Do I add water to the pan while baking?",
+      "ground_truth_id": 325571,
+      "ground_truth_recipe": "5 minute artisan bread",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        312190,
+        459271,
+        139353,
+        344260,
+        397287
+      ],
+      "top_5_recipe_names": [
+        "aliya s grilled cheese eggs benedict",
+        "2bleu s country ham bacon and eggs",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "ace s den meatballs in san marzano tomato sauce",
+        "a1 ultimate jambalaya"
+      ],
+      "top_5_scores": [
+        13.6417678096142,
+        13.48913413564889,
+        13.090693744975969,
+        13.064894925441134,
+        12.989048547415134
+      ]
+    },
+    {
+      "query": "How long should I soak the cherries in wine mixture?",
+      "ground_truth_id": 307279,
+      "ground_truth_recipe": "a ptissier s black forest cake",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        314774,
+        307279,
+        141035,
+        393717,
+        353862
+      ],
+      "top_5_recipe_names": [
+        "4th generation homemade cherry pie",
+        "a ptissier s black forest cake",
+        "amis s christmas stollen",
+        "a grape picker s lunch sausages and lentils with thyme and wine",
+        "almost healthy and surprisingly good chocolate chip cookies"
+      ],
+      "top_5_scores": [
+        15.948302269023856,
+        14.106703743059963,
+        13.241469657868826,
+        12.928227451001279,
+        12.703283058337858
+      ]
+    },
+    {
+      "query": "How long should I keep it covered on low heat?",
+      "ground_truth_id": 45120,
+      "ground_truth_recipe": "absolutely addicitve kale moti biryani lunch that s complete",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        356932,
+        246125,
+        122791,
+        283936,
+        115160
+      ],
+      "top_5_recipe_names": [
+        "alexandras famous brownies",
+        "amish friendship bread",
+        "2 minute low fat strawberry and banana custard comfort food",
+        "3 step fall off the bone ribs easy",
+        "15 layer russian honey cake"
+      ],
+      "top_5_scores": [
+        11.319805388638827,
+        10.301319148361387,
+        10.105465366475375,
+        10.020885650852435,
+        9.93902451121742
+      ]
+    },
+    {
+      "query": "Should I really preheat the stone that long?",
+      "ground_truth_id": 123710,
+      "ground_truth_recipe": "amazing thin crust pizza",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        487173,
+        123710,
+        418387,
+        382492,
+        302143
+      ],
+      "top_5_recipe_names": [
+        "5 minute bread pizza",
+        "amazing thin crust pizza",
+        "100 whole wheat bread plain and simple no knead",
+        "alton brown s pizza",
+        "amazing black bean brownies recipe courtesy of ania catalano"
+      ],
+      "top_5_scores": [
+        14.1612901176155,
+        11.589558807789455,
+        10.871875425150959,
+        9.853345396155095,
+        9.709591512610611
+      ]
+    },
+    {
+      "query": "How long should I boil corn before cutting kernels?",
+      "ground_truth_id": 411947,
+      "ground_truth_recipe": "amish corn on the cob",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        411947,
+        404661,
+        151504,
+        57204,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "amish corn on the cob",
+        "1200 watt microwave peanut brittle",
+        "aluminum football roast turkey",
+        "all american county fair prize winning chili",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        10.706731803585129,
+        9.461182271827967,
+        8.476828994462632,
+        7.243589558352114,
+        7.123409509815707
+      ]
+    },
+    {
+      "query": "How long should I chill the truffle mix before shaping?",
+      "ground_truth_id": 271012,
+      "ground_truth_recipe": "a symphony of french chocolate truffles",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        271012,
+        27893,
+        372771,
+        306198,
+        114061
+      ],
+      "top_5_recipe_names": [
+        "a symphony of french chocolate truffles",
+        "7 layer fiesta party dip",
+        "4 fun salsa s in one",
+        "agnolotti al burro e salvia",
+        "absolute perfection ginger spice cookies"
+      ],
+      "top_5_scores": [
+        13.153702262149652,
+        11.618248305695076,
+        10.753033569566215,
+        9.901258968254153,
+        9.704160115789044
+      ]
+    },
+    {
+      "query": "How long should I bake cinnamon bread loaves?",
+      "ground_truth_id": 233539,
+      "ground_truth_recipe": "amish cinnamon bread friendship bread",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        246125,
+        233539,
+        404661,
+        435816,
+        312190
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "amish cinnamon bread friendship bread",
+        "1200 watt microwave peanut brittle",
+        "iowa state fair sweet dough caramel cinnamon rolls",
+        "aliya s grilled cheese eggs benedict"
+      ],
+      "top_5_scores": [
+        10.638920637317458,
+        9.825393770389578,
+        8.255348892728732,
+        7.696146891980405,
+        7.526500095347092
+      ]
+    },
+    {
+      "query": "How long should I knead dough for samosas?",
+      "ground_truth_id": 436082,
+      "ground_truth_recipe": "the best vegetarian vegan vegetable samosas",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        181969,
+        325571,
+        284687,
+        123710,
+        387136
+      ],
+      "top_5_recipe_names": [
+        "alton brown s overnight cinnamon rolls",
+        "5 minute artisan bread",
+        "almost no knead bread",
+        "amazing thin crust pizza",
+        "algerian khobz el dar semolina bread"
+      ],
+      "top_5_scores": [
+        10.384013346985641,
+        10.239941641479042,
+        9.776360588076145,
+        9.560944519617648,
+        9.489263212390664
+      ]
+    },
+    {
+      "query": "How long do sliced almonds take to toast in oven?",
+      "ground_truth_id": 296318,
+      "ground_truth_recipe": "a better burnt almond cake",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        296318,
+        454071,
+        242806,
+        443034,
+        97188
+      ],
+      "top_5_recipe_names": [
+        "a better burnt almond cake",
+        "almond joy layer cake",
+        "almond sponge cake filled with almond cream",
+        "almond caramel shortbreads",
+        "almond vanilla bean biscotti"
+      ],
+      "top_5_scores": [
+        13.576063072609891,
+        13.231984519421482,
+        12.909068948773632,
+        11.719435418813148,
+        11.255602035450602
+      ]
+    },
+    {
+      "query": "Do I need to soak the dried beef first?",
+      "ground_truth_id": 204012,
+      "ground_truth_recipe": "ajiaco cubano",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        270955,
+        361017,
+        204012,
+        103948,
+        513531
+      ],
+      "top_5_recipe_names": [
+        "a winter s walk beef and carrot stew with herb crusted dumplings",
+        "the gumbo pages traditional red beans and rice",
+        "ajiaco cubano",
+        "smells like sunday chicken fricassee with meatballs",
+        "better than a can homemade sloppy joes"
+      ],
+      "top_5_scores": [
+        13.242588570391437,
+        12.789553370944198,
+        12.623581502358363,
+        12.245119993613631,
+        12.20655784386234
+      ]
+    },
+    {
+      "query": "How long do I need to cook the pork hocks?",
+      "ground_truth_id": 322512,
+      "ground_truth_recipe": "a better borscht beet soup",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        338356,
+        283936,
+        312190,
+        322512,
+        204012
+      ],
+      "top_5_recipe_names": [
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "a better borscht beet soup",
+        "ajiaco cubano"
+      ],
+      "top_5_scores": [
+        13.712824430936099,
+        13.432862289361726,
+        12.915357476767227,
+        12.672668247032849,
+        12.64869953819147
+      ]
+    },
+    {
+      "query": "How do I prevent the top from burning while baking?",
+      "ground_truth_id": 339431,
+      "ground_truth_recipe": "american style panettone",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        443034,
+        307279,
+        348870,
+        362986,
+        147694
+      ],
+      "top_5_recipe_names": [
+        "almond caramel shortbreads",
+        "a ptissier s black forest cake",
+        "amazing hungarian chicken paprikash with dumplings",
+        "all in one roast chicken dinner",
+        "alton s french onion soup attacked by sandi"
+      ],
+      "top_5_scores": [
+        14.14255439706105,
+        12.213458466470156,
+        12.207119238728145,
+        11.955645939997417,
+        11.484511960611213
+      ]
+    },
+    {
+      "query": "How long should I chill the layered omelette before serving?",
+      "ground_truth_id": 303666,
+      "ground_truth_recipe": "a french country affair elegant omelette gateau w chive flowers",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        27893,
+        303666,
+        372771,
+        307279,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "7 layer fiesta party dip",
+        "a french country affair elegant omelette gateau w chive flowers",
+        "4 fun salsa s in one",
+        "a ptissier s black forest cake",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        13.949089029018749,
+        13.782916961568723,
+        9.657353654210864,
+        9.44682307718362,
+        9.186344299058241
+      ]
+    },
+    {
+      "query": "How long do I need to boil the cabbage?",
+      "ground_truth_id": 476655,
+      "ground_truth_recipe": "7 day soup diet my version",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        283936,
+        93802,
+        151504,
+        325571
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "alabama white barbecue",
+        "aluminum football roast turkey",
+        "5 minute artisan bread"
+      ],
+      "top_5_scores": [
+        12.472728356262731,
+        11.58513780322537,
+        11.28556406065667,
+        10.716145212672796,
+        10.586148811473132
+      ]
+    },
+    {
+      "query": "How do I tell when the mousse is whipped enough?",
+      "ground_truth_id": 520809,
+      "ground_truth_recipe": "3 layer chocolate cake with chocolate mousse filling gluten fre",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        307279,
+        520809,
+        151504,
+        314774,
+        35824
+      ],
+      "top_5_recipe_names": [
+        "a ptissier s black forest cake",
+        "3 layer chocolate cake with chocolate mousse filling gluten fre",
+        "aluminum football roast turkey",
+        "4th generation homemade cherry pie",
+        "ambrosia with acini di pepe"
+      ],
+      "top_5_scores": [
+        20.01618895679672,
+        15.479838529556098,
+        14.736483506598562,
+        13.956104943259028,
+        13.713060844434139
+      ]
+    },
+    {
+      "query": "Do I start roasting chicken at a lower heat first?",
+      "ground_truth_id": 511017,
+      "ground_truth_recipe": "50 shades of garlic roasted chicken",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        362986,
+        429569,
+        362224,
+        174846,
+        507154
+      ],
+      "top_5_recipe_names": [
+        "all in one roast chicken dinner",
+        "alex guarnaschelli s mother chicken with bbq",
+        "african chicken curry in rich palm oil",
+        "alabama bbq chicken and white sauce grilled",
+        "always perfect roast turkey"
+      ],
+      "top_5_scores": [
+        14.548433816000557,
+        13.331004992847236,
+        13.201299141337806,
+        13.172955317403762,
+        12.720219619876344
+      ]
+    },
+    {
+      "query": "How long should I steep saffron in broth?",
+      "ground_truth_id": 341907,
+      "ground_truth_recipe": "al andalus paella",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        341907,
+        362224,
+        283936,
+        312190,
+        404661
+      ],
+      "top_5_recipe_names": [
+        "al andalus paella",
+        "african chicken curry in rich palm oil",
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "1200 watt microwave peanut brittle"
+      ],
+      "top_5_scores": [
+        13.24579547561478,
+        9.957657937540198,
+        8.432699542086711,
+        7.958478241635173,
+        7.948762472367468
+      ]
+    },
+    {
+      "query": "How long do I bake the chocolate layers?",
+      "ground_truth_id": 50115,
+      "ground_truth_recipe": "all chocolate blackout cake from ebinger s",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        356932,
+        353862,
+        233539,
+        50115,
+        145858
+      ],
+      "top_5_recipe_names": [
+        "alexandras famous brownies",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "amish cinnamon bread friendship bread",
+        "all chocolate blackout cake from ebinger s",
+        "hershey s triple layer cheesecake"
+      ],
+      "top_5_scores": [
+        11.600896159158246,
+        10.969745606872836,
+        10.47587381547034,
+        10.336283726200662,
+        9.954936477612671
+      ]
+    },
+    {
+      "query": "Do I need to add water to the oven while baking?",
+      "ground_truth_id": 512939,
+      "ground_truth_recipe": "american sandwich bread abm or oven",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        270955,
+        325571,
+        336627,
+        473002,
+        123710
+      ],
+      "top_5_recipe_names": [
+        "a winter s walk beef and carrot stew with herb crusted dumplings",
+        "5 minute artisan bread",
+        "aimbrulee s ultimate pumpkin cheesecake",
+        "almost my grandma s rouladen melissa d arabian",
+        "amazing thin crust pizza"
+      ],
+      "top_5_scores": [
+        16.20479001911362,
+        16.08995051077132,
+        16.042615843277805,
+        15.967007973827283,
+        15.711835572389743
+      ]
+    },
+    {
+      "query": "How long do I toast coconut flakes in the oven?",
+      "ground_truth_id": 434789,
+      "ground_truth_recipe": "america s test kitchen coconut layer cake",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        434789,
+        367586,
+        454071,
+        62037,
+        242952
+      ],
+      "top_5_recipe_names": [
+        "america s test kitchen coconut layer cake",
+        "a taste of africa kenyan chicken curry",
+        "almond joy layer cake",
+        "amazon catfish",
+        "alton brown s coconut cake with 7 minute frosting"
+      ],
+      "top_5_scores": [
+        15.524925037375436,
+        14.013163945744994,
+        13.590545804095111,
+        12.944282929104121,
+        12.472525599661363
+      ]
+    },
+    {
+      "query": "How long do I bake these puddings for?",
+      "ground_truth_id": 325920,
+      "ground_truth_recipe": "absolutely sinful sticky toffee pudding with pecan toffee sauce",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        325920,
+        356932,
+        27893,
+        283936,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "absolutely sinful sticky toffee pudding with pecan toffee sauce",
+        "alexandras famous brownies",
+        "7 layer fiesta party dip",
+        "3 step fall off the bone ribs easy",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        12.098096480408953,
+        8.696167252087854,
+        8.370016416315622,
+        7.793566145468953,
+        7.753894982094917
+      ]
+    },
+    {
+      "query": "How long should I bake a cheesecake in a water bath?",
+      "ground_truth_id": 336627,
+      "ground_truth_recipe": "aimbrulee s ultimate pumpkin cheesecake",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        53922,
+        336627,
+        417845,
+        145858,
+        185799
+      ],
+      "top_5_recipe_names": [
+        "almond joy cheesecake",
+        "aimbrulee s ultimate pumpkin cheesecake",
+        "a mighty fine black forest cheesecake",
+        "hershey s triple layer cheesecake",
+        "splenda d cheesecake sugar free low carb"
+      ],
+      "top_5_scores": [
+        18.605665968283713,
+        18.473414149747864,
+        17.54993188753979,
+        17.175754195961296,
+        16.270846983223365
+      ]
+    },
+    {
+      "query": "How long should I toast the bread before filling?",
+      "ground_truth_id": 132020,
+      "ground_truth_recipe": "al fresco bread",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        362832,
+        312190,
+        308592,
+        246125,
+        139353
+      ],
+      "top_5_recipe_names": [
+        "aji de gallina",
+        "aliya s grilled cheese eggs benedict",
+        "3 variations of a gluten free bread recipe bread machine",
+        "amish friendship bread",
+        "100 whole wheat bread non dense heavy white bread texture"
+      ],
+      "top_5_scores": [
+        10.7952902164802,
+        10.295723640885203,
+        9.840344080815884,
+        9.790688488111781,
+        9.309589331574442
+      ]
+    },
+    {
+      "query": "Should I cover the casserole while baking it?",
+      "ground_truth_id": 338907,
+      "ground_truth_recipe": "amazing stuffing from scratch breadmaker recommended",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        505248,
+        218853,
+        104588,
+        115160,
+        385942
+      ],
+      "top_5_recipe_names": [
+        "alea s meat lover s hashbrown casserole",
+        "al roker s spicy beef chili",
+        "4 cheese baked macaroni",
+        "15 layer russian honey cake",
+        "algerian chicken preserved lemon bourek"
+      ],
+      "top_5_scores": [
+        11.828778785789678,
+        10.70329004624547,
+        10.18203992035252,
+        9.94402722480366,
+        9.108079493076527
+      ]
+    },
+    {
+      "query": "How often do I need to feed the starter?",
+      "ground_truth_id": 246125,
+      "ground_truth_recipe": "amish friendship bread",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        246125,
+        123710,
+        499804,
+        390230,
+        287008
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "amazing thin crust pizza",
+        "8 for 8 broiled blt burgers for a bunch",
+        "melanie s chicken chili",
+        "alligator claws avocado fritters with chipotle lime dip"
+      ],
+      "top_5_scores": [
+        19.412655718895394,
+        12.904941187965447,
+        12.143218699284578,
+        11.549802022185006,
+        11.042280207576988
+      ]
+    },
+    {
+      "query": "How long do I beat butter and sugar together?",
+      "ground_truth_id": 293225,
+      "ground_truth_recipe": "honey i m peanuts about you cake",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        434789,
+        115160,
+        293225,
+        353862,
+        404661
+      ],
+      "top_5_recipe_names": [
+        "america s test kitchen coconut layer cake",
+        "15 layer russian honey cake",
+        "honey i m peanuts about you cake",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "1200 watt microwave peanut brittle"
+      ],
+      "top_5_scores": [
+        10.776786213672166,
+        9.796364379468159,
+        9.588934480222195,
+        9.528282367221076,
+        9.413203123227253
+      ]
+    },
+    {
+      "query": "How long should I knead the dough for?",
+      "ground_truth_id": 141035,
+      "ground_truth_recipe": "amis s christmas stollen",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        181969,
+        325571,
+        387136,
+        284687,
+        290371
+      ],
+      "top_5_recipe_names": [
+        "alton brown s overnight cinnamon rolls",
+        "5 minute artisan bread",
+        "algerian khobz el dar semolina bread",
+        "almost no knead bread",
+        "30 minute fresh mozzarella cheese homemade"
+      ],
+      "top_5_scores": [
+        11.495444893651786,
+        10.834202715480412,
+        10.261317332352945,
+        10.155218769428002,
+        9.85019609798771
+      ]
+    },
+    {
+      "query": "How long should I let pork chops simmer with the sauce?",
+      "ground_truth_id": 440717,
+      "ground_truth_recipe": "a healthier smothered pork chops mushrooms and onions",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        440717,
+        283936,
+        338356,
+        312190,
+        393717
+      ],
+      "top_5_recipe_names": [
+        "a healthier smothered pork chops mushrooms and onions",
+        "3 step fall off the bone ribs easy",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "aliya s grilled cheese eggs benedict",
+        "a grape picker s lunch sausages and lentils with thyme and wine"
+      ],
+      "top_5_scores": [
+        22.496980965544108,
+        13.526759572153196,
+        13.140559040405858,
+        12.576891351719665,
+        12.521574564911692
+      ]
+    },
+    {
+      "query": "How thick should I layer the carrot ring around salad?",
+      "ground_truth_id": 225707,
+      "ground_truth_recipe": "dressed up salad with secret dressing",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        225707,
+        473002,
+        325571,
+        516267,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "dressed up salad with secret dressing",
+        "almost my grandma s rouladen melissa d arabian",
+        "5 minute artisan bread",
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        15.955130257468188,
+        10.998026466051474,
+        10.538400794274054,
+        10.537234880034303,
+        9.385763004949817
+      ]
+    },
+    {
+      "query": "How long do I need to simmer the lentils with sausage?",
+      "ground_truth_id": 393717,
+      "ground_truth_recipe": "a grape picker s lunch sausages and lentils with thyme and wine",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        393717,
+        45120,
+        385599,
+        57204,
+        246125
+      ],
+      "top_5_recipe_names": [
+        "a grape picker s lunch sausages and lentils with thyme and wine",
+        "absolutely addicitve kale moti biryani lunch that s complete",
+        "aash e anar pomegranate stew",
+        "all american county fair prize winning chili",
+        "amish friendship bread"
+      ],
+      "top_5_scores": [
+        19.36720022787596,
+        16.024264230784254,
+        16.015302651583745,
+        14.755917742115113,
+        14.406522273981473
+      ]
+    },
+    {
+      "query": "How long should I let the chili simmer?",
+      "ground_truth_id": 390230,
+      "ground_truth_recipe": "melanie s chicken chili",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        57204,
+        367586,
+        522117,
+        327713,
+        218853
+      ],
+      "top_5_recipe_names": [
+        "all american county fair prize winning chili",
+        "a taste of africa kenyan chicken curry",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "aloo keema",
+        "al roker s spicy beef chili"
+      ],
+      "top_5_scores": [
+        11.4227081666813,
+        10.334353167968372,
+        9.93046069820975,
+        9.520319866480813,
+        9.476978599116087
+      ]
+    },
+    {
+      "query": "How long should I let the starter rest in the fridge?",
+      "ground_truth_id": 245800,
+      "ground_truth_recipe": "alton browns basic bread",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        233539,
+        146096,
+        312190,
+        80457
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "amish cinnamon bread friendship bread",
+        "amish friendship nut bread on demand",
+        "aliya s grilled cheese eggs benedict",
+        "amish friendship bread 1965"
+      ],
+      "top_5_scores": [
+        19.087002007893016,
+        16.56989120346982,
+        15.786465072974538,
+        14.095421626035693,
+        14.009202515464178
+      ]
+    },
+    {
+      "query": "When should I fold in whipped egg whites with cooked grains?",
+      "ground_truth_id": 242,
+      "ground_truth_recipe": "any muffins",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        307279,
+        242806,
+        242952,
+        356932,
+        476849
+      ],
+      "top_5_recipe_names": [
+        "a ptissier s black forest cake",
+        "almond sponge cake filled with almond cream",
+        "alton brown s coconut cake with 7 minute frosting",
+        "alexandras famous brownies",
+        "aarsis ultimate valentine cake"
+      ],
+      "top_5_scores": [
+        20.626953666655407,
+        16.225955012882878,
+        15.691029083311074,
+        14.05132016497789,
+        13.993357899629537
+      ]
+    },
+    {
+      "query": "How long should I let the meat loaf rest?",
+      "ground_truth_id": 344915,
+      "ground_truth_recipe": "alton brown s gyro meat recipe",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        283936,
+        325571,
+        344915,
+        97188,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "5 minute artisan bread",
+        "alton brown s gyro meat recipe",
+        "almond vanilla bean biscotti",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        10.35311889602789,
+        10.301759764212287,
+        10.101854030493271,
+        9.875919390292504,
+        9.701803312488229
+      ]
+    },
+    {
+      "query": "How long should I brown the ground meat mixture?",
+      "ground_truth_id": 508092,
+      "ground_truth_recipe": "america s test kitchen ragu alla bolognese",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        367586,
+        151504,
+        450975,
+        312190
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "a taste of africa kenyan chicken curry",
+        "aluminum football roast turkey",
+        "90 minute beer brined pot roast",
+        "aliya s grilled cheese eggs benedict"
+      ],
+      "top_5_scores": [
+        11.369212507688294,
+        11.066500439771715,
+        10.78387961336879,
+        10.302994020641941,
+        10.262166441879929
+      ]
+    },
+    {
+      "query": "How long should I pressure cook the whole chicken?",
+      "ground_truth_id": 516267,
+      "ground_truth_recipe": "a yummy chicken noodle soup 8 qt pressure cooker",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        516267,
+        139353,
+        151504,
+        3779,
+        287008
+      ],
+      "top_5_recipe_names": [
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "aluminum football roast turkey",
+        "a real philly cheesesteak",
+        "alligator claws avocado fritters with chipotle lime dip"
+      ],
+      "top_5_scores": [
+        16.54143051907806,
+        9.720595225689813,
+        9.65912258002798,
+        9.52052074597898,
+        9.232405514254715
+      ]
+    },
+    {
+      "query": "How long should I let the sauce simmer before adding mushrooms?",
+      "ground_truth_id": 513531,
+      "ground_truth_recipe": "better than a can homemade sloppy joes",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        93802,
+        312190,
+        27893,
+        367586
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "alabama white barbecue",
+        "aliya s grilled cheese eggs benedict",
+        "7 layer fiesta party dip",
+        "a taste of africa kenyan chicken curry"
+      ],
+      "top_5_scores": [
+        10.779524205566677,
+        10.390066684113163,
+        10.008722970932885,
+        9.980585283081936,
+        9.539714794257202
+      ]
+    },
+    {
+      "query": "How long should I bake this layered casserole?",
+      "ground_truth_id": 351041,
+      "ground_truth_recipe": "4th of july triple layered savory casserole",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        27893,
+        246125,
+        353862,
+        312190,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "7 layer fiesta party dip",
+        "amish friendship bread",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "aliya s grilled cheese eggs benedict",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        11.794915901521616,
+        8.111773213554683,
+        7.884289656383523,
+        7.876365713541416,
+        7.873025388308058
+      ]
+    },
+    {
+      "query": "How long should I bake almond wafers until golden?",
+      "ground_truth_id": 66012,
+      "ground_truth_recipe": "almond tuiles",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        417845,
+        314774,
+        97188,
+        53922,
+        49746
+      ],
+      "top_5_recipe_names": [
+        "a mighty fine black forest cheesecake",
+        "4th generation homemade cherry pie",
+        "almond vanilla bean biscotti",
+        "almond joy cheesecake",
+        "almond orange macaroons"
+      ],
+      "top_5_scores": [
+        13.196049293459172,
+        10.428101359177216,
+        9.861580883778068,
+        9.318060975106798,
+        9.004716897098676
+      ]
+    },
+    {
+      "query": "How long should I bake nut bread at 350 degrees?",
+      "ground_truth_id": 146096,
+      "ground_truth_recipe": "amish friendship nut bread on demand",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        146096,
+        139353,
+        283936,
+        246125,
+        27893
+      ],
+      "top_5_recipe_names": [
+        "amish friendship nut bread on demand",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "3 step fall off the bone ribs easy",
+        "amish friendship bread",
+        "7 layer fiesta party dip"
+      ],
+      "top_5_scores": [
+        11.721259944211626,
+        10.717821898862251,
+        9.95639398467486,
+        9.778549779482585,
+        8.982865633909132
+      ]
+    },
+    {
+      "query": "How long should I cook chickpea flour on low heat?",
+      "ground_truth_id": 76915,
+      "ground_truth_recipe": "a ramchandani special subru uncle s traditional sindhi curry mo",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        312190,
+        151504,
+        338356,
+        404661
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "aluminum football roast turkey",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "1200 watt microwave peanut brittle"
+      ],
+      "top_5_scores": [
+        8.242418606017823,
+        8.174296431307837,
+        7.457923242201762,
+        7.278564950531107,
+        7.24573572198522
+      ]
+    },
+    {
+      "query": "Do I start baking it hotter then lower the temp?",
+      "ground_truth_id": 424845,
+      "ground_truth_recipe": "altwiener apfelstrudel traditional viennese apple strudel",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        139353,
+        244292,
+        411947,
+        478546,
+        429569
+      ],
+      "top_5_recipe_names": [
+        "100 whole wheat bread non dense heavy white bread texture",
+        "4 milk mexican flan",
+        "amish corn on the cob",
+        "10 calorie chocolate miracle noodle cookies",
+        "alex guarnaschelli s mother chicken with bbq"
+      ],
+      "top_5_scores": [
+        12.590400493746762,
+        11.623906889443038,
+        11.592058827845666,
+        11.550905486259563,
+        11.266599273201505
+      ]
+    },
+    {
+      "query": "Do I need to lower the oven after 15 minutes?",
+      "ground_truth_id": 139353,
+      "ground_truth_recipe": "100 whole wheat bread non dense heavy white bread texture",
+      "rank": 5,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        53922,
+        66012,
+        429569,
+        443034,
+        139353
+      ],
+      "top_5_recipe_names": [
+        "almond joy cheesecake",
+        "almond tuiles",
+        "alex guarnaschelli s mother chicken with bbq",
+        "almond caramel shortbreads",
+        "100 whole wheat bread non dense heavy white bread texture"
+      ],
+      "top_5_scores": [
+        13.529859895619,
+        13.070551989342023,
+        12.689757812605585,
+        12.401122114135243,
+        12.214000691050526
+      ]
+    },
+    {
+      "query": "Do I need to flip the turkey during roasting?",
+      "ground_truth_id": 490284,
+      "ground_truth_recipe": "2 hour turkey really",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        490284,
+        507154,
+        361017,
+        151504,
+        144829
+      ],
+      "top_5_recipe_names": [
+        "2 hour turkey really",
+        "always perfect roast turkey",
+        "the gumbo pages traditional red beans and rice",
+        "aluminum football roast turkey",
+        "alsatian brined turkey with riesling gravy"
+      ],
+      "top_5_scores": [
+        15.465373808303953,
+        13.457742591231636,
+        13.221627742149693,
+        13.017181284089123,
+        12.8206541190441
+      ]
+    },
+    {
+      "query": "How long do I bake stew before adding dumplings?",
+      "ground_truth_id": 270955,
+      "ground_truth_recipe": "a winter s walk beef and carrot stew with herb crusted dumplings",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        270955,
+        27893,
+        204012,
+        115160,
+        246125
+      ],
+      "top_5_recipe_names": [
+        "a winter s walk beef and carrot stew with herb crusted dumplings",
+        "7 layer fiesta party dip",
+        "ajiaco cubano",
+        "15 layer russian honey cake",
+        "amish friendship bread"
+      ],
+      "top_5_scores": [
+        10.677929820134478,
+        9.063529445718158,
+        9.063112651245412,
+        7.727084595162722,
+        7.691376899369964
+      ]
+    },
+    {
+      "query": "How do I keep the crust from getting too hard?",
+      "ground_truth_id": 345763,
+      "ground_truth_recipe": "american style vanilla biscotti",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        325571,
+        314774,
+        27893,
+        287008,
+        185799
+      ],
+      "top_5_recipe_names": [
+        "5 minute artisan bread",
+        "4th generation homemade cherry pie",
+        "7 layer fiesta party dip",
+        "alligator claws avocado fritters with chipotle lime dip",
+        "splenda d cheesecake sugar free low carb"
+      ],
+      "top_5_scores": [
+        14.70650444053764,
+        13.114707570351632,
+        13.051350118223397,
+        11.793085471274688,
+        11.362209879411667
+      ]
+    },
+    {
+      "query": "How long should I broil burger patties per side?",
+      "ground_truth_id": 499804,
+      "ground_truth_recipe": "8 for 8 broiled blt burgers for a bunch",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        499804,
+        191398,
+        522117,
+        517863,
+        312190
+      ],
+      "top_5_recipe_names": [
+        "8 for 8 broiled blt burgers for a bunch",
+        "america s greatest gourmet burgers",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "a1b bacon burger bites on white polenta cakes a1",
+        "aliya s grilled cheese eggs benedict"
+      ],
+      "top_5_scores": [
+        14.903157195913526,
+        14.232957970526087,
+        10.552862561100728,
+        10.525003781967616,
+        8.058451507286875
+      ]
+    },
+    {
+      "query": "Is it okay to proof rolls in a warm oven?",
+      "ground_truth_id": 181969,
+      "ground_truth_recipe": "alton brown s overnight cinnamon rolls",
+      "rank": 5,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        3779,
+        435816,
+        192721,
+        181106,
+        181969
+      ],
+      "top_5_recipe_names": [
+        "a real philly cheesesteak",
+        "iowa state fair sweet dough caramel cinnamon rolls",
+        "almond danish swirls",
+        "100 whole grain wheat bread",
+        "alton brown s overnight cinnamon rolls"
+      ],
+      "top_5_scores": [
+        19.285332213687443,
+        17.965059859812236,
+        17.13555991866737,
+        16.75677121657271,
+        16.68345914580617
+      ]
+    },
+    {
+      "query": "What\u2019s the best oven temp and time for pot roast?",
+      "ground_truth_id": 450975,
+      "ground_truth_recipe": "90 minute beer brined pot roast",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        490284,
+        507154,
+        93802,
+        303913,
+        499804
+      ],
+      "top_5_recipe_names": [
+        "2 hour turkey really",
+        "always perfect roast turkey",
+        "alabama white barbecue",
+        "almost no knead bread with olives rosemary and parmesan",
+        "8 for 8 broiled blt burgers for a bunch"
+      ],
+      "top_5_scores": [
+        14.42154442621123,
+        14.055311081722422,
+        12.42995833847581,
+        12.223200121234278,
+        12.113436269514377
+      ]
+    },
+    {
+      "query": "How long should I sear foie gras on each side?",
+      "ground_truth_id": 191398,
+      "ground_truth_recipe": "america s greatest gourmet burgers",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        191398,
+        338356,
+        312190,
+        283936,
+        246125
+      ],
+      "top_5_recipe_names": [
+        "america s greatest gourmet burgers",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "aliya s grilled cheese eggs benedict",
+        "3 step fall off the bone ribs easy",
+        "amish friendship bread"
+      ],
+      "top_5_scores": [
+        22.62940552423603,
+        11.299367340956767,
+        8.449232697755104,
+        8.242418606017823,
+        7.621485281932109
+      ]
+    },
+    {
+      "query": "How long should I cook the beef rolls covered?",
+      "ground_truth_id": 473002,
+      "ground_truth_recipe": "almost my grandma s rouladen melissa d arabian",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        181969,
+        3779,
+        435816,
+        283936,
+        192721
+      ],
+      "top_5_recipe_names": [
+        "alton brown s overnight cinnamon rolls",
+        "a real philly cheesesteak",
+        "iowa state fair sweet dough caramel cinnamon rolls",
+        "3 step fall off the bone ribs easy",
+        "almond danish swirls"
+      ],
+      "top_5_scores": [
+        14.011253382952999,
+        12.395831921909185,
+        11.518293404079586,
+        11.110430784735353,
+        9.869404648348706
+      ]
+    },
+    {
+      "query": "How long should I cook salmon crust side down?",
+      "ground_truth_id": 118115,
+      "ground_truth_recipe": "almond crusted salmon with leek and lemon cream",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        444749,
+        118115,
+        314774,
+        369773,
+        123710
+      ],
+      "top_5_recipe_names": [
+        "5 ingredient salmon in a mustard honey cream sauce",
+        "almond crusted salmon with leek and lemon cream",
+        "4th generation homemade cherry pie",
+        "4th of july salmon with egg sauce",
+        "amazing thin crust pizza"
+      ],
+      "top_5_scores": [
+        12.238833470304154,
+        11.600283758592653,
+        9.037188321080057,
+        8.947906592512961,
+        7.512853051215011
+      ]
+    },
+    {
+      "query": "How long should I soak the turkey in the brine?",
+      "ground_truth_id": 144829,
+      "ground_truth_recipe": "alsatian brined turkey with riesling gravy",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        151504,
+        507154,
+        443177,
+        361017,
+        353862
+      ],
+      "top_5_recipe_names": [
+        "aluminum football roast turkey",
+        "always perfect roast turkey",
+        "alton brown s brined turkey",
+        "the gumbo pages traditional red beans and rice",
+        "almost healthy and surprisingly good chocolate chip cookies"
+      ],
+      "top_5_scores": [
+        17.92002223894559,
+        17.240681360693678,
+        16.409868304204316,
+        15.619689211289883,
+        15.04742093663584
+      ]
+    },
+    {
+      "query": "Should I take the pie weights out halfway through?",
+      "ground_truth_id": 468870,
+      "ground_truth_recipe": "all butter pie crust",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        468870,
+        314774,
+        244292,
+        312139,
+        310570
+      ],
+      "top_5_recipe_names": [
+        "all butter pie crust",
+        "4th generation homemade cherry pie",
+        "4 milk mexican flan",
+        "all american apple pie",
+        "burek or feta cheese phyllo pie"
+      ],
+      "top_5_scores": [
+        17.349447174204574,
+        13.813613178993357,
+        13.797979154811314,
+        12.45839596017017,
+        10.436298287136845
+      ]
+    },
+    {
+      "query": "How long should I keep the mousse-filled cake in the fridge?",
+      "ground_truth_id": 406595,
+      "ground_truth_recipe": "3 layer fudge cake with white chocolate mousse filling",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        296318,
+        115160,
+        50115,
+        434789,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "a better burnt almond cake",
+        "15 layer russian honey cake",
+        "all chocolate blackout cake from ebinger s",
+        "america s test kitchen coconut layer cake",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        14.789408792527153,
+        14.74206159228773,
+        13.9393784629836,
+        13.887837325755019,
+        13.50312643242507
+      ]
+    },
+    {
+      "query": "How long do I roast chicken and veggies together?",
+      "ground_truth_id": 362986,
+      "ground_truth_recipe": "all in one roast chicken dinner",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        362986,
+        450975,
+        151504,
+        511017,
+        338356
+      ],
+      "top_5_recipe_names": [
+        "all in one roast chicken dinner",
+        "90 minute beer brined pot roast",
+        "aluminum football roast turkey",
+        "50 shades of garlic roasted chicken",
+        "alternate honey barbecue sauce with riblets applebee s copycat"
+      ],
+      "top_5_scores": [
+        17.447793435692347,
+        13.644839382088714,
+        12.04329240594374,
+        11.535237123555866,
+        11.334112998389674
+      ]
+    },
+    {
+      "query": "Do I need to rest the turkey after roasting?",
+      "ground_truth_id": 507154,
+      "ground_truth_recipe": "always perfect roast turkey",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        490284,
+        361017,
+        151504,
+        507154,
+        443177
+      ],
+      "top_5_recipe_names": [
+        "2 hour turkey really",
+        "the gumbo pages traditional red beans and rice",
+        "aluminum football roast turkey",
+        "always perfect roast turkey",
+        "alton brown s brined turkey"
+      ],
+      "top_5_scores": [
+        15.805608706404659,
+        13.997301048935034,
+        13.759835686171112,
+        13.070206360690086,
+        12.93051832865326
+      ]
+    },
+    {
+      "query": "How long should I boil the potatoes before cooking?",
+      "ground_truth_id": 362224,
+      "ground_truth_recipe": "african chicken curry in rich palm oil",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        468108,
+        362986,
+        327713,
+        283936,
+        505248
+      ],
+      "top_5_recipe_names": [
+        "amazing mashed potatoes",
+        "all in one roast chicken dinner",
+        "aloo keema",
+        "3 step fall off the bone ribs easy",
+        "alea s meat lover s hashbrown casserole"
+      ],
+      "top_5_scores": [
+        12.731533588367023,
+        10.975168419921564,
+        10.69488653037872,
+        9.658622954984887,
+        9.048257976566072
+      ]
+    },
+    {
+      "query": "Is it better to freeze steak before slicing thin?",
+      "ground_truth_id": 3779,
+      "ground_truth_recipe": "a real philly cheesesteak",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        3779,
+        518234,
+        57204,
+        513531,
+        345763
+      ],
+      "top_5_recipe_names": [
+        "a real philly cheesesteak",
+        "a1 marinated top round with bacon parmesan polenta a1",
+        "all american county fair prize winning chili",
+        "better than a can homemade sloppy joes",
+        "american style vanilla biscotti"
+      ],
+      "top_5_scores": [
+        15.577721326785557,
+        15.266997889259306,
+        12.120899765586696,
+        11.116318074645193,
+        11.053650343883183
+      ]
+    },
+    {
+      "query": "What\u2019s the best oven temp and time for baking this?",
+      "ground_truth_id": 310570,
+      "ground_truth_recipe": "burek or feta cheese phyllo pie",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        490284,
+        507154,
+        93802,
+        146096,
+        499804
+      ],
+      "top_5_recipe_names": [
+        "2 hour turkey really",
+        "always perfect roast turkey",
+        "alabama white barbecue",
+        "amish friendship nut bread on demand",
+        "8 for 8 broiled blt burgers for a bunch"
+      ],
+      "top_5_scores": [
+        14.42154442621123,
+        14.055311081722422,
+        12.42995833847581,
+        12.173775607321733,
+        12.113436269514377
+      ]
+    },
+    {
+      "query": "How do I know when caramel\u2019s ready to pull off?",
+      "ground_truth_id": 244292,
+      "ground_truth_recipe": "4 milk mexican flan",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        139353,
+        443034,
+        246125,
+        522117,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "100 whole wheat bread non dense heavy white bread texture",
+        "almond caramel shortbreads",
+        "amish friendship bread",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        12.26865321624925,
+        11.208855492180216,
+        11.130746803690982,
+        10.662277244700894,
+        10.530015215895785
+      ]
+    },
+    {
+      "query": "How long should I broil peppers to get them charred?",
+      "ground_truth_id": 245260,
+      "ground_truth_recipe": "ajvar roasted red pepper spread",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        245260,
+        338356,
+        57204,
+        65007,
+        499804
+      ],
+      "top_5_recipe_names": [
+        "ajvar roasted red pepper spread",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "all american county fair prize winning chili",
+        "5 cheese crab lasagna with roasted garlic and vegetables",
+        "8 for 8 broiled blt burgers for a bunch"
+      ],
+      "top_5_scores": [
+        14.831833313326904,
+        11.83523589471437,
+        11.114435575728532,
+        10.586325920742441,
+        10.404271081101035
+      ]
+    },
+    {
+      "query": "How long do I need to chill the ganache?",
+      "ground_truth_id": 288998,
+      "ground_truth_recipe": "almond praline cake with mascarpone frosting and chocolate bark",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        307279,
+        372771,
+        27893,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "a ptissier s black forest cake",
+        "4 fun salsa s in one",
+        "7 layer fiesta party dip",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        12.472728356262731,
+        12.46315880908831,
+        12.089859206522746,
+        11.886031232716775,
+        11.112859147298726
+      ]
+    },
+    {
+      "query": "How long does it take to slowly brown onions?",
+      "ground_truth_id": 465810,
+      "ground_truth_recipe": "americanized slovak haluski",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        522117,
+        283936,
+        353862,
+        246125,
+        312190
+      ],
+      "top_5_recipe_names": [
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "3 step fall off the bone ribs easy",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "amish friendship bread",
+        "aliya s grilled cheese eggs benedict"
+      ],
+      "top_5_scores": [
+        11.399990084208,
+        10.18595641013163,
+        9.899699605871847,
+        9.452207527521178,
+        9.183369125472222
+      ]
+    },
+    {
+      "query": "How long do I need to let this stew simmer?",
+      "ground_truth_id": 381040,
+      "ground_truth_recipe": "afterburner chili",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        270955,
+        204012,
+        499888,
+        246125,
+        385599
+      ],
+      "top_5_recipe_names": [
+        "a winter s walk beef and carrot stew with herb crusted dumplings",
+        "ajiaco cubano",
+        "albanian stewed green beans and potatoes with smokey seitan",
+        "amish friendship bread",
+        "aash e anar pomegranate stew"
+      ],
+      "top_5_scores": [
+        15.258563171616709,
+        13.081328424199647,
+        11.628207036366861,
+        11.445387264338745,
+        10.983322228495409
+      ]
+    },
+    {
+      "query": "How long should I saut\u00e9 chicken and onions before spices?",
+      "ground_truth_id": 385942,
+      "ground_truth_recipe": "algerian chicken preserved lemon bourek",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        516267,
+        367586,
+        338356,
+        362986,
+        93802
+      ],
+      "top_5_recipe_names": [
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "a taste of africa kenyan chicken curry",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "all in one roast chicken dinner",
+        "alabama white barbecue"
+      ],
+      "top_5_scores": [
+        11.597240958670017,
+        11.463137709874877,
+        10.170617896685489,
+        10.138745133919592,
+        10.09702176448509
+      ]
+    },
+    {
+      "query": "How long should I bake the cake layers at 300\u00b0F?",
+      "ground_truth_id": 204393,
+      "ground_truth_recipe": "24 karat cake",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        434789,
+        293225,
+        454071,
+        296318,
+        50115
+      ],
+      "top_5_recipe_names": [
+        "america s test kitchen coconut layer cake",
+        "honey i m peanuts about you cake",
+        "almond joy layer cake",
+        "a better burnt almond cake",
+        "all chocolate blackout cake from ebinger s"
+      ],
+      "top_5_scores": [
+        15.184419474380919,
+        14.538417278320058,
+        14.442895981019891,
+        13.905688111722315,
+        13.70152922418531
+      ]
+    },
+    {
+      "query": "Can I freeze the filled pastries before baking them?",
+      "ground_truth_id": 38276,
+      "ground_truth_recipe": "now and later vegetarian empanadas",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        290453,
+        338907,
+        3779,
+        391156,
+        520809
+      ],
+      "top_5_recipe_names": [
+        "almond puff loaf",
+        "amazing stuffing from scratch breadmaker recommended",
+        "a real philly cheesesteak",
+        "2bleu s cheese blintzes",
+        "3 layer chocolate cake with chocolate mousse filling gluten fre"
+      ],
+      "top_5_scores": [
+        10.818350402761244,
+        10.085018154565594,
+        9.266769844901276,
+        9.204983859282573,
+        9.164740922055056
+      ]
+    },
+    {
+      "query": "Do I need to lower oven heat while baking bread?",
+      "ground_truth_id": 288427,
+      "ground_truth_recipe": "a new england holiday bread with olde world roots",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        66012,
+        53922,
+        429569,
+        454071,
+        293225
+      ],
+      "top_5_recipe_names": [
+        "almond tuiles",
+        "almond joy cheesecake",
+        "alex guarnaschelli s mother chicken with bbq",
+        "almond joy layer cake",
+        "honey i m peanuts about you cake"
+      ],
+      "top_5_scores": [
+        12.585358623796745,
+        11.957119978947096,
+        11.235009213941712,
+        10.420068438266187,
+        10.40858591057158
+      ]
+    },
+    {
+      "query": "How long should I slow cook riblets at low heat?",
+      "ground_truth_id": 338356,
+      "ground_truth_recipe": "alternate honey barbecue sauce with riblets applebee s copycat",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        338356,
+        459271,
+        393717,
+        397940,
+        246823
+      ],
+      "top_5_recipe_names": [
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "2bleu s country ham bacon and eggs",
+        "a grape picker s lunch sausages and lentils with thyme and wine",
+        "amish market oatmeal oamc",
+        "almond lemon tea cake"
+      ],
+      "top_5_scores": [
+        18.793483433423603,
+        9.665748317234481,
+        9.012983714743447,
+        7.991836500498477,
+        7.9556684678725595
+      ]
+    },
+    {
+      "query": "Do I need to add water for steam when baking?",
+      "ground_truth_id": 418387,
+      "ground_truth_recipe": "100 whole wheat bread plain and simple no knead",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        325571,
+        326393,
+        361017,
+        459271,
+        45120
+      ],
+      "top_5_recipe_names": [
+        "5 minute artisan bread",
+        "ahoy there moules marinires french sailor s mussels",
+        "the gumbo pages traditional red beans and rice",
+        "2bleu s country ham bacon and eggs",
+        "absolutely addicitve kale moti biryani lunch that s complete"
+      ],
+      "top_5_scores": [
+        14.287498224280755,
+        13.9773291995884,
+        13.445397615892873,
+        13.270164784529914,
+        13.270070950090401
+      ]
+    },
+    {
+      "query": "How long should I whip the yolks and sugar?",
+      "ground_truth_id": 242806,
+      "ground_truth_recipe": "almond sponge cake filled with almond cream",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        520809,
+        468108,
+        307279,
+        443034,
+        392181
+      ],
+      "top_5_recipe_names": [
+        "3 layer chocolate cake with chocolate mousse filling gluten fre",
+        "amazing mashed potatoes",
+        "a ptissier s black forest cake",
+        "almond caramel shortbreads",
+        "the real black tie mousse cake by olive garden"
+      ],
+      "top_5_scores": [
+        14.808238870787067,
+        14.043384364723885,
+        13.890629609677754,
+        12.344513799192697,
+        12.179635080980153
+      ]
+    },
+    {
+      "query": "How long should I beat the butter and sugar?",
+      "ground_truth_id": 489497,
+      "ground_truth_recipe": "absolutely divine devil s food cake",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        434789,
+        353862,
+        115160,
+        293225,
+        404661
+      ],
+      "top_5_recipe_names": [
+        "america s test kitchen coconut layer cake",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "15 layer russian honey cake",
+        "honey i m peanuts about you cake",
+        "1200 watt microwave peanut brittle"
+      ],
+      "top_5_scores": [
+        12.82413505877614,
+        12.645253938401057,
+        12.25664062754308,
+        12.225383104517178,
+        12.198560809871527
+      ]
+    },
+    {
+      "query": "How long should the mango and cucumber sit in vodka?",
+      "ground_truth_id": 372771,
+      "ground_truth_recipe": "4 fun salsa s in one",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        372771,
+        344915,
+        490104,
+        362986,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "4 fun salsa s in one",
+        "alton brown s gyro meat recipe",
+        "american kitchen classic basic thai curry",
+        "all in one roast chicken dinner",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        25.892049479365035,
+        16.589294989626097,
+        13.366207402576913,
+        13.136136547970438,
+        11.799761767879371
+      ]
+    },
+    {
+      "query": "How long should I let the pepper steam after broiling?",
+      "ground_truth_id": 131967,
+      "ground_truth_recipe": "a little bite of the mediterranean",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        325571,
+        450975,
+        326393,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "5 minute artisan bread",
+        "90 minute beer brined pot roast",
+        "ahoy there moules marinires french sailor s mussels",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        13.453108934258408,
+        9.987821585817994,
+        9.354656978409388,
+        9.329130982898127,
+        9.279061036538346
+      ]
+    },
+    {
+      "query": "How long should I leave this pastry in the oven?",
+      "ground_truth_id": 290453,
+      "ground_truth_recipe": "almond puff loaf",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        296318,
+        314774,
+        290453,
+        518146,
+        362986
+      ],
+      "top_5_recipe_names": [
+        "a better burnt almond cake",
+        "4th generation homemade cherry pie",
+        "almond puff loaf",
+        "a 1 black cherry brie chocolate walnut tartlet a1",
+        "all in one roast chicken dinner"
+      ],
+      "top_5_scores": [
+        14.984118786754248,
+        13.871965941664333,
+        12.950373087932698,
+        12.848964825690697,
+        12.578664341475033
+      ]
+    },
+    {
+      "query": "How long do I warm the brie in the oven?",
+      "ground_truth_id": 518146,
+      "ground_truth_recipe": "a 1 black cherry brie chocolate walnut tartlet a1",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        518146,
+        246125,
+        312190,
+        139353,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "a 1 black cherry brie chocolate walnut tartlet a1",
+        "amish friendship bread",
+        "aliya s grilled cheese eggs benedict",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        16.73726644662361,
+        13.988178782035133,
+        13.720738390051972,
+        13.544838602629843,
+        13.396413496912562
+      ]
+    },
+    {
+      "query": "How long do I steam a pudding in a bowl?",
+      "ground_truth_id": 257417,
+      "ground_truth_recipe": "7 cup steamed christmas pudding with butterscotch sauce",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        257417,
+        307799,
+        283936,
+        246125,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "7 cup steamed christmas pudding with butterscotch sauce",
+        "almond bread pudding",
+        "3 step fall off the bone ribs easy",
+        "amish friendship bread",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        19.814753913765582,
+        17.57236774073865,
+        16.884749192656535,
+        15.393603150332137,
+        14.909035320049682
+      ]
+    },
+    {
+      "query": "How thick should coconut milk get before adding spices?",
+      "ground_truth_id": 490104,
+      "ground_truth_recipe": "american kitchen classic basic thai curry",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        242952,
+        490104,
+        353862,
+        362224,
+        520809
+      ],
+      "top_5_recipe_names": [
+        "alton brown s coconut cake with 7 minute frosting",
+        "american kitchen classic basic thai curry",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "african chicken curry in rich palm oil",
+        "3 layer chocolate cake with chocolate mousse filling gluten fre"
+      ],
+      "top_5_scores": [
+        9.985286058310221,
+        9.607631919312873,
+        8.66605322755364,
+        7.812248435715563,
+        6.846973043374236
+      ]
+    },
+    {
+      "query": "How long should I bake the pie at 375?",
+      "ground_truth_id": 146,
+      "ground_truth_recipe": "21 apple pie",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        314774,
+        312139,
+        468870,
+        244292,
+        57204
+      ],
+      "top_5_recipe_names": [
+        "4th generation homemade cherry pie",
+        "all american apple pie",
+        "all butter pie crust",
+        "4 milk mexican flan",
+        "all american county fair prize winning chili"
+      ],
+      "top_5_scores": [
+        15.620101471952914,
+        13.592785061307753,
+        11.992302002407941,
+        11.983072190937675,
+        11.414478976079652
+      ]
+    },
+    {
+      "query": "Do I need to lower the oven after 30 minutes?",
+      "ground_truth_id": 244193,
+      "ground_truth_recipe": "absolutely the best new york cheesecake gluten free",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        66012,
+        53922,
+        139353,
+        341816,
+        325571
+      ],
+      "top_5_recipe_names": [
+        "almond tuiles",
+        "almond joy cheesecake",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "i coulda had a stuffed pepper stuffed peppers",
+        "5 minute artisan bread"
+      ],
+      "top_5_scores": [
+        13.643356285645105,
+        13.212154596649443,
+        12.00877149600355,
+        11.820780364117185,
+        11.644671928952974
+      ]
+    },
+    {
+      "query": "How do I know when the custard\u2019s done cooking?",
+      "ground_truth_id": 122791,
+      "ground_truth_recipe": "2 minute low fat strawberry and banana custard comfort food",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        151504,
+        139353,
+        246125,
+        312190,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "aluminum football roast turkey",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "amish friendship bread",
+        "aliya s grilled cheese eggs benedict",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        11.302113812499945,
+        11.255770312213507,
+        11.19110162279733,
+        10.785574679785672,
+        10.702262249480308
+      ]
+    },
+    {
+      "query": "How do I melt butterscotch chips without burning?",
+      "ground_truth_id": 145858,
+      "ground_truth_recipe": "hershey s triple layer cheesecake",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        145858,
+        356932,
+        520809,
+        233539,
+        257417
+      ],
+      "top_5_recipe_names": [
+        "hershey s triple layer cheesecake",
+        "alexandras famous brownies",
+        "3 layer chocolate cake with chocolate mousse filling gluten fre",
+        "amish cinnamon bread friendship bread",
+        "7 cup steamed christmas pudding with butterscotch sauce"
+      ],
+      "top_5_scores": [
+        16.04501769066487,
+        10.129739238324802,
+        9.289562033174327,
+        8.891988558751429,
+        8.795538578613755
+      ]
+    },
+    {
+      "query": "How long do I cook onions low and slow?",
+      "ground_truth_id": 147694,
+      "ground_truth_recipe": "alton s french onion soup attacked by sandi",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        393717,
+        338356,
+        367586,
+        516267,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "a grape picker s lunch sausages and lentils with thyme and wine",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "a taste of africa kenyan chicken curry",
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        9.122950456887061,
+        8.740287062433465,
+        8.678762095099268,
+        8.60344109990687,
+        8.557712424196577
+      ]
+    },
+    {
+      "query": "How long should I bake ribs after saucing?",
+      "ground_truth_id": 283936,
+      "ground_truth_recipe": "3 step fall off the bone ribs easy",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        283936,
+        362986,
+        338356,
+        246125,
+        325571
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "all in one roast chicken dinner",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "amish friendship bread",
+        "5 minute artisan bread"
+      ],
+      "top_5_scores": [
+        13.314240510320985,
+        9.108656950972193,
+        7.368450474389686,
+        6.734941140718183,
+        6.468568872061222
+      ]
+    },
+    {
+      "query": "How do I know when the dough is kneaded enough?",
+      "ground_truth_id": 387136,
+      "ground_truth_recipe": "algerian khobz el dar semolina bread",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        139353,
+        246125,
+        362832,
+        233539,
+        314774
+      ],
+      "top_5_recipe_names": [
+        "100 whole wheat bread non dense heavy white bread texture",
+        "amish friendship bread",
+        "aji de gallina",
+        "amish cinnamon bread friendship bread",
+        "4th generation homemade cherry pie"
+      ],
+      "top_5_scores": [
+        18.900143520705484,
+        13.319081456380907,
+        12.95588425624316,
+        12.738069137430013,
+        12.661596728704058
+      ]
+    },
+    {
+      "query": "How long do I cook the eggs covered on the stove?",
+      "ground_truth_id": 312190,
+      "ground_truth_recipe": "aliya s grilled cheese eggs benedict",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        312190,
+        246125,
+        283936,
+        233539,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "aliya s grilled cheese eggs benedict",
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "amish cinnamon bread friendship bread",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        14.61289932428079,
+        13.304540209012586,
+        13.206132560843672,
+        12.817365620238888,
+        12.766623267482121
+      ]
+    },
+    {
+      "query": "Is it better to start roasting turkey super hot?",
+      "ground_truth_id": 443177,
+      "ground_truth_recipe": "alton brown s brined turkey",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        507154,
+        490284,
+        144829,
+        443177,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "always perfect roast turkey",
+        "2 hour turkey really",
+        "alsatian brined turkey with riesling gravy",
+        "alton brown s brined turkey",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        19.035974871779697,
+        17.40648887691718,
+        15.656204843403227,
+        14.840331223058168,
+        13.798676806305348
+      ]
+    },
+    {
+      "query": "What\u2019s the best oven setting and time for cookies?",
+      "ground_truth_id": 353862,
+      "ground_truth_recipe": "almost healthy and surprisingly good chocolate chip cookies",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        338907,
+        308592,
+        499804,
+        512939,
+        511017
+      ],
+      "top_5_recipe_names": [
+        "amazing stuffing from scratch breadmaker recommended",
+        "3 variations of a gluten free bread recipe bread machine",
+        "8 for 8 broiled blt burgers for a bunch",
+        "american sandwich bread abm or oven",
+        "50 shades of garlic roasted chicken"
+      ],
+      "top_5_scores": [
+        16.118875964742074,
+        14.982403050007303,
+        12.275015722506675,
+        11.978961882408832,
+        11.7614551992522
+      ]
+    },
+    {
+      "query": "Should I smoke the brisket fat side up or down?",
+      "ground_truth_id": 368577,
+      "ground_truth_recipe": "a smoked beef brisket with rub and a texas bbq sauce",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        368577,
+        362224,
+        499888,
+        361017,
+        338356
+      ],
+      "top_5_recipe_names": [
+        "a smoked beef brisket with rub and a texas bbq sauce",
+        "african chicken curry in rich palm oil",
+        "albanian stewed green beans and potatoes with smokey seitan",
+        "the gumbo pages traditional red beans and rice",
+        "alternate honey barbecue sauce with riblets applebee s copycat"
+      ],
+      "top_5_scores": [
+        24.39014053531173,
+        13.47148261260743,
+        12.920089636440105,
+        12.508933973523025,
+        12.3768053638304
+      ]
+    },
+    {
+      "query": "How long should I boil salty ham slices to reduce salt?",
+      "ground_truth_id": 459271,
+      "ground_truth_recipe": "2bleu s country ham bacon and eggs",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        459271,
+        312190,
+        310570,
+        505248,
+        322512
+      ],
+      "top_5_recipe_names": [
+        "2bleu s country ham bacon and eggs",
+        "aliya s grilled cheese eggs benedict",
+        "burek or feta cheese phyllo pie",
+        "alea s meat lover s hashbrown casserole",
+        "a better borscht beet soup"
+      ],
+      "top_5_scores": [
+        17.360580884639642,
+        15.143169534561833,
+        11.953596866640801,
+        11.706369434871467,
+        11.584351359606176
+      ]
+    },
+    {
+      "query": "How long should I bake this casserole in the oven?",
+      "ground_truth_id": 505248,
+      "ground_truth_recipe": "alea s meat lover s hashbrown casserole",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        115160,
+        505248,
+        393717,
+        218853,
+        104588
+      ],
+      "top_5_recipe_names": [
+        "15 layer russian honey cake",
+        "alea s meat lover s hashbrown casserole",
+        "a grape picker s lunch sausages and lentils with thyme and wine",
+        "al roker s spicy beef chili",
+        "4 cheese baked macaroni"
+      ],
+      "top_5_scores": [
+        15.58640935637293,
+        15.560592452278595,
+        14.060383299002588,
+        13.554981642772217,
+        13.268688914335671
+      ]
+    },
+    {
+      "query": "How long should I simmer chili with jalapenos in it?",
+      "ground_truth_id": 57204,
+      "ground_truth_recipe": "all american county fair prize winning chili",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        381040,
+        57204,
+        367586,
+        522117,
+        218853
+      ],
+      "top_5_recipe_names": [
+        "afterburner chili",
+        "all american county fair prize winning chili",
+        "a taste of africa kenyan chicken curry",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "al roker s spicy beef chili"
+      ],
+      "top_5_scores": [
+        16.784696765480554,
+        13.24628162000641,
+        13.112350076465969,
+        12.954583571267921,
+        12.315057390654449
+      ]
+    },
+    {
+      "query": "How long should I let the dough rise in the oven?",
+      "ground_truth_id": 287939,
+      "ground_truth_recipe": "african donuts",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        325571,
+        139353,
+        246125,
+        181969,
+        284687
+      ],
+      "top_5_recipe_names": [
+        "5 minute artisan bread",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "amish friendship bread",
+        "alton brown s overnight cinnamon rolls",
+        "almost no knead bread"
+      ],
+      "top_5_scores": [
+        17.602440175919845,
+        17.12344559247934,
+        15.19611852203254,
+        14.949214522062686,
+        14.821544636445713
+      ]
+    },
+    {
+      "query": "How long do I roast a foil-wrapped turkey?",
+      "ground_truth_id": 151504,
+      "ground_truth_recipe": "aluminum football roast turkey",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        151504,
+        450975,
+        362986,
+        338356,
+        507154
+      ],
+      "top_5_recipe_names": [
+        "aluminum football roast turkey",
+        "90 minute beer brined pot roast",
+        "all in one roast chicken dinner",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "always perfect roast turkey"
+      ],
+      "top_5_scores": [
+        11.965467127737307,
+        11.483920587302867,
+        10.990581075024252,
+        9.062598473869217,
+        8.40213344456238
+      ]
+    },
+    {
+      "query": "How long should I cook the oatmeal on low?",
+      "ground_truth_id": 397940,
+      "ground_truth_recipe": "amish market oatmeal oamc",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        397940,
+        353862,
+        283936,
+        312190,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "amish market oatmeal oamc",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        16.13476919015592,
+        13.185531721237416,
+        10.777632051187002,
+        10.604749861839483,
+        10.025050337758188
+      ]
+    },
+    {
+      "query": "Do I need to heat the Dutch oven before baking?",
+      "ground_truth_id": 284687,
+      "ground_truth_recipe": "almost no knead bread",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        473002,
+        450975,
+        270955,
+        393717,
+        303913
+      ],
+      "top_5_recipe_names": [
+        "almost my grandma s rouladen melissa d arabian",
+        "90 minute beer brined pot roast",
+        "a winter s walk beef and carrot stew with herb crusted dumplings",
+        "a grape picker s lunch sausages and lentils with thyme and wine",
+        "almost no knead bread with olives rosemary and parmesan"
+      ],
+      "top_5_scores": [
+        16.09464312405465,
+        14.67117023238842,
+        13.70447018793532,
+        13.293884961909562,
+        13.258734092682618
+      ]
+    },
+    {
+      "query": "Do I need to preheat the stone before baking?",
+      "ground_truth_id": 493780,
+      "ground_truth_recipe": "all american ranch spinach shrimp pizza rsc",
+      "rank": 5,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        123710,
+        487173,
+        487701,
+        418387,
+        493780
+      ],
+      "top_5_recipe_names": [
+        "amazing thin crust pizza",
+        "5 minute bread pizza",
+        "5 minute artisan pizza dough",
+        "100 whole wheat bread plain and simple no knead",
+        "all american ranch spinach shrimp pizza rsc"
+      ],
+      "top_5_scores": [
+        14.918197718971449,
+        14.103621447989148,
+        13.24134775966682,
+        12.260454586836472,
+        11.77801115937558
+      ]
+    },
+    {
+      "query": "How long does it take to get tender beef?",
+      "ground_truth_id": 413145,
+      "ground_truth_recipe": "america s test kitchen slow cooker beef burgundy",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        353862,
+        246125,
+        97188,
+        522117,
+        76915
+      ],
+      "top_5_recipe_names": [
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "amish friendship bread",
+        "almond vanilla bean biscotti",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "a ramchandani special subru uncle s traditional sindhi curry mo"
+      ],
+      "top_5_scores": [
+        11.164280844667303,
+        10.578373454154706,
+        10.146384246352913,
+        9.505732465589453,
+        9.41484485275745
+      ]
+    },
+    {
+      "query": "How long should I mix pizza dough with the hook?",
+      "ground_truth_id": 382492,
+      "ground_truth_recipe": "alton brown s pizza",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        123710,
+        382492,
+        487173,
+        325571,
+        487701
+      ],
+      "top_5_recipe_names": [
+        "amazing thin crust pizza",
+        "alton brown s pizza",
+        "5 minute bread pizza",
+        "5 minute artisan bread",
+        "5 minute artisan pizza dough"
+      ],
+      "top_5_scores": [
+        17.491258814927654,
+        16.370236306847225,
+        15.134243516746555,
+        15.093992632416137,
+        14.41816655809933
+      ]
+    },
+    {
+      "query": "How long should I let the soup simmer covered?",
+      "ground_truth_id": 215370,
+      "ground_truth_recipe": "7 day soup diet recipe",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        472184,
+        322512,
+        516267,
+        147694,
+        385599
+      ],
+      "top_5_recipe_names": [
+        "7 day diet fat burning cabbage soup",
+        "a better borscht beet soup",
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "alton s french onion soup attacked by sandi",
+        "aash e anar pomegranate stew"
+      ],
+      "top_5_scores": [
+        11.66756841099628,
+        11.149825042700073,
+        11.120749407681789,
+        10.471974652345285,
+        10.281589243186968
+      ]
+    },
+    {
+      "query": "Do I need to keep the mixer slow at first?",
+      "ground_truth_id": 242952,
+      "ground_truth_recipe": "alton brown s coconut cake with 7 minute frosting",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        459271,
+        242952,
+        139353,
+        246125,
+        520809
+      ],
+      "top_5_recipe_names": [
+        "2bleu s country ham bacon and eggs",
+        "alton brown s coconut cake with 7 minute frosting",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "amish friendship bread",
+        "3 layer chocolate cake with chocolate mousse filling gluten fre"
+      ],
+      "top_5_scores": [
+        14.224959494310378,
+        13.028625528317203,
+        13.000230412598315,
+        12.913853282634975,
+        12.636832097523891
+      ]
+    },
+    {
+      "query": "How long do I need to steam mussels in wine?",
+      "ground_truth_id": 326393,
+      "ground_truth_recipe": "ahoy there moules marinires french sailor s mussels",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        326393,
+        283936,
+        325571,
+        246125,
+        341907
+      ],
+      "top_5_recipe_names": [
+        "ahoy there moules marinires french sailor s mussels",
+        "3 step fall off the bone ribs easy",
+        "5 minute artisan bread",
+        "amish friendship bread",
+        "al andalus paella"
+      ],
+      "top_5_scores": [
+        20.75448164543884,
+        14.885760350388459,
+        12.453170703790985,
+        12.15831620034221,
+        11.715979937265956
+      ]
+    },
+    {
+      "query": "How long should I bake these so tops aren\u2019t gooey?",
+      "ground_truth_id": 478546,
+      "ground_truth_recipe": "10 calorie chocolate miracle noodle cookies",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        233539,
+        356932,
+        312190,
+        97188
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "amish cinnamon bread friendship bread",
+        "alexandras famous brownies",
+        "aliya s grilled cheese eggs benedict",
+        "almond vanilla bean biscotti"
+      ],
+      "top_5_scores": [
+        11.723932201721185,
+        10.045485586634094,
+        9.80854842451924,
+        9.164195819031459,
+        8.179350436197753
+      ]
+    },
+    {
+      "query": "Should I leave the cheesecake in the oven after baking?",
+      "ground_truth_id": 75650,
+      "ground_truth_recipe": "4 cheese cheesecake",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        336627,
+        53922,
+        145858,
+        185799,
+        417845
+      ],
+      "top_5_recipe_names": [
+        "aimbrulee s ultimate pumpkin cheesecake",
+        "almond joy cheesecake",
+        "hershey s triple layer cheesecake",
+        "splenda d cheesecake sugar free low carb",
+        "a mighty fine black forest cheesecake"
+      ],
+      "top_5_scores": [
+        17.6414177944162,
+        17.208220463502165,
+        17.052299301146046,
+        16.78124301648996,
+        16.09922842318058
+      ]
+    },
+    {
+      "query": "Should I cover the dish while baking it first?",
+      "ground_truth_id": 202995,
+      "ground_truth_recipe": "amazing breakfast bake",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        341816,
+        35824,
+        338907,
+        312139,
+        310570
+      ],
+      "top_5_recipe_names": [
+        "i coulda had a stuffed pepper stuffed peppers",
+        "ambrosia with acini di pepe",
+        "amazing stuffing from scratch breadmaker recommended",
+        "all american apple pie",
+        "burek or feta cheese phyllo pie"
+      ],
+      "top_5_scores": [
+        10.600923043422005,
+        10.232775136802225,
+        10.206580010110684,
+        10.016273985081574,
+        9.969634925028378
+      ]
+    },
+    {
+      "query": "How do I get stiff peaks when whipping egg whites?",
+      "ground_truth_id": 476849,
+      "ground_truth_recipe": "aarsis ultimate valentine cake",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        242806,
+        307279,
+        476849,
+        520809,
+        392181
+      ],
+      "top_5_recipe_names": [
+        "almond sponge cake filled with almond cream",
+        "a ptissier s black forest cake",
+        "aarsis ultimate valentine cake",
+        "3 layer chocolate cake with chocolate mousse filling gluten fre",
+        "the real black tie mousse cake by olive garden"
+      ],
+      "top_5_scores": [
+        15.68313365842607,
+        15.08389829413953,
+        12.427723029605913,
+        10.989357825858178,
+        10.755838456202216
+      ]
+    },
+    {
+      "query": "How do I tell when brownies are perfectly baked?",
+      "ground_truth_id": 356932,
+      "ground_truth_recipe": "alexandras famous brownies",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        356932,
+        426816,
+        302143,
+        151504,
+        353862
+      ],
+      "top_5_recipe_names": [
+        "alexandras famous brownies",
+        "amelie s salted caramel brownies",
+        "amazing black bean brownies recipe courtesy of ania catalano",
+        "aluminum football roast turkey",
+        "almost healthy and surprisingly good chocolate chip cookies"
+      ],
+      "top_5_scores": [
+        18.725996715770435,
+        12.245913624439206,
+        12.204096582433799,
+        11.118062082517351,
+        11.106177115333704
+      ]
+    },
+    {
+      "query": "How do I know when potatoes are boiled enough?",
+      "ground_truth_id": 468108,
+      "ground_truth_recipe": "amazing mashed potatoes",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        478796,
+        468108,
+        327713,
+        361017,
+        139353
+      ],
+      "top_5_recipe_names": [
+        "alu paratha mashed potato stuffed bread",
+        "amazing mashed potatoes",
+        "aloo keema",
+        "the gumbo pages traditional red beans and rice",
+        "100 whole wheat bread non dense heavy white bread texture"
+      ],
+      "top_5_scores": [
+        11.001674385373915,
+        10.62916064902534,
+        10.167847597527288,
+        10.060820369732653,
+        9.773258888943598
+      ]
+    },
+    {
+      "query": "How hot should the oil be for frying fish?",
+      "ground_truth_id": 62037,
+      "ground_truth_recipe": "amazon catfish",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        312190,
+        397287,
+        338356,
+        151504,
+        436082
+      ],
+      "top_5_recipe_names": [
+        "aliya s grilled cheese eggs benedict",
+        "a1 ultimate jambalaya",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "aluminum football roast turkey",
+        "the best vegetarian vegan vegetable samosas"
+      ],
+      "top_5_scores": [
+        11.840351623025171,
+        11.280944651386703,
+        10.489426717719109,
+        10.460229355922861,
+        10.32886529898784
+      ]
+    },
+    {
+      "query": "How long do I need to cook the soaked beans?",
+      "ground_truth_id": 522117,
+      "ground_truth_recipe": "alan s vegetarian vegan bean and rice burger mashup",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        93802,
+        246125,
+        353862,
+        307799,
+        390230
+      ],
+      "top_5_recipe_names": [
+        "alabama white barbecue",
+        "amish friendship bread",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "almond bread pudding",
+        "melanie s chicken chili"
+      ],
+      "top_5_scores": [
+        14.645194300375154,
+        12.472728356262731,
+        12.192840659991077,
+        12.061714240099713,
+        11.67987621133289
+      ]
+    },
+    {
+      "query": "How long should I microwave this rice mixture?",
+      "ground_truth_id": 397287,
+      "ground_truth_recipe": "a1 ultimate jambalaya",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        404661,
+        397287,
+        522117,
+        476655,
+        362832
+      ],
+      "top_5_recipe_names": [
+        "1200 watt microwave peanut brittle",
+        "a1 ultimate jambalaya",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "7 day soup diet my version",
+        "aji de gallina"
+      ],
+      "top_5_scores": [
+        12.119097160949007,
+        11.197643770436429,
+        11.045868009743582,
+        10.033663377971903,
+        9.535029196018169
+      ]
+    },
+    {
+      "query": "How long should I beat the batter for fluffiness?",
+      "ground_truth_id": 129581,
+      "ground_truth_recipe": "tastes like mounds bar kahlua cake",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        302143,
+        293225,
+        434789,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "amazing black bean brownies recipe courtesy of ania catalano",
+        "honey i m peanuts about you cake",
+        "america s test kitchen coconut layer cake",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        12.773924110407343,
+        12.44821529476462,
+        11.654846356405447,
+        11.575690710950672,
+        11.544335111300569
+      ]
+    },
+    {
+      "query": "Should I leave the oven door closed while baking?",
+      "ground_truth_id": 312139,
+      "ground_truth_recipe": "all american apple pie",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        123710,
+        244193,
+        512939,
+        181969,
+        502254
+      ],
+      "top_5_recipe_names": [
+        "amazing thin crust pizza",
+        "absolutely the best new york cheesecake gluten free",
+        "american sandwich bread abm or oven",
+        "alton brown s overnight cinnamon rolls",
+        "absolutely best hot slaw recipe"
+      ],
+      "top_5_scores": [
+        9.824393314176229,
+        9.739226741310814,
+        9.71558229908562,
+        8.991376272645617,
+        8.92811539700654
+      ]
+    },
+    {
+      "query": "How long do I bake these brownies at 325?",
+      "ground_truth_id": 302143,
+      "ground_truth_recipe": "amazing black bean brownies recipe courtesy of ania catalano",
+      "rank": 5,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        356932,
+        426816,
+        443034,
+        27893,
+        302143
+      ],
+      "top_5_recipe_names": [
+        "alexandras famous brownies",
+        "amelie s salted caramel brownies",
+        "almond caramel shortbreads",
+        "7 layer fiesta party dip",
+        "amazing black bean brownies recipe courtesy of ania catalano"
+      ],
+      "top_5_scores": [
+        16.720940072070064,
+        12.357284106085729,
+        10.856134776090217,
+        10.2402593628924,
+        9.684636544809099
+      ]
+    },
+    {
+      "query": "How long do I microwave dried mushrooms before soaking?",
+      "ground_truth_id": 421411,
+      "ground_truth_recipe": "america s test kitchen green bean casserole",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        421411,
+        404661,
+        516267,
+        122791,
+        397940
+      ],
+      "top_5_recipe_names": [
+        "america s test kitchen green bean casserole",
+        "1200 watt microwave peanut brittle",
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "2 minute low fat strawberry and banana custard comfort food",
+        "amish market oatmeal oamc"
+      ],
+      "top_5_scores": [
+        10.033325529372405,
+        9.531179529493988,
+        9.416500357762253,
+        7.5592338739119445,
+        7.486060602445912
+      ]
+    },
+    {
+      "query": "How long should the soaked cake sit before fruit?",
+      "ground_truth_id": 412075,
+      "ground_truth_recipe": "a mere trifle strawberries and clotted cream trifle",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        93802,
+        307799,
+        353862,
+        392181,
+        246823
+      ],
+      "top_5_recipe_names": [
+        "alabama white barbecue",
+        "almond bread pudding",
+        "almost healthy and surprisingly good chocolate chip cookies",
+        "the real black tie mousse cake by olive garden",
+        "almond lemon tea cake"
+      ],
+      "top_5_scores": [
+        8.757116097788566,
+        8.574160453558758,
+        8.51892332347511,
+        7.935429937702913,
+        7.888879809793571
+      ]
+    },
+    {
+      "query": "How long should I simmer chicken bones for stock?",
+      "ground_truth_id": 173730,
+      "ground_truth_recipe": "hey nic add the chicken leek and potato soup",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        516267,
+        173730,
+        367586,
+        53312,
+        362832
+      ],
+      "top_5_recipe_names": [
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "hey nic add the chicken leek and potato soup",
+        "a taste of africa kenyan chicken curry",
+        "clean out the fridge soup",
+        "aji de gallina"
+      ],
+      "top_5_scores": [
+        14.636313769282937,
+        14.064768733095425,
+        11.17331879090807,
+        9.977147204253694,
+        9.933590822569638
+      ]
+    },
+    {
+      "query": "How long should I bake whole wheat bread at 350?",
+      "ground_truth_id": 181106,
+      "ground_truth_recipe": "100 whole grain wheat bread",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        139353,
+        181106,
+        418387,
+        338907,
+        288427
+      ],
+      "top_5_recipe_names": [
+        "100 whole wheat bread non dense heavy white bread texture",
+        "100 whole grain wheat bread",
+        "100 whole wheat bread plain and simple no knead",
+        "amazing stuffing from scratch breadmaker recommended",
+        "a new england holiday bread with olde world roots"
+      ],
+      "top_5_scores": [
+        16.941148156202964,
+        13.546799957054285,
+        13.4727678469585,
+        11.780512597824861,
+        11.585271712982653
+      ]
+    },
+    {
+      "query": "How often should I baste while baking stuffed peppers?",
+      "ground_truth_id": 341816,
+      "ground_truth_recipe": "i coulda had a stuffed pepper stuffed peppers",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        341816,
+        287008,
+        93802,
+        327713,
+        246125
+      ],
+      "top_5_recipe_names": [
+        "i coulda had a stuffed pepper stuffed peppers",
+        "alligator claws avocado fritters with chipotle lime dip",
+        "alabama white barbecue",
+        "aloo keema",
+        "amish friendship bread"
+      ],
+      "top_5_scores": [
+        14.240594458213064,
+        7.857561909310153,
+        7.820369144904828,
+        6.878037403549795,
+        6.4641793596612045
+      ]
+    },
+    {
+      "query": "How long should I bake before adding the topping?",
+      "ground_truth_id": 185799,
+      "ground_truth_recipe": "splenda d cheesecake sugar free low carb",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        27893,
+        115160,
+        139353,
+        246125,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "7 layer fiesta party dip",
+        "15 layer russian honey cake",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        11.097500195714925,
+        10.230012166339513,
+        10.032182496795748,
+        9.500743995020377,
+        9.186344299058243
+      ]
+    },
+    {
+      "query": "How long should I chill the dough balls first?",
+      "ground_truth_id": 114061,
+      "ground_truth_recipe": "absolute perfection ginger spice cookies",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        114061,
+        314774,
+        290371,
+        372771,
+        414783
+      ],
+      "top_5_recipe_names": [
+        "absolute perfection ginger spice cookies",
+        "4th generation homemade cherry pie",
+        "30 minute fresh mozzarella cheese homemade",
+        "4 fun salsa s in one",
+        "aebleskiver danish pancake balls"
+      ],
+      "top_5_scores": [
+        14.167391208326489,
+        11.984446046809436,
+        10.584563647128054,
+        9.657353654210864,
+        9.481303341750575
+      ]
+    },
+    {
+      "query": "How long should I simmer the grains before adding corn?",
+      "ground_truth_id": 353806,
+      "ground_truth_recipe": "amaranth quinoa and corn chowder",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        27893,
+        387136,
+        146096,
+        283936,
+        115160
+      ],
+      "top_5_recipe_names": [
+        "7 layer fiesta party dip",
+        "algerian khobz el dar semolina bread",
+        "amish friendship nut bread on demand",
+        "3 step fall off the bone ribs easy",
+        "15 layer russian honey cake"
+      ],
+      "top_5_scores": [
+        9.919295628872128,
+        9.824470302260114,
+        9.35273526168765,
+        9.186344299058241,
+        9.094567432733989
+      ]
+    },
+    {
+      "query": "Do I need to grease the pan before adding batter?",
+      "ground_truth_id": 414783,
+      "ground_truth_recipe": "aebleskiver danish pancake balls",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        293225,
+        93802,
+        520809,
+        336627,
+        123710
+      ],
+      "top_5_recipe_names": [
+        "honey i m peanuts about you cake",
+        "alabama white barbecue",
+        "3 layer chocolate cake with chocolate mousse filling gluten fre",
+        "aimbrulee s ultimate pumpkin cheesecake",
+        "amazing thin crust pizza"
+      ],
+      "top_5_scores": [
+        13.401259079944955,
+        12.995190910685041,
+        12.98534429427294,
+        12.903187037908395,
+        12.900592062394889
+      ]
+    },
+    {
+      "query": "How do I know when the pasta\u2019s done cooking?",
+      "ground_truth_id": 339440,
+      "ground_truth_recipe": "american chop suey just like mama used to make",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        151504,
+        139353,
+        246125,
+        312190,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "aluminum football roast turkey",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "amish friendship bread",
+        "aliya s grilled cheese eggs benedict",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        11.302113812499945,
+        11.255770312213507,
+        11.19110162279733,
+        10.785574679785672,
+        10.702262249480308
+      ]
+    },
+    {
+      "query": "How long should I cook the meat and veggies together?",
+      "ground_truth_id": 31008,
+      "ground_truth_recipe": "all purpose ground meat mix",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        362986,
+        283936,
+        151504,
+        310570,
+        473002
+      ],
+      "top_5_recipe_names": [
+        "all in one roast chicken dinner",
+        "3 step fall off the bone ribs easy",
+        "aluminum football roast turkey",
+        "burek or feta cheese phyllo pie",
+        "almost my grandma s rouladen melissa d arabian"
+      ],
+      "top_5_scores": [
+        13.50364447274395,
+        12.655220396247387,
+        12.491988625562124,
+        12.465223870661056,
+        12.463350132849804
+      ]
+    },
+    {
+      "query": "How long should I grill chicken skin side down?",
+      "ground_truth_id": 174846,
+      "ground_truth_recipe": "alabama bbq chicken and white sauce grilled",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        174846,
+        93802,
+        283936,
+        235855,
+        338356
+      ],
+      "top_5_recipe_names": [
+        "alabama bbq chicken and white sauce grilled",
+        "alabama white barbecue",
+        "3 step fall off the bone ribs easy",
+        "amazingly juicy grilled lemon chicken",
+        "alternate honey barbecue sauce with riblets applebee s copycat"
+      ],
+      "top_5_scores": [
+        15.927457527728954,
+        12.234562875705533,
+        11.340822634358537,
+        10.68162633621443,
+        10.348482292603357
+      ]
+    },
+    {
+      "query": "Do I need to chill the rolls before cutting?",
+      "ground_truth_id": 192721,
+      "ground_truth_recipe": "almond danish swirls",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        3779,
+        192721,
+        435816,
+        181969,
+        307279
+      ],
+      "top_5_recipe_names": [
+        "a real philly cheesesteak",
+        "almond danish swirls",
+        "iowa state fair sweet dough caramel cinnamon rolls",
+        "alton brown s overnight cinnamon rolls",
+        "a ptissier s black forest cake"
+      ],
+      "top_5_scores": [
+        15.80697955911888,
+        14.512290110954254,
+        13.9337384795544,
+        12.975962008570647,
+        12.866681477413113
+      ]
+    },
+    {
+      "query": "How long should I let the stew simmer before adding syrup?",
+      "ground_truth_id": 385599,
+      "ground_truth_recipe": "aash e anar pomegranate stew",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        204012,
+        270955,
+        385599,
+        499888,
+        27893
+      ],
+      "top_5_recipe_names": [
+        "ajiaco cubano",
+        "a winter s walk beef and carrot stew with herb crusted dumplings",
+        "aash e anar pomegranate stew",
+        "albanian stewed green beans and potatoes with smokey seitan",
+        "7 layer fiesta party dip"
+      ],
+      "top_5_scores": [
+        12.603252590451696,
+        11.776883097730032,
+        11.475578307542076,
+        11.118381420816057,
+        9.980585283081936
+      ]
+    },
+    {
+      "query": "How long can I keep pizza dough in the fridge?",
+      "ground_truth_id": 472204,
+      "ground_truth_recipe": "america s test kitchen thin crust pizza",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        123710,
+        290371,
+        487173,
+        487701,
+        325571
+      ],
+      "top_5_recipe_names": [
+        "amazing thin crust pizza",
+        "30 minute fresh mozzarella cheese homemade",
+        "5 minute bread pizza",
+        "5 minute artisan pizza dough",
+        "5 minute artisan bread"
+      ],
+      "top_5_scores": [
+        17.166023592147422,
+        16.00008651760055,
+        15.866362929737626,
+        14.41816655809933,
+        14.315497371416354
+      ]
+    },
+    {
+      "query": "Which bread machine setting works best for gluten-free loaf?",
+      "ground_truth_id": 308592,
+      "ground_truth_recipe": "3 variations of a gluten free bread recipe bread machine",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        308592,
+        339431,
+        338907,
+        317265,
+        303913
+      ],
+      "top_5_recipe_names": [
+        "3 variations of a gluten free bread recipe bread machine",
+        "american style panettone",
+        "amazing stuffing from scratch breadmaker recommended",
+        "a salad for all seasons",
+        "almost no knead bread with olives rosemary and parmesan"
+      ],
+      "top_5_scores": [
+        21.46699102993374,
+        11.180902584988893,
+        10.907735042522825,
+        8.241849026476004,
+        8.01216864056576
+      ]
+    },
+    {
+      "query": "How hot should the oil be to fry tortilla chips?",
+      "ground_truth_id": 535021,
+      "ground_truth_recipe": "7 layer elote dip",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        27893,
+        535021,
+        31008,
+        312190,
+        385942
+      ],
+      "top_5_recipe_names": [
+        "7 layer fiesta party dip",
+        "7 layer elote dip",
+        "all purpose ground meat mix",
+        "aliya s grilled cheese eggs benedict",
+        "algerian chicken preserved lemon bourek"
+      ],
+      "top_5_scores": [
+        14.858200499156247,
+        14.393766886144796,
+        12.638266211527391,
+        12.223960508261154,
+        11.87995292819846
+      ]
+    },
+    {
+      "query": "How long does the pasta need to simmer in the soup?",
+      "ground_truth_id": 53312,
+      "ground_truth_recipe": "clean out the fridge soup",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        508092,
+        246125,
+        383339,
+        344260,
+        339440
+      ],
+      "top_5_recipe_names": [
+        "america s test kitchen ragu alla bolognese",
+        "amish friendship bread",
+        "world s best macaroni cheese",
+        "ace s den meatballs in san marzano tomato sauce",
+        "american chop suey just like mama used to make"
+      ],
+      "top_5_scores": [
+        15.799495247402707,
+        15.756518470204261,
+        15.582956219626533,
+        15.224898032448515,
+        15.197981070997743
+      ]
+    },
+    {
+      "query": "What temperature and time for baking fudgy brownies?",
+      "ground_truth_id": 426816,
+      "ground_truth_recipe": "amelie s salted caramel brownies",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        444749,
+        390230,
+        518234,
+        325571,
+        505248
+      ],
+      "top_5_recipe_names": [
+        "5 ingredient salmon in a mustard honey cream sauce",
+        "melanie s chicken chili",
+        "a1 marinated top round with bacon parmesan polenta a1",
+        "5 minute artisan bread",
+        "alea s meat lover s hashbrown casserole"
+      ],
+      "top_5_scores": [
+        8.279720053668077,
+        8.13460927068354,
+        7.50803365065406,
+        7.5040152308996015,
+        7.500929605238804
+      ]
+    },
+    {
+      "query": "How long do the beans need to simmer uncovered?",
+      "ground_truth_id": 361017,
+      "ground_truth_recipe": "the gumbo pages traditional red beans and rice",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        472184,
+        522117,
+        361017,
+        459271,
+        27893
+      ],
+      "top_5_recipe_names": [
+        "7 day diet fat burning cabbage soup",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "the gumbo pages traditional red beans and rice",
+        "2bleu s country ham bacon and eggs",
+        "7 layer fiesta party dip"
+      ],
+      "top_5_scores": [
+        12.36387530504387,
+        12.119779639127273,
+        12.078557285787749,
+        11.646360611512574,
+        11.408788992552202
+      ]
+    },
+    {
+      "query": "How long do I simmer salmon steaks in water?",
+      "ground_truth_id": 369773,
+      "ground_truth_recipe": "4th of july salmon with egg sauce",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        369773,
+        444749,
+        118115,
+        473002,
+        459271
+      ],
+      "top_5_recipe_names": [
+        "4th of july salmon with egg sauce",
+        "5 ingredient salmon in a mustard honey cream sauce",
+        "almond crusted salmon with leek and lemon cream",
+        "almost my grandma s rouladen melissa d arabian",
+        "2bleu s country ham bacon and eggs"
+      ],
+      "top_5_scores": [
+        17.74770257150642,
+        14.075413262370288,
+        11.359764569160307,
+        10.078201092327781,
+        9.951243589504777
+      ]
+    },
+    {
+      "query": "How long should I bake before covering with foil?",
+      "ground_truth_id": 232518,
+      "ground_truth_recipe": "almost flourless chocolate cake",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        338356,
+        246125,
+        312190,
+        115160
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "amish friendship bread",
+        "aliya s grilled cheese eggs benedict",
+        "15 layer russian honey cake"
+      ],
+      "top_5_scores": [
+        12.40504332412463,
+        10.31023653382724,
+        8.96876220265323,
+        8.21513582854788,
+        8.147571698632577
+      ]
+    },
+    {
+      "query": "How long should I bake thin cake layers at 180\u00b0C?",
+      "ground_truth_id": 115160,
+      "ground_truth_recipe": "15 layer russian honey cake",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        434789,
+        293225,
+        454071,
+        115160,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "america s test kitchen coconut layer cake",
+        "honey i m peanuts about you cake",
+        "almond joy layer cake",
+        "15 layer russian honey cake",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        12.732231485283627,
+        11.96361413737066,
+        11.891482199297966,
+        11.566969995072945,
+        11.393060473870973
+      ]
+    },
+    {
+      "query": "How long do I roast red onions in the oven?",
+      "ground_truth_id": 317265,
+      "ground_truth_recipe": "a salad for all seasons",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        450975,
+        317265,
+        151504,
+        362986,
+        338356
+      ],
+      "top_5_recipe_names": [
+        "90 minute beer brined pot roast",
+        "a salad for all seasons",
+        "aluminum football roast turkey",
+        "all in one roast chicken dinner",
+        "alternate honey barbecue sauce with riblets applebee s copycat"
+      ],
+      "top_5_scores": [
+        16.635250802138152,
+        14.835537692607863,
+        13.936206116236328,
+        13.497189275581336,
+        12.913385436030966
+      ]
+    },
+    {
+      "query": "Do I need to pre-bake the dough before toppings?",
+      "ground_truth_id": 487173,
+      "ground_truth_recipe": "5 minute bread pizza",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        325571,
+        123710,
+        181106,
+        246125,
+        270955
+      ],
+      "top_5_recipe_names": [
+        "5 minute artisan bread",
+        "amazing thin crust pizza",
+        "100 whole grain wheat bread",
+        "amish friendship bread",
+        "a winter s walk beef and carrot stew with herb crusted dumplings"
+      ],
+      "top_5_scores": [
+        11.1066625330889,
+        11.04931169578633,
+        10.725678602532854,
+        10.668564216336003,
+        10.501825094443626
+      ]
+    },
+    {
+      "query": "How long should I grill chicken before searing it?",
+      "ground_truth_id": 235855,
+      "ground_truth_recipe": "amazingly juicy grilled lemon chicken",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        93802,
+        174846,
+        338356,
+        235855,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "alabama white barbecue",
+        "alabama bbq chicken and white sauce grilled",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "amazingly juicy grilled lemon chicken",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        12.771271281632462,
+        10.372396520425184,
+        10.069616128672418,
+        9.605864160762902,
+        9.098142022816045
+      ]
+    },
+    {
+      "query": "When should I add the rennet while heating milk?",
+      "ground_truth_id": 290371,
+      "ground_truth_recipe": "30 minute fresh mozzarella cheese homemade",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        290371,
+        145858,
+        307799,
+        468108,
+        322512
+      ],
+      "top_5_recipe_names": [
+        "30 minute fresh mozzarella cheese homemade",
+        "hershey s triple layer cheesecake",
+        "almond bread pudding",
+        "amazing mashed potatoes",
+        "a better borscht beet soup"
+      ],
+      "top_5_scores": [
+        16.674769015190343,
+        11.734090488894353,
+        10.702973933653926,
+        9.966599763035875,
+        9.44263515650481
+      ]
+    },
+    {
+      "query": "How long do I toast almonds in the oven?",
+      "ground_truth_id": 454071,
+      "ground_truth_recipe": "almond joy layer cake",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        443034,
+        454071,
+        296318,
+        362832,
+        97188
+      ],
+      "top_5_recipe_names": [
+        "almond caramel shortbreads",
+        "almond joy layer cake",
+        "a better burnt almond cake",
+        "aji de gallina",
+        "almond vanilla bean biscotti"
+      ],
+      "top_5_scores": [
+        13.313990244387867,
+        13.270103198671897,
+        12.55972713532201,
+        11.500756720189965,
+        11.392100396460918
+      ]
+    },
+    {
+      "query": "How long should I bake the almond pudding?",
+      "ground_truth_id": 307799,
+      "ground_truth_recipe": "almond bread pudding",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        314774,
+        49746,
+        97188,
+        296318,
+        53922
+      ],
+      "top_5_recipe_names": [
+        "4th generation homemade cherry pie",
+        "almond orange macaroons",
+        "almond vanilla bean biscotti",
+        "a better burnt almond cake",
+        "almond joy cheesecake"
+      ],
+      "top_5_scores": [
+        11.271381928485964,
+        10.367235164813653,
+        10.302225692574906,
+        9.47170769290334,
+        9.420705694966845
+      ]
+    },
+    {
+      "query": "How long should I bake cheesecake until it\u2019s set?",
+      "ground_truth_id": 417845,
+      "ground_truth_recipe": "a mighty fine black forest cheesecake",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        145858,
+        53922,
+        417845,
+        336627,
+        185799
+      ],
+      "top_5_recipe_names": [
+        "hershey s triple layer cheesecake",
+        "almond joy cheesecake",
+        "a mighty fine black forest cheesecake",
+        "aimbrulee s ultimate pumpkin cheesecake",
+        "splenda d cheesecake sugar free low carb"
+      ],
+      "top_5_scores": [
+        12.847205874393673,
+        12.084562932606778,
+        11.818598853007892,
+        11.688140802677285,
+        11.533791375488276
+      ]
+    },
+    {
+      "query": "Do I soak gelatin in cold water first?",
+      "ground_truth_id": 392181,
+      "ground_truth_recipe": "the real black tie mousse cake by olive garden",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        116111,
+        508092,
+        392181,
+        426816,
+        45120
+      ],
+      "top_5_recipe_names": [
+        "7 layer jello",
+        "america s test kitchen ragu alla bolognese",
+        "the real black tie mousse cake by olive garden",
+        "amelie s salted caramel brownies",
+        "absolutely addicitve kale moti biryani lunch that s complete"
+      ],
+      "top_5_scores": [
+        12.884465667305571,
+        11.560569796806304,
+        11.442836222111188,
+        10.467893014418502,
+        9.43857505934796
+      ]
+    },
+    {
+      "query": "How long should I let the veggies simmer until soft?",
+      "ground_truth_id": 499888,
+      "ground_truth_recipe": "albanian stewed green beans and potatoes with smokey seitan",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        310570,
+        283936,
+        312190,
+        367586,
+        473002
+      ],
+      "top_5_recipe_names": [
+        "burek or feta cheese phyllo pie",
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "a taste of africa kenyan chicken curry",
+        "almost my grandma s rouladen melissa d arabian"
+      ],
+      "top_5_scores": [
+        11.50859761847908,
+        10.425204497438866,
+        10.38893167216682,
+        10.360316719734016,
+        10.200264716281943
+      ]
+    },
+    {
+      "query": "How long do I need to cook the caramel?",
+      "ground_truth_id": 435816,
+      "ground_truth_recipe": "iowa state fair sweet dough caramel cinnamon rolls",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        283936,
+        151504,
+        93802,
+        325571
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "aluminum football roast turkey",
+        "alabama white barbecue",
+        "5 minute artisan bread"
+      ],
+      "top_5_scores": [
+        12.472728356262731,
+        11.112859147298726,
+        11.045839200547672,
+        10.751761808917713,
+        10.716872798078581
+      ]
+    },
+    {
+      "query": "How do I know when the caramel is ready?",
+      "ground_truth_id": 106417,
+      "ground_truth_recipe": "almond encrusted english toffee",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        443034,
+        244292,
+        362832,
+        139353,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "almond caramel shortbreads",
+        "4 milk mexican flan",
+        "aji de gallina",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        15.988029880920637,
+        13.508147145266813,
+        12.95588425624316,
+        12.93857755135275,
+        12.738069137430013
+      ]
+    },
+    {
+      "query": "Should I put the stone low in the oven?",
+      "ground_truth_id": 487701,
+      "ground_truth_recipe": "5 minute artisan pizza dough",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        123710,
+        487173,
+        418387,
+        493780,
+        382492
+      ],
+      "top_5_recipe_names": [
+        "amazing thin crust pizza",
+        "5 minute bread pizza",
+        "100 whole wheat bread plain and simple no knead",
+        "all american ranch spinach shrimp pizza rsc",
+        "alton brown s pizza"
+      ],
+      "top_5_scores": [
+        15.339697570140459,
+        14.855311307471275,
+        13.64069527311269,
+        13.364836251685151,
+        13.125427339559863
+      ]
+    },
+    {
+      "query": "How long should I cook the cherry filling on the stove?",
+      "ground_truth_id": 314774,
+      "ground_truth_recipe": "4th generation homemade cherry pie",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        314774,
+        417845,
+        307279,
+        518146,
+        141035
+      ],
+      "top_5_recipe_names": [
+        "4th generation homemade cherry pie",
+        "a mighty fine black forest cheesecake",
+        "a ptissier s black forest cake",
+        "a 1 black cherry brie chocolate walnut tartlet a1",
+        "amis s christmas stollen"
+      ],
+      "top_5_scores": [
+        19.051482145133992,
+        16.959059172256353,
+        15.579465656231049,
+        14.629255932038856,
+        13.409893541488414
+      ]
+    },
+    {
+      "query": "How long do I keep the bread covered in the oven?",
+      "ground_truth_id": 303913,
+      "ground_truth_recipe": "almost no knead bread with olives rosemary and parmesan",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        367586,
+        139353,
+        312190,
+        233539
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "a taste of africa kenyan chicken curry",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "aliya s grilled cheese eggs benedict",
+        "amish cinnamon bread friendship bread"
+      ],
+      "top_5_scores": [
+        15.654955347963034,
+        14.62865883514797,
+        14.50116553670797,
+        14.39543160657175,
+        14.302056470191113
+      ]
+    },
+    {
+      "query": "How long should I bake the shortbread crust?",
+      "ground_truth_id": 443034,
+      "ground_truth_recipe": "almond caramel shortbreads",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        443034,
+        246125,
+        283936,
+        312190,
+        325571
+      ],
+      "top_5_recipe_names": [
+        "almond caramel shortbreads",
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "5 minute artisan bread"
+      ],
+      "top_5_scores": [
+        13.712717314709252,
+        9.20071685080407,
+        8.840122831474691,
+        8.27649075432406,
+        8.20782726952202
+      ]
+    },
+    {
+      "query": "How long should I cook the paratha before flipping?",
+      "ground_truth_id": 478796,
+      "ground_truth_recipe": "alu paratha mashed potato stuffed bread",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        478796,
+        283936,
+        312190,
+        151504,
+        246125
+      ],
+      "top_5_recipe_names": [
+        "alu paratha mashed potato stuffed bread",
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "aluminum football roast turkey",
+        "amish friendship bread"
+      ],
+      "top_5_scores": [
+        13.499828040730131,
+        9.186344299058241,
+        8.913191587096943,
+        8.837712157245154,
+        8.123911922183877
+      ]
+    },
+    {
+      "query": "How long should I brown small meatballs on the stove?",
+      "ground_truth_id": 103948,
+      "ground_truth_recipe": "smells like sunday chicken fricassee with meatballs",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        103948,
+        344260,
+        385599,
+        283936,
+        312190
+      ],
+      "top_5_recipe_names": [
+        "smells like sunday chicken fricassee with meatballs",
+        "ace s den meatballs in san marzano tomato sauce",
+        "aash e anar pomegranate stew",
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict"
+      ],
+      "top_5_scores": [
+        16.140478302879128,
+        15.782596207764396,
+        13.20331886993122,
+        11.851140136031486,
+        10.831889065307857
+      ]
+    },
+    {
+      "query": "How long do I roast almonds after peeling them?",
+      "ground_truth_id": 64372,
+      "ground_truth_recipe": "almond riesling savarin with fig compote",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        151504,
+        362986,
+        450975,
+        296318,
+        314774
+      ],
+      "top_5_recipe_names": [
+        "aluminum football roast turkey",
+        "all in one roast chicken dinner",
+        "90 minute beer brined pot roast",
+        "a better burnt almond cake",
+        "4th generation homemade cherry pie"
+      ],
+      "top_5_scores": [
+        14.183777887226398,
+        9.412409826107389,
+        9.239172199144654,
+        8.780220860782363,
+        8.304761578793276
+      ]
+    },
+    {
+      "query": "How long do I poach chicken in broth?",
+      "ground_truth_id": 362832,
+      "ground_truth_recipe": "aji de gallina",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        367586,
+        93802,
+        362986,
+        362832,
+        516267
+      ],
+      "top_5_recipe_names": [
+        "a taste of africa kenyan chicken curry",
+        "alabama white barbecue",
+        "all in one roast chicken dinner",
+        "aji de gallina",
+        "a yummy chicken noodle soup 8 qt pressure cooker"
+      ],
+      "top_5_scores": [
+        10.03369265605741,
+        9.89030835436039,
+        9.691389616007147,
+        9.408352369787199,
+        9.364270649528356
+      ]
+    },
+    {
+      "query": "How long should I cook each side of crepes?",
+      "ground_truth_id": 391156,
+      "ground_truth_recipe": "2bleu s cheese blintzes",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        312190,
+        283936,
+        246125,
+        151504,
+        468108
+      ],
+      "top_5_recipe_names": [
+        "aliya s grilled cheese eggs benedict",
+        "3 step fall off the bone ribs easy",
+        "amish friendship bread",
+        "aluminum football roast turkey",
+        "amazing mashed potatoes"
+      ],
+      "top_5_scores": [
+        10.064636928638526,
+        8.684358637642056,
+        8.249698425485008,
+        8.163896312512602,
+        7.905715419223821
+      ]
+    },
+    {
+      "query": "How long do I need to simmer the chicken?",
+      "ground_truth_id": 348870,
+      "ground_truth_recipe": "amazing hungarian chicken paprikash with dumplings",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        283936,
+        338356,
+        472184,
+        93802
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "7 day diet fat burning cabbage soup",
+        "alabama white barbecue"
+      ],
+      "top_5_scores": [
+        12.472728356262731,
+        11.112859147298726,
+        10.929176744516768,
+        10.866991648052226,
+        10.751761808917713
+      ]
+    },
+    {
+      "query": "How long should I cook onions until soft and golden?",
+      "ground_truth_id": 334501,
+      "ground_truth_recipe": "sannich in soup",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        516267,
+        468108,
+        367586,
+        440717,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "a yummy chicken noodle soup 8 qt pressure cooker",
+        "amazing mashed potatoes",
+        "a taste of africa kenyan chicken curry",
+        "a healthier smothered pork chops mushrooms and onions",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        11.543553783805425,
+        11.08585844477795,
+        10.42066575677834,
+        10.221041292534512,
+        10.192092552489182
+      ]
+    },
+    {
+      "query": "How long should I bake squash covered in foil?",
+      "ground_truth_id": 252621,
+      "ground_truth_recipe": "acorn squash stuffed w pears wild rice walnuts",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        81357,
+        78296,
+        252621,
+        246125,
+        522117
+      ],
+      "top_5_recipe_names": [
+        "acorn squash stuffed with curried meat",
+        "acorn squash stuffed with lamb curry",
+        "acorn squash stuffed w pears wild rice walnuts",
+        "amish friendship bread",
+        "alan s vegetarian vegan bean and rice burger mashup"
+      ],
+      "top_5_scores": [
+        13.618693603976405,
+        13.614045212202296,
+        12.401657610973793,
+        8.886304694883549,
+        8.794382635828736
+      ]
+    },
+    {
+      "query": "How long should I marinate the chicken before cooking?",
+      "ground_truth_id": 367586,
+      "ground_truth_recipe": "a taste of africa kenyan chicken curry",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        367586,
+        362986,
+        93802,
+        468108,
+        362832
+      ],
+      "top_5_recipe_names": [
+        "a taste of africa kenyan chicken curry",
+        "all in one roast chicken dinner",
+        "alabama white barbecue",
+        "amazing mashed potatoes",
+        "aji de gallina"
+      ],
+      "top_5_scores": [
+        10.3142775297271,
+        10.228105839860378,
+        10.17078038502233,
+        9.747277283322124,
+        9.743160282267628
+      ]
+    },
+    {
+      "query": "How long should I gently cook eggs in water?",
+      "ground_truth_id": 429949,
+      "ground_truth_recipe": "a fully monty healthier version",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        312190,
+        310570,
+        283936,
+        325571,
+        246125
+      ],
+      "top_5_recipe_names": [
+        "aliya s grilled cheese eggs benedict",
+        "burek or feta cheese phyllo pie",
+        "3 step fall off the bone ribs easy",
+        "5 minute artisan bread",
+        "amish friendship bread"
+      ],
+      "top_5_scores": [
+        9.938521258992651,
+        8.722552396718278,
+        8.432699542086711,
+        8.255505385854166,
+        8.228841560313604
+      ]
+    },
+    {
+      "query": "How long do I leave the starter out before baking?",
+      "ground_truth_id": 80457,
+      "ground_truth_recipe": "amish friendship bread 1965",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        246125,
+        233539,
+        146096,
+        80457,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "amish cinnamon bread friendship bread",
+        "amish friendship nut bread on demand",
+        "amish friendship bread 1965",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        17.176347097167007,
+        16.42281350816283,
+        13.783665108830071,
+        13.033954473446553,
+        10.626920413645774
+      ]
+    },
+    {
+      "query": "How long should I rest the dough before rolling?",
+      "ground_truth_id": 225426,
+      "ground_truth_recipe": "alyssa s butter fly tarts",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        325571,
+        312190,
+        123710,
+        310570,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "5 minute artisan bread",
+        "aliya s grilled cheese eggs benedict",
+        "amazing thin crust pizza",
+        "burek or feta cheese phyllo pie",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        11.061783726030722,
+        9.891297392667747,
+        9.636324219876318,
+        9.6222218091202,
+        9.186344299058241
+      ]
+    },
+    {
+      "query": "What\u2019s the best oven temp and time for a bundt?",
+      "ground_truth_id": 108524,
+      "ground_truth_recipe": "almost tortuga rum cake",
+      "rank": 5,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        507154,
+        490284,
+        93802,
+        499804,
+        108524
+      ],
+      "top_5_recipe_names": [
+        "always perfect roast turkey",
+        "2 hour turkey really",
+        "alabama white barbecue",
+        "8 for 8 broiled blt burgers for a bunch",
+        "almost tortuga rum cake"
+      ],
+      "top_5_scores": [
+        16.47425360739848,
+        16.43114032870609,
+        14.736906940937962,
+        14.525238417998487,
+        13.895223152714301
+      ]
+    },
+    {
+      "query": "What\u2019s the best oil temperature for frying these?",
+      "ground_truth_id": 350400,
+      "ground_truth_recipe": "utah scones deep fried",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        284687,
+        397287,
+        436082,
+        312190,
+        256190
+      ],
+      "top_5_recipe_names": [
+        "almost no knead bread",
+        "a1 ultimate jambalaya",
+        "the best vegetarian vegan vegetable samosas",
+        "aliya s grilled cheese eggs benedict",
+        "absolutely the best creamed spinach"
+      ],
+      "top_5_scores": [
+        10.550945596280638,
+        10.217038598329511,
+        9.339359940698227,
+        8.215617800780928,
+        8.109208622957368
+      ]
+    },
+    {
+      "query": "How long should I let the rice simmer with spices?",
+      "ground_truth_id": 290003,
+      "ground_truth_recipe": "al kabsa ancient arabian chicken and fragrant rice",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        522117,
+        362832,
+        367586,
+        341816,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "aji de gallina",
+        "a taste of africa kenyan chicken curry",
+        "i coulda had a stuffed pepper stuffed peppers",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        14.530976133854926,
+        12.94898814884496,
+        12.49578758589774,
+        11.955853595807849,
+        11.206756430090195
+      ]
+    },
+    {
+      "query": "How often should I turn meatballs while frying?",
+      "ground_truth_id": 344260,
+      "ground_truth_recipe": "ace s den meatballs in san marzano tomato sauce",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        344260,
+        103948,
+        385599,
+        327713,
+        246125
+      ],
+      "top_5_recipe_names": [
+        "ace s den meatballs in san marzano tomato sauce",
+        "smells like sunday chicken fricassee with meatballs",
+        "aash e anar pomegranate stew",
+        "aloo keema",
+        "amish friendship bread"
+      ],
+      "top_5_scores": [
+        11.376886166406454,
+        10.043438987157742,
+        8.269786388699593,
+        6.878037403549795,
+        6.652929178445559
+      ]
+    },
+    {
+      "query": "How long should I microwave potatoes before cooking?",
+      "ground_truth_id": 327713,
+      "ground_truth_recipe": "aloo keema",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        327713,
+        404661,
+        468108,
+        476655,
+        362986
+      ],
+      "top_5_recipe_names": [
+        "aloo keema",
+        "1200 watt microwave peanut brittle",
+        "amazing mashed potatoes",
+        "7 day soup diet my version",
+        "all in one roast chicken dinner"
+      ],
+      "top_5_scores": [
+        11.301601421257725,
+        10.112277927083632,
+        9.761529736127553,
+        8.655134707638895,
+        8.435199879191824
+      ]
+    },
+    {
+      "query": "How long should I simmer the sauce with ginger?",
+      "ground_truth_id": 429569,
+      "ground_truth_recipe": "alex guarnaschelli s mother chicken with bbq",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        312190,
+        522117,
+        338356,
+        314774
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "aliya s grilled cheese eggs benedict",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "4th generation homemade cherry pie"
+      ],
+      "top_5_scores": [
+        12.68510739023047,
+        11.700281245675425,
+        11.480102410375359,
+        11.292817945243808,
+        11.274346757441684
+      ]
+    },
+    {
+      "query": "Do I keep the Dutch oven covered the whole time?",
+      "ground_truth_id": 303928,
+      "ground_truth_recipe": "almost no knead rye bread",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        284687,
+        450975,
+        381040,
+        473002,
+        411947
+      ],
+      "top_5_recipe_names": [
+        "almost no knead bread",
+        "90 minute beer brined pot roast",
+        "afterburner chili",
+        "almost my grandma s rouladen melissa d arabian",
+        "amish corn on the cob"
+      ],
+      "top_5_scores": [
+        15.108532408513517,
+        14.772118318710975,
+        13.724542318969249,
+        13.599054139006364,
+        13.210954733408563
+      ]
+    },
+    {
+      "query": "At what temperature and rack should I bake these?",
+      "ground_truth_id": 49746,
+      "ground_truth_recipe": "almond orange macaroons",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        53922,
+        139353,
+        505248,
+        406595,
+        312139
+      ],
+      "top_5_recipe_names": [
+        "almond joy cheesecake",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "alea s meat lover s hashbrown casserole",
+        "3 layer fudge cake with white chocolate mousse filling",
+        "all american apple pie"
+      ],
+      "top_5_scores": [
+        10.83457543262695,
+        10.733920919108963,
+        10.594493023827336,
+        10.528873317186246,
+        10.380614974752042
+      ]
+    },
+    {
+      "query": "How long do I simmer the dumplings in the juice?",
+      "ground_truth_id": 242179,
+      "ground_truth_recipe": "alaskan cranberry dumplings",
+      "rank": 4,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        348870,
+        270955,
+        465810,
+        242179,
+        367586
+      ],
+      "top_5_recipe_names": [
+        "amazing hungarian chicken paprikash with dumplings",
+        "a winter s walk beef and carrot stew with herb crusted dumplings",
+        "americanized slovak haluski",
+        "alaskan cranberry dumplings",
+        "a taste of africa kenyan chicken curry"
+      ],
+      "top_5_scores": [
+        17.77386340253451,
+        16.878453225024572,
+        16.870699289943552,
+        15.90109178371964,
+        13.442273967207834
+      ]
+    },
+    {
+      "query": "How much red food coloring goes in the mix?",
+      "ground_truth_id": 35824,
+      "ground_truth_recipe": "ambrosia with acini di pepe",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        35824,
+        372771,
+        476849,
+        246125,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "ambrosia with acini di pepe",
+        "4 fun salsa s in one",
+        "aarsis ultimate valentine cake",
+        "amish friendship bread",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        17.176660895654337,
+        11.517086801988452,
+        10.805719237709926,
+        10.368674136249972,
+        10.322639968958482
+      ]
+    },
+    {
+      "query": "How long should I boil the pasta before baking?",
+      "ground_truth_id": 104588,
+      "ground_truth_recipe": "4 cheese baked macaroni",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        383339,
+        35824,
+        362986,
+        283936,
+        508092
+      ],
+      "top_5_recipe_names": [
+        "world s best macaroni cheese",
+        "ambrosia with acini di pepe",
+        "all in one roast chicken dinner",
+        "3 step fall off the bone ribs easy",
+        "america s test kitchen ragu alla bolognese"
+      ],
+      "top_5_scores": [
+        11.792818675420211,
+        10.877832585741636,
+        9.819072954942555,
+        9.658622954984887,
+        9.129792090995359
+      ]
+    },
+    {
+      "query": "How long should I brown the beef before removing it?",
+      "ground_truth_id": 218853,
+      "ground_truth_recipe": "al roker s spicy beef chili",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        505248,
+        393717,
+        372771,
+        57204
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "alea s meat lover s hashbrown casserole",
+        "a grape picker s lunch sausages and lentils with thyme and wine",
+        "4 fun salsa s in one",
+        "all american county fair prize winning chili"
+      ],
+      "top_5_scores": [
+        12.530160337163387,
+        11.157012563468472,
+        10.886433257958771,
+        10.13102763240383,
+        9.926009933146506
+      ]
+    },
+    {
+      "query": "How long should I bake mac and cheese uncovered?",
+      "ground_truth_id": 383339,
+      "ground_truth_recipe": "world s best macaroni cheese",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        310570,
+        27893,
+        246125,
+        283936,
+        468108
+      ],
+      "top_5_recipe_names": [
+        "burek or feta cheese phyllo pie",
+        "7 layer fiesta party dip",
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "amazing mashed potatoes"
+      ],
+      "top_5_scores": [
+        9.396221600623319,
+        9.27252437625619,
+        9.136486122340468,
+        8.664425359709087,
+        8.589902611603005
+      ]
+    },
+    {
+      "query": "How long do I bake the biscotti loaf?",
+      "ground_truth_id": 97188,
+      "ground_truth_recipe": "almond vanilla bean biscotti",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        97188,
+        345763,
+        246125,
+        283936,
+        27893
+      ],
+      "top_5_recipe_names": [
+        "almond vanilla bean biscotti",
+        "american style vanilla biscotti",
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "7 layer fiesta party dip"
+      ],
+      "top_5_scores": [
+        15.91438680939662,
+        15.739644990793135,
+        9.857125465239546,
+        8.73340989596218,
+        8.452278819147404
+      ]
+    },
+    {
+      "query": "How long should I microwave a medium potato?",
+      "ground_truth_id": 484526,
+      "ground_truth_recipe": "baked potato baked microwaved or grilled",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        404661,
+        122791,
+        145858,
+        327713,
+        290371
+      ],
+      "top_5_recipe_names": [
+        "1200 watt microwave peanut brittle",
+        "2 minute low fat strawberry and banana custard comfort food",
+        "hershey s triple layer cheesecake",
+        "aloo keema",
+        "30 minute fresh mozzarella cheese homemade"
+      ],
+      "top_5_scores": [
+        12.460155511822327,
+        9.99022491702913,
+        9.642310839574744,
+        9.344468591112015,
+        8.907304840131873
+      ]
+    },
+    {
+      "query": "How long should I let the cream sit after simmering?",
+      "ground_truth_id": 289080,
+      "ground_truth_recipe": "amazing lavender crme brle",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        27893,
+        246125,
+        372771,
+        468108,
+        139353
+      ],
+      "top_5_recipe_names": [
+        "7 layer fiesta party dip",
+        "amish friendship bread",
+        "4 fun salsa s in one",
+        "amazing mashed potatoes",
+        "100 whole wheat bread non dense heavy white bread texture"
+      ],
+      "top_5_scores": [
+        10.006464875619397,
+        9.466898156761136,
+        9.31079377342016,
+        9.218255424478258,
+        8.922637915787735
+      ]
+    },
+    {
+      "query": "How long should I let the dip rest in fridge?",
+      "ground_truth_id": 27893,
+      "ground_truth_recipe": "7 layer fiesta party dip",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        27893,
+        287008,
+        287939,
+        493780,
+        290371
+      ],
+      "top_5_recipe_names": [
+        "7 layer fiesta party dip",
+        "alligator claws avocado fritters with chipotle lime dip",
+        "african donuts",
+        "all american ranch spinach shrimp pizza rsc",
+        "30 minute fresh mozzarella cheese homemade"
+      ],
+      "top_5_scores": [
+        14.664732862713203,
+        12.940505675533261,
+        12.83344507035745,
+        12.122955929480984,
+        11.992749629135496
+      ]
+    },
+    {
+      "query": "How long do I roast stuffed squash at 400 degrees?",
+      "ground_truth_id": 78296,
+      "ground_truth_recipe": "acorn squash stuffed with lamb curry",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        81357,
+        78296,
+        252621,
+        151504,
+        507154
+      ],
+      "top_5_recipe_names": [
+        "acorn squash stuffed with curried meat",
+        "acorn squash stuffed with lamb curry",
+        "acorn squash stuffed w pears wild rice walnuts",
+        "aluminum football roast turkey",
+        "always perfect roast turkey"
+      ],
+      "top_5_scores": [
+        18.80015362794917,
+        18.789772231257672,
+        13.802542565182376,
+        11.11912409911533,
+        10.476603449382695
+      ]
+    },
+    {
+      "query": "Should I squeeze out juice from the fruit pieces?",
+      "ground_truth_id": 211596,
+      "ground_truth_recipe": "a simply grand napoleon dessert",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        233539,
+        505248,
+        185799,
+        344915,
+        385599
+      ],
+      "top_5_recipe_names": [
+        "amish cinnamon bread friendship bread",
+        "alea s meat lover s hashbrown casserole",
+        "splenda d cheesecake sugar free low carb",
+        "alton brown s gyro meat recipe",
+        "aash e anar pomegranate stew"
+      ],
+      "top_5_scores": [
+        13.879695483514054,
+        13.26389924010481,
+        11.212250233818047,
+        10.926815677469385,
+        10.908442266954582
+      ]
+    },
+    {
+      "query": "How long should I wait before adding the next layer?",
+      "ground_truth_id": 116111,
+      "ground_truth_recipe": "7 layer jello",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        93802,
+        372771,
+        404661,
+        27893,
+        356932
+      ],
+      "top_5_recipe_names": [
+        "alabama white barbecue",
+        "4 fun salsa s in one",
+        "1200 watt microwave peanut brittle",
+        "7 layer fiesta party dip",
+        "alexandras famous brownies"
+      ],
+      "top_5_scores": [
+        12.2762368497127,
+        10.514209063033757,
+        10.142363449611103,
+        9.919295628872128,
+        9.873520931536008
+      ]
+    },
+    {
+      "query": "How long do I bake the sugar-coated bacon?",
+      "ground_truth_id": 517863,
+      "ground_truth_recipe": "a1b bacon burger bites on white polenta cakes a1",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        246125,
+        283936,
+        27893,
+        233539,
+        151504
+      ],
+      "top_5_recipe_names": [
+        "amish friendship bread",
+        "3 step fall off the bone ribs easy",
+        "7 layer fiesta party dip",
+        "amish cinnamon bread friendship bread",
+        "aluminum football roast turkey"
+      ],
+      "top_5_scores": [
+        9.857125465239546,
+        8.73340989596218,
+        8.452278819147404,
+        8.379426760337422,
+        8.33347916568021
+      ]
+    },
+    {
+      "query": "Should I warm the dressing before mixing it in?",
+      "ground_truth_id": 502254,
+      "ground_truth_recipe": "absolutely best hot slaw recipe",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        502254,
+        493780,
+        225707,
+        317265,
+        139353
+      ],
+      "top_5_recipe_names": [
+        "absolutely best hot slaw recipe",
+        "all american ranch spinach shrimp pizza rsc",
+        "dressed up salad with secret dressing",
+        "a salad for all seasons",
+        "100 whole wheat bread non dense heavy white bread texture"
+      ],
+      "top_5_scores": [
+        14.091568777662374,
+        13.070374932131779,
+        12.599776456950874,
+        11.658667132733846,
+        11.333963482088528
+      ]
+    },
+    {
+      "query": "How thin should I roll the pasta dough?",
+      "ground_truth_id": 306198,
+      "ground_truth_recipe": "agnolotti al burro e salvia",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        383339,
+        3779,
+        35824,
+        151504,
+        314774
+      ],
+      "top_5_recipe_names": [
+        "world s best macaroni cheese",
+        "a real philly cheesesteak",
+        "ambrosia with acini di pepe",
+        "aluminum football roast turkey",
+        "4th generation homemade cherry pie"
+      ],
+      "top_5_scores": [
+        11.40987288364419,
+        10.445092814214803,
+        10.33703921315935,
+        9.957322536825462,
+        9.190656345340344
+      ]
+    },
+    {
+      "query": "How long do I microwave the syrup before peanuts?",
+      "ground_truth_id": 404661,
+      "ground_truth_recipe": "1200 watt microwave peanut brittle",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        404661,
+        296318,
+        225426,
+        122791,
+        338356
+      ],
+      "top_5_recipe_names": [
+        "1200 watt microwave peanut brittle",
+        "a better burnt almond cake",
+        "alyssa s butter fly tarts",
+        "2 minute low fat strawberry and banana custard comfort food",
+        "alternate honey barbecue sauce with riblets applebee s copycat"
+      ],
+      "top_5_scores": [
+        16.755560314632156,
+        10.721485341898331,
+        10.566935329555484,
+        10.030713262297308,
+        9.757588432919054
+      ]
+    },
+    {
+      "query": "How long should I let the sauce simmer to thicken?",
+      "ground_truth_id": 444749,
+      "ground_truth_recipe": "5 ingredient salmon in a mustard honey cream sauce",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        283936,
+        522117,
+        312190,
+        367586,
+        314774
+      ],
+      "top_5_recipe_names": [
+        "3 step fall off the bone ribs easy",
+        "alan s vegetarian vegan bean and rice burger mashup",
+        "aliya s grilled cheese eggs benedict",
+        "a taste of africa kenyan chicken curry",
+        "4th generation homemade cherry pie"
+      ],
+      "top_5_scores": [
+        12.812751989319672,
+        11.875414167267234,
+        11.845232920637963,
+        11.55398810495477,
+        11.274346757441686
+      ]
+    },
+    {
+      "query": "How long does it take to roast stuffed squash?",
+      "ground_truth_id": 81357,
+      "ground_truth_recipe": "acorn squash stuffed with curried meat",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        450975,
+        151504,
+        362986,
+        478796,
+        507154
+      ],
+      "top_5_recipe_names": [
+        "90 minute beer brined pot roast",
+        "aluminum football roast turkey",
+        "all in one roast chicken dinner",
+        "alu paratha mashed potato stuffed bread",
+        "always perfect roast turkey"
+      ],
+      "top_5_scores": [
+        11.46406103438936,
+        11.09194079807366,
+        10.606057304438686,
+        10.512664102874773,
+        10.443213227197973
+      ]
+    },
+    {
+      "query": "How long should I keep the chicken in the fridge before cooking?",
+      "ground_truth_id": 93802,
+      "ground_truth_recipe": "alabama white barbecue",
+      "rank": null,
+      "found_in_top_5": false,
+      "top_5_recipe_ids": [
+        367586,
+        27893,
+        404661,
+        362986,
+        325571
+      ],
+      "top_5_recipe_names": [
+        "a taste of africa kenyan chicken curry",
+        "7 layer fiesta party dip",
+        "1200 watt microwave peanut brittle",
+        "all in one roast chicken dinner",
+        "5 minute artisan bread"
+      ],
+      "top_5_scores": [
+        16.304925075328402,
+        15.839935441578666,
+        15.07690407132219,
+        15.031328367359155,
+        14.859532562975351
+      ]
+    },
+    {
+      "query": "How long should I bake cheesecake in a water bath?",
+      "ground_truth_id": 53922,
+      "ground_truth_recipe": "almond joy cheesecake",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        53922,
+        336627,
+        417845,
+        145858,
+        185799
+      ],
+      "top_5_recipe_names": [
+        "almond joy cheesecake",
+        "aimbrulee s ultimate pumpkin cheesecake",
+        "a mighty fine black forest cheesecake",
+        "hershey s triple layer cheesecake",
+        "splenda d cheesecake sugar free low carb"
+      ],
+      "top_5_scores": [
+        16.21475933589762,
+        16.048594756441044,
+        15.142677145480402,
+        15.011480035177485,
+        14.10015564880855
+      ]
+    },
+    {
+      "query": "How long should I mix almond paste on low?",
+      "ground_truth_id": 246823,
+      "ground_truth_recipe": "almond lemon tea cake",
+      "rank": 1,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        246823,
+        49746,
+        97188,
+        296318,
+        288998
+      ],
+      "top_5_recipe_names": [
+        "almond lemon tea cake",
+        "almond orange macaroons",
+        "almond vanilla bean biscotti",
+        "a better burnt almond cake",
+        "almond praline cake with mascarpone frosting and chocolate bark"
+      ],
+      "top_5_scores": [
+        13.251527285572294,
+        11.699881419945015,
+        10.454334039495151,
+        10.308427401997907,
+        10.252891771791445
+      ]
+    },
+    {
+      "query": "How long should I leave the steak in the marinade?",
+      "ground_truth_id": 518234,
+      "ground_truth_recipe": "a1 marinated top round with bacon parmesan polenta a1",
+      "rank": 3,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        57204,
+        204012,
+        518234,
+        3779,
+        270955
+      ],
+      "top_5_recipe_names": [
+        "all american county fair prize winning chili",
+        "ajiaco cubano",
+        "a1 marinated top round with bacon parmesan polenta a1",
+        "a real philly cheesesteak",
+        "a winter s walk beef and carrot stew with herb crusted dumplings"
+      ],
+      "top_5_scores": [
+        16.73833166657663,
+        14.648625890005114,
+        14.10454733312336,
+        13.77876795362067,
+        13.511470322229279
+      ]
+    },
+    {
+      "query": "How long should I cook spinach until it's fully wilted?",
+      "ground_truth_id": 256190,
+      "ground_truth_recipe": "absolutely the best creamed spinach",
+      "rank": 2,
+      "found_in_top_5": true,
+      "top_5_recipe_ids": [
+        338356,
+        256190,
+        108524,
+        139353,
+        283936
+      ],
+      "top_5_recipe_names": [
+        "alternate honey barbecue sauce with riblets applebee s copycat",
+        "absolutely the best creamed spinach",
+        "almost tortuga rum cake",
+        "100 whole wheat bread non dense heavy white bread texture",
+        "3 step fall off the bone ribs easy"
+      ],
+      "top_5_scores": [
+        10.560618710801965,
+        10.176529471403205,
+        10.161917744523869,
+        9.19826586757674,
+        8.980258469280392
+      ]
+    }
+  ]
+}

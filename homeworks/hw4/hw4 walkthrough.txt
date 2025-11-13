@@ -1,0 +1,2520 @@
+Hamel Husain
+00:00:14
+Hello?
+Isaac Flath
+00:00:16
+Hey, how you doing?
+Hamel Husain
+00:00:18
+Pretty good. Just me and you today. I'm sure someone will come.
+Hamel Husain
+00:00:24
+It's like, it's a little bit laggy. I don't know if you can see me or not.
+Isaac Flath
+00:00:30
+I can see you. Am I lagging to you?
+Hamel Husain
+00:00:33
+Not anymore.
+Isaac Flath
+00:00:35
+Oh, okay.
+Isaac Flath
+00:00:38
+I could probably change this virtual background to not be something that moves.
+Hamel Husain
+00:00:45
+It's kinda cool.
+Isaac Flath
+00:00:50
+Yeah, they've done.
+Isaac Flath
+00:00:59
+Well… Oh, perfect.
+Hamel Husain
+00:01:05
+All right, we can go ahead and kick this off. You know, it's a little bit… it's a minute early, but that's totally fine. So today, I believe we're going to be going over Homework 4. Is that right, Isaac?
+Isaac Flath
+00:01:18
+Yep, that's right.
+Hamel Husain
+00:01:20
+And do you want to remind us what Homework 4 is about, and sort of where we are in the sequence?
+Hamel Husain
+00:01:27
+of homeworks.
+Isaac Flath
+00:01:30
+Yeah, so, I'll start, kind of, with what Homework 1 and 2 is, and then 3, and then how 4 fits in. So, homework 1 and 2 were about, you know, writing a system prompt.
+Isaac Flath
+00:01:40
+Getting understanding of how to, like, create some synthetic data,
+Isaac Flath
+00:01:46
+How to… how to prompt and look at that data, and… and… and think about things, kind of getting started with that.
+Isaac Flath
+00:01:53
+Last week in Homework 3 was a lot about LLM as a judge. This week is looking at
+Isaac Flath
+00:02:02
+you know, creating a retrieval, a RAG piece, how do you evaluate RAG queries? And so…
+Isaac Flath
+00:02:11
+We will look at… a RAG dataset that we'll get from Kaggle. We'll look at how do you
+Isaac Flath
+00:02:18
+How do you see if that's even a worthwhile dataset to look at? How are you going to evaluate it? All that kind of stuff, so…
+Isaac Flath
+00:02:26
+That's what we'll do today.
+Isaac Flath
+00:02:32
+You're muted, Hamel.
+Hamel Husain
+00:02:35
+I was just saying, it sounds great. And just to remind people, this is a special series of how do you tackle the homeworks with AI?
+Hamel Husain
+00:02:42
+Isaac already has, homework kind of proper homework walkthroughs in the GitHub repo.
+Hamel Husain
+00:02:49
+better videos, like, that you can find from the READMEs, or in the README.
+Hamel Husain
+00:02:53
+They'll… there's either, like, there's… there's homework solutions already, but this is kind of, like, a little bit of a different take on it, of, okay, how… how can you use, sort of, AI
+Hamel Husain
+00:03:06
+assistance.
+Hamel Husain
+00:03:07
+To try to tackle the homework.
+Hamel Husain
+00:03:09
+Still requires coding, but… Okay, like, how do you do that effectively? And that's what Isaac is showing.
+Isaac Flath
+00:03:19
+Alright, great, I'm gonna share my screen here.
+Isaac Flath
+00:03:30
+Alright, you should see my screen. So this is what Hannah was just talking about for this week, at least, in the homework for… there's this, Marimo notebook, there's also,
+Isaac Flath
+00:03:40
+you know, the README in here, there's a link to this notebook, this… not notebook, this video.
+Isaac Flath
+00:03:46
+And you can see, kind of walks through…
+Isaac Flath
+00:03:49
+the whole thing. So that's a good resource as well, and it just walks through
+Isaac Flath
+00:03:55
+you know, the evaluation, what all the homeworks are. This is like a notebook-driven way to… like…
+Isaac Flath
+00:04:04
+look at the data. You know, you could slide around and have widgets and…
+Isaac Flath
+00:04:09
+Browse your queries, making sure you can always look at the data at all times.
+Isaac Flath
+00:04:14
+Even if you're in a notebook.
+Isaac Flath
+00:04:16
+And so this was kind of a way of doing that, and I walked through that previously. So, there's a video for that if you're interested.
+Isaac Flath
+00:04:24
+Today we'll do it a little bit of a different take.
+Isaac Flath
+00:04:30
+Alright, so looking at this, in the homework for…
+Isaac Flath
+00:04:35
+And homeworks, homework 4, we can look at the README. These are the instructions. As I just mentioned, we're extending, we're looking at RAG this week, and there's several steps of this where we're going to,
+Isaac Flath
+00:04:50
+we're going to get data from Kaggle. There's a link in the README, for Kaggle, so we're going to get that raw data that has a bunch of recipes that we may want to retrieve from. We're going to talk a little bit about BM25,
+Isaac Flath
+00:05:05
+Well, I'll share a bunch of resources that already exist for that that I've created, so we can look at that and go as deep as you want to.
+Isaac Flath
+00:05:13
+We're gonna talk a little bit about synthetic data, we're gonna talk about metrics for it, you know, both recall, MRR, we'll talk about precision as well, how to look at the data, that's a recurring theme every week, but how to look at the data at each step, and yeah, go from there.
+Isaac Flath
+00:05:32
+Alright, so the first thing is, I did, is I went to Kaggle, I'll copy this link.
+Isaac Flath
+00:05:43
+I went to Kaggle, and I downloaded the CSV as a zip file. This requires,
+Isaac Flath
+00:05:50
+creating a Kaggle account, but it is free to download, and you just go to this download, and you probably have to accept that, some…
+Isaac Flath
+00:05:59
+some term there. But, this is the dataset. On Kaggle, you can see a little bit about what the dataset is, so this is a good thing to do, is just see what the person who created the dataset says about it. You can see a little bit of information about what the files are supposed to be,
+Isaac Flath
+00:06:18
+There's a link…
+Isaac Flath
+00:06:20
+For, looks like a lot of detail under what the dataset is. So you can go ahead and, you know, read through that if you'd like.
+Isaac Flath
+00:06:28
+The more you know about the dataset and the data that your model, a RAG system, or any system that you're using uses.
+Isaac Flath
+00:06:36
+The better off you're gonna be. So, I really recommend that.
+Isaac Flath
+00:06:44
+For…
+Isaac Flath
+00:06:50
+For this, the next, the step, once we've downloaded that.
+Isaac Flath
+00:06:54
+We get this, rawrecipes.csv. I already pre-downloaded it, that's this rawrecipes.csv file, and you can see there is…
+Isaac Flath
+00:07:05
+A lot.
+Isaac Flath
+00:07:07
+And so, this is probably more than we want to work with at the start. You know, you've got…
+Isaac Flath
+00:07:13
+267,000 rows. So that's a little bit more than we want to work with initially, and so what we want to do is we want to split this. And this is true almost all the time.
+Isaac Flath
+00:07:24
+I think often people think, well, I'm only gonna do a sample because I'm not doing it for real, but almost every time when I'm starting with something, I'm gonna work with a small sample and make sure, like, it kind of works before I scale up, because I can just work a lot faster that way.
+Isaac Flath
+00:07:42
+And so, that's this raw recipes, and so what I did is, I asked to split it into a small sample.
+Isaac Flath
+00:07:52
+The README gives instructions, it says, select the 200 longest recipes by text content, select some structured data, etc. So, I'm gonna show you what we did. We can do some of this interactively with AI, but I can also show you…
+Isaac Flath
+00:08:09
+The logs, so we don't have to,
+Isaac Flath
+00:08:13
+Let me do a search here.
+Isaac Flath
+00:08:15
+So we don't have to,
+Isaac Flath
+00:08:19
+you know, wait for the AI. So, this is a log of the chat history, and all I did here is I said, hey, I'm gonna give it the location of this raw recipe CSV. I don't have the exact name with the capital and the underscore, because I was just transcribing.
+Isaac Flath
+00:08:33
+There's, 5,000 recipes in there or so. I want you to structure it so there's ingredients, steps, tags, nutrition, because I already looked at the data a little bit, and I was like, these are the fields I want, and I only want the 200 largest recipes. Save it in this file.
+Isaac Flath
+00:08:49
+And write a script that does this transformation.
+Isaac Flath
+00:08:53
+Now, this self-contained UV script, this is kind of something that, you know, over time I've learned works very well with AI, and copilot went ahead and implemented it. You can see right here, it pretty much one-shot it. It came through.
+Isaac Flath
+00:09:08
+Told me how to run it. I said,
+Isaac Flath
+00:09:12
+it ran this, I said, you know, I think I need a name, a description, minutes, and full text, and so this is, like, the first example of, like.
+Isaac Flath
+00:09:20
+you know, you want to look at the data. Like, I realized that there was a full text that was missing that seemed really important. Same with minutes.
+Isaac Flath
+00:09:29
+And name and description, I thought, you know, if I'm going to be looking at this a lot, I want a name of the recipe, that's going to help me quite a bit. And so I looked at what came out, I thought it made sense, I had done the four columns from the rest… from the README, and I said, you know, I think I'd like a little bit more information here.
+Isaac Flath
+00:09:48
+Again, that goes ahead and does it, gives me a script.
+Isaac Flath
+00:09:52
+I was being lazy, so instead of running it, I had it run it.
+Isaac Flath
+00:09:59
+From there, we did the trick. I think we've seen this trick, oops.
+Isaac Flath
+00:10:03
+We've seen this trick, every week now, but, it's a good trick.
+Isaac Flath
+00:10:07
+Which is, create a self-contained HTML file that lets me look. It created a JSON file for me, now I'm like.
+Isaac Flath
+00:10:15
+I don't like looking at JSON, so why do I not like looking at JSON?
+Isaac Flath
+00:10:19
+I guess the answer is nobody likes looking at it. So this is what a JSON file looks like.
+Isaac Flath
+00:10:26
+And it's very hard, like, I can… I mean, obviously I can read this, but it's really hard for me to, like…
+Isaac Flath
+00:10:34
+Like, I don't even know where the next one is, and so if you're just scrolling through this and reading it, it's not that it's like… it's not that it's impossible to review the data like this, it's just the format is so painful that you're not gonna do it that much.
+Isaac Flath
+00:10:49
+And so you want to create a data viewer. A self-contained HTML file gets you going very quickly, you start figuring out what you want. Eventually, maybe you do something more robust.
+Isaac Flath
+00:11:02
+You know, but initially you don't, and so you don't need to.
+Isaac Flath
+00:11:07
+Alright, so, what did that look like?
+Isaac Flath
+00:11:13
+This is this, processed recipes viewer. There's no more in the chat history because,
+Isaac Flath
+00:11:22
+Because it one-shot it for me.
+Isaac Flath
+00:11:26
+So I can say… Oops.
+Isaac Flath
+00:11:31
+I can open…
+Isaac Flath
+00:11:33
+the data processed recipes viewer.html. You can also ask AI to do this command for you, but learning just a few commands on the terminal is really helpful if you don't know anything. And there's no, like.
+Isaac Flath
+00:11:50
+CD is for change directory, I'm just moving around.
+Isaac Flath
+00:11:54
+PWD is for Print Working Directory, Open is… Well, to open a file.
+Isaac Flath
+00:12:01
+And so, this is what it gave me here.
+Isaac Flath
+00:12:04
+I can say, let's look at my,
+Isaac Flath
+00:12:09
+Let's look at my processed recipes.
+Isaac Flath
+00:12:14
+And now I have, you know, this is a lot more pleasant to look at. I might actually read some of these.
+Isaac Flath
+00:12:21
+Chocolate raspberry ruffle cake, Recipe, meeting with Julia. Okay, there's 13 ingredients.
+Isaac Flath
+00:12:32
+Okay, so there's steps. So this is where you want to think about how relevant are these? Like, this is… because we're going to do retrieval, and what that means…
+Isaac Flath
+00:12:41
+is we're gonna… we wanna create a prompt, but we want to, like, retrieve one-shot examples. So just like you can put examples in your prompt.
+Isaac Flath
+00:12:51
+You might want to…
+Isaac Flath
+00:12:53
+you might want to, have it dynamic, which examples go in? Or you might want to use these to create synthetic data. Like, hey, I want to ask a question, I want a question answering, so people can ask questions, and I might use these as things to generate synthetic data from, which we'll look at in a little bit.
+Isaac Flath
+00:13:12
+And so, even here, I want to think about what is the app I'm trying to do? So, right off the bat.
+Isaac Flath
+00:13:19
+First of all, these are not typical directions, and I immediately think, well, if I'm building an app for beginning chefs, that doesn't sound good.
+Isaac Flath
+00:13:27
+You need to know about the needed equipment before attempting this quake.
+Isaac Flath
+00:13:32
+Okay, so we have this. I can look at this, and I can see…
+Isaac Flath
+00:13:37
+110 steps seems like a lot.
+Isaac Flath
+00:13:41
+Okay, so we've got some calorie text information. We can look at the full text. This seems like a lot. I can see that it takes 18 hours to make, has 13 ingredients, 110 steps, so I would say…
+Isaac Flath
+00:13:56
+If my goal is to make an app to help beginning chefs, or people who are just trying to start cooking do it, you know, I probably wouldn't necessarily need this in my dataset, in my RAG dataset. This doesn't seem like…
+Isaac Flath
+00:14:10
+something particularly helpful. You know, here, again, a 48-hour
+Isaac Flath
+00:14:16
+cake. This doesn't seem there. And so these are…
+Isaac Flath
+00:14:20
+You know, different size. Okay, a Shkata shortbread takes about an hour. Now we're talking about something that, you know, might be a stretch goal for someone who's completely beginning. It is tagged with beginner cook.
+Isaac Flath
+00:14:32
+But now we're seeing something that…
+Isaac Flath
+00:14:35
+You know, might be a special occasion thing for them.
+Isaac Flath
+00:14:40
+And so,
+Isaac Flath
+00:14:44
+This is something to look at. You know, here, I might be curious, 4 ingredients and 67 steps, that seems… that seems odd.
+Isaac Flath
+00:14:54
+And so I want to look through, like, what's going on here.
+Isaac Flath
+00:14:58
+And so…
+Isaac Flath
+00:15:01
+I guess the, the theme of this is pretty much anytime you're doing anything, you do want to, like, create some sort of view or to look at it. In this case, this was created with a single prompt. It doesn't have to be super extensive. It can get better over time.
+Isaac Flath
+00:15:16
+But, I probably wouldn't even have caught as much as I did just in these few minutes if I was just looking through that… that raw text file.
+Isaac Flath
+00:15:27
+Are there any questions so far?
+Isaac Flath
+00:15:37
+Okay.
+Isaac Flath
+00:15:42
+Alright, so, from there, again, I did the same thing as last week, where I had… let's see, there's things in the chat here… nope, all good. Okay, perfect. Oh, can I zoom in a little bit? Yes.
+Isaac Flath
+00:15:55
+Sorry about that.
+Isaac Flath
+00:16:03
+Chat over there.
+Isaac Flath
+00:16:06
+So I did the same thing, as last week, where I asked AI just to create a notebook, and I said, hey, let's look at processedrecipes.json, I've looked at some actual, things, let's go ahead and do,
+Isaac Flath
+00:16:22
+And do some distributions. And again, I can show you…
+Isaac Flath
+00:16:27
+what that looks like. We're gonna have some stuff to cover, and I'm anticipating some questions on,
+Isaac Flath
+00:16:34
+some kind of… I kind of pre-ran these, but I will show you the…
+Isaac Flath
+00:16:43
+Show you this, so, this is Spec Story, it logs everything.
+Isaac Flath
+00:16:49
+Okay, so this is, all I did. Make a notebook that analyzes it.
+Isaac Flath
+00:16:55
+Made some stuff, here.
+Isaac Flath
+00:16:59
+Created the Copilot notebook, and you can see…
+Isaac Flath
+00:17:03
+you know, all of it was created here, and I had some…
+Isaac Flath
+00:17:07
+Follow-up metrics about… questions about, like, what the different metrics are.
+Isaac Flath
+00:17:14
+So it created this notebook, and there's all kinds of interesting things that are already found.
+Isaac Flath
+00:17:20
+That are, like, jumping off points, you know, almost to… to question.
+Isaac Flath
+00:17:25
+So, first, you know, we look at…
+Isaac Flath
+00:17:29
+We look at this, this, again, is another way of looking at the data, but…
+Isaac Flath
+00:17:35
+This is not the most, like, it's truncated, it's kind of, like, hard, it's hard to read what these numbers are, especially, like, what is this number and jumping up, so this is another reason why having just a simple viewer is super helpful. Even if you just make it and you're gonna throw it away in an hour or two hours, it's still useful.
+Isaac Flath
+00:17:55
+And you can see it creates some general metrics. Okay, so… the mean time?
+Isaac Flath
+00:18:04
+Is, what, 456 minutes?
+Isaac Flath
+00:18:08
+Okay, so that seems pretty high. That might make sense, though, because we filtered the dataset for the longest 200 recipes.
+Isaac Flath
+00:18:19
+So, that's an easy way to filter it, and if we're making it for expert chefs, that actually might not be a bad thing if we're trying to encourage more complicated things they may not have thought of.
+Isaac Flath
+00:18:31
+That wouldn't have been the right split if our goal was, again, beginner chefs, or, maybe it's even people who know how to cook well, but, you know, have families and are starting to… starting to cook for a family, or starting to cook when they don't have a lot of time.
+Isaac Flath
+00:18:46
+So these are kind of good to kind of take a look at, and as you go, we can start seeing distributions. We can see, like, okay, the minutes it takes.
+Isaac Flath
+00:18:56
+How many ingredients are there?
+Isaac Flath
+00:18:59
+what's the steps? You know, some of these are, like.
+Isaac Flath
+00:19:02
+Over 30 ingredients seems like a lot.
+Isaac Flath
+00:19:06
+Maybe you want to think about, okay, Looks like…
+Isaac Flath
+00:19:11
+A lot of these, kind of, kind of, like, around the 55, 60… steps counts? Is that…
+Isaac Flath
+00:19:19
+Is that what we want? Do we want simpler ones? Do we want complicated ones?
+Isaac Flath
+00:19:23
+Maybe you want to cut out these outliers, maybe those aren't relevant to our data.
+Isaac Flath
+00:19:29
+Same, looks like we have an outlier here. I don't know if that's just something we should ignore, or if that's a data integrity issue. So all of these would be things you might want to…
+Isaac Flath
+00:19:40
+dive into. It also seems a little odd, we have this big spike, and then it kind of drops, and then, like, right around here, maybe this is a common baking dime for, like, breads or something? I'm not really sure.
+Isaac Flath
+00:19:52
+But that might be something to look at, like, what are these?
+Isaac Flath
+00:19:58
+Are they relevant to what we want?
+Isaac Flath
+00:20:02
+And we can, again, it graphs other things that we might want to think about. So we look at these graphs, and immediately it's like, something's off, like, here's these two massive outliers.
+Isaac Flath
+00:20:12
+If we hadn't really looked at it.
+Isaac Flath
+00:20:15
+You know, we might include those.
+Isaac Flath
+00:20:18
+I don't think you should, by default, exclude outliers, because outliers could be there because the data's bad.
+Isaac Flath
+00:20:26
+It could be there because there are… there's just legitimately weird stuff that actually happens in life, in which case you wanna… you wanna handle those, potentially.
+Isaac Flath
+00:20:35
+But it's definitely things to think about.
+Isaac Flath
+00:20:40
+you know, this time in minutes, it seems interesting that there's, like.
+Isaac Flath
+00:20:45
+Almost a vertical line here at the top.
+Isaac Flath
+00:20:49
+or horizontal line, I should say. Like, what is this plateau? Now, maybe it's…
+Isaac Flath
+00:20:55
+It just looks that way, because there's this big outlier, but like…
+Isaac Flath
+00:20:59
+It kind of seems… weird, like, there seems to be a lot here, and then there's…
+Isaac Flath
+00:21:04
+some middle ground stuff, but largely then there's another flat line, so I'd be curious, like, what's going on here?
+Isaac Flath
+00:21:11
+Why is there this big gap?
+Isaac Flath
+00:21:16
+I might guess, because we picked ones with very long recipes.
+Isaac Flath
+00:21:21
+The longest recipes, and we're looking at, like, high times. Like, my hypothesis here would be that this bottom line is anything that doesn't require a long baking time.
+Isaac Flath
+00:21:32
+And anything up here?
+Isaac Flath
+00:21:34
+In these higher minutes, maybe those are things that require a long baking and cooling time.
+Isaac Flath
+00:21:39
+But those would be things you might want to look at and understand.
+Isaac Flath
+00:21:43
+And I think this is kind of…
+Isaac Flath
+00:21:48
+you know, missed a bit, often. But what you retrieve
+Isaac Flath
+00:21:53
+Is part of your system prompt, it's part of your system.
+Isaac Flath
+00:21:57
+If you're retrieving stuff that's bad, you know, it's just as bad as not having a good system prompt, because it's all… or prompt in general, because it's all going in there.
+Isaac Flath
+00:22:08
+So here we see, I was mentioning, maybe it'd be nice to look at it without it. Well, it looks like it does. It still looks a little suspicious,
+Isaac Flath
+00:22:17
+You know, this, this kind of makes sense, like… So why are…
+Isaac Flath
+00:22:23
+Like, why is there this, like, what are these top lines here?
+Isaac Flath
+00:22:27
+So I might look into that.
+Isaac Flath
+00:22:35
+Calories is an interesting thing to look at.
+Isaac Flath
+00:22:39
+like, if you're making something, and this is supposed to, like, help people be healthy, I might wonder…
+Isaac Flath
+00:22:48
+Should we exclude this 5,000 calorie one?
+Isaac Flath
+00:22:51
+Is there something here? But I might also wonder, okay, we're going from very low calorie to, like, thousands and thousands of calories.
+Isaac Flath
+00:23:01
+It is… We have a lot of recipes that have different serving sizes.
+Isaac Flath
+00:23:06
+You know, do we have some that are serving size of 1 at 500 calories and serving size of 4 at 4,000 calories?
+Isaac Flath
+00:23:16
+Yes, I can provide the prompt right when we're done going through this notebook, I'll paste it in the chat. Yeah, absolutely.
+Isaac Flath
+00:23:22
+And so this is,
+Isaac Flath
+00:23:28
+So this is interesting, because, like, I don't know… I look at this, and I think about it, and it's like, my first reaction was like, oh, that's interesting, we have, like, a long tail, maybe I should cut it off. And then my next immediate action is, as I think about it, is like, well, okay.
+Isaac Flath
+00:23:42
+you know, why do we have this tail, and why is there so much variation? Like, I do expect variation in calories, but…
+Isaac Flath
+00:23:49
+It could be nothing, like, it could be that we have different serving sizes. Now, if we are creating an app, and the goal is to help
+Isaac Flath
+00:23:59
+New parents?
+Isaac Flath
+00:24:01
+Or help parents cook for their families of, you know, 4, 6, 8 people.
+Isaac Flath
+00:24:06
+If our main demographic is that,
+Isaac Flath
+00:24:10
+We might want to look and see, like, oh, well, all these recipes that have a serving size of 1, maybe we should take them and do some data cleaning by adjusting them, doubling or tripling the, the recipes, ingredients.
+Isaac Flath
+00:24:25
+So that, they're all for, like, serving size of 4 or serving size of 6, so it's all consistent. Maybe, maybe that's worth the effort.
+Isaac Flath
+00:24:36
+If we're making it for…
+Isaac Flath
+00:24:40
+You know, college students, you know, maybe we want to take someone that has a serving size of 4 or 6 or 8, and try to make them 4 more serving size of 1 or 2, and kind of adjust those recipes to get,
+Isaac Flath
+00:24:54
+To get better results that are more like what we want to produce.
+Isaac Flath
+00:25:00
+So, that would be something to kind of consider. Like, there's a whole… there's, like, infinite number of jumping off points, to start looking and improving, and you kind of have to make a judgment call about, like.
+Isaac Flath
+00:25:12
+you know, which of these do you think, based on your intuition, what do you think is probably gonna give the most, most results, the best results? I find that improving the quality and the clarity of your data, making it more like what you want.
+Isaac Flath
+00:25:29
+often has, like, one of the highest returns. It's almost always a good thing to do.
+Isaac Flath
+00:25:35
+Almost always better than, like, changing your model around, for sure.
+Isaac Flath
+00:25:41
+Okay, so we can see, percent of daily, Value…
+Isaac Flath
+00:25:49
+I see this percent of daily value, it's interesting, like, I don't know what this means.
+Isaac Flath
+00:25:55
+Okay, over, what, 12,000% of the daily sugar?
+Isaac Flath
+00:26:00
+like, what are these? This might be interesting if you're making something for healthy eating,
+Isaac Flath
+00:26:05
+I'm not quite sure what to make of it, but…
+Isaac Flath
+00:26:09
+For some kinds of apps, that might be very useful.
+Isaac Flath
+00:26:16
+I would probably be curious, like, what is this one? Like, is this, like, a big ol' cake for 50 people? You know, like, what? I'm just… I kind of want to know now.
+Isaac Flath
+00:26:28
+So, tags, kind of what shows up most,
+Isaac Flath
+00:26:34
+we can kind of see 4 hours or less, maybe that's a tag that we're like, hey, we want to tag the 4 hours or less,
+Isaac Flath
+00:26:41
+Low in something. Maybe that's a health thing.
+Isaac Flath
+00:26:45
+Easy could be one that we might want to, like, look into more.
+Isaac Flath
+00:26:51
+Preparation, course, and time to make, those seem like ones that are probably in almost everything. Which makes sense, we're looking at 200 recipes, so yeah, those are almost in everything, so they're…
+Isaac Flath
+00:27:00
+For the most part, pretty meaningless, if they're in almost everything.
+Isaac Flath
+00:27:06
+But some of these could be good, you know? Like, if somebody's asking for a main dish, we could potentially use these tags and these metadata to make the search even better, so…
+Isaac Flath
+00:27:17
+That might be helpful.
+Isaac Flath
+00:27:20
+You know, we might say… someone says they, really like…
+Isaac Flath
+00:27:27
+I wonder if there's, like, a vegetarian tag or something? Like, what other tags other than meat are there?
+Isaac Flath
+00:27:32
+Is there some sort of, like…
+Isaac Flath
+00:27:35
+user setup or configuration where they can, like, select their preferences, and then we do something like make it more likely that they get recipes with these tags. Like, if they say.
+Isaac Flath
+00:27:45
+You know, they like, they like…
+Isaac Flath
+00:27:48
+steak and burgers and whatever with all their meals, as much as possible, and chicken. If they, like, check meatlovers, then maybe it prioritizes recipes that have meat in it. Maybe if they're, say, they're vegetarian.
+Isaac Flath
+00:28:01
+it'll only return… the rag will only search for recipes with the vegetarian tag, or whatever. So, like, these actually could be pretty useful. I almost scrolled past them, but…
+Isaac Flath
+00:28:15
+Like, I don't know, it's just, it's really good to, like… I would have a lot more thoughts if I was, like, spending a lot of time building a product for this.
+Isaac Flath
+00:28:23
+But even so, just scrolling through and reading some of these, like, almost every single one of them, I'm…
+Isaac Flath
+00:28:31
+I have things that I might want to, like, think about and build on, and then it's like, like, which is the… which do I think is the priority based on…
+Isaac Flath
+00:28:39
+You know, the customers.
+Isaac Flath
+00:28:41
+And all of this is, like, just getting to know what data you're putting into your system.
+Isaac Flath
+00:28:52
+Alright.
+Isaac Flath
+00:28:59
+So, here is the prompt. I'm gonna paste that in, since that was asked for.
+Isaac Flath
+00:29:04
+If there's any questions, go ahead and ask before I move on.
+Anubha Saxena
+00:29:08
+Yeah, Isaac, I have a question. So, at this particular,
+Anubha Saxena
+00:29:13
+phase. What we're doing is we already have, sort of results from our racks. We have, some queries, and we already have the results, so we are just analyzing the results, right?
+Isaac Flath
+00:29:28
+This is what I do before we've done RAG yet. This is… I'm gonna do RAG, I'm gonna retrieve… I wanna retrieve things.
+Isaac Flath
+00:29:35
+And I want to know, like, what am I even retrieving? And so, if we're building this recipe bot, we want to do RAG to retrieve recipes to either return directly to users, or to put in our prompt to help our,
+Isaac Flath
+00:29:50
+To help our chatbot be more accurate, because it's grounded in, like, real recipes.
+Isaac Flath
+00:29:55
+And so, just like we want to evaluate our chat responses, like, I want to know, what am I even searching? Like, what is this data set? Is it relevant? And so this is something that I do both before, like, in this case, I'm just looking at the raw data set before I've done retrieval, like.
+Isaac Flath
+00:30:13
+what are the things that I want to retrieve and understand that? And then once I retrieve it, also evaluate the results.
+Isaac Flath
+00:30:21
+So, I kind of think of it as… for anything that I'm doing.
+Isaac Flath
+00:30:26
+I wanna, like, really evaluate and understand the inputs?
+Isaac Flath
+00:30:31
+And then I want to run whatever it is, I don't care if it's an agent, or RAG,
+Isaac Flath
+00:30:36
+or a chatbot, or an LLM workflow, or linear regression, like, I don't care what it is, but I want to understand the inputs, I want to run whatever that is, and then I want to really understand the outputs. And I'm kind of looking at the data as it was in, and as it comes out.
+Isaac Flath
+00:30:52
+To understand how things are going.
+Isaac Flath
+00:30:55
+for everything.
+Anubha Saxena
+00:30:57
+Okay, that makes sense. So if I understand this correctly, it is to gain a better sense of
+Anubha Saxena
+00:31:04
+What to expect.
+Anubha Saxena
+00:31:06
+And in the end, it's also gonna help us to understand if the output was correct or not, or if the output makes sense. Is that right?
+Isaac Flath
+00:31:16
+Yeah, yeah, so, like… We…
+Isaac Flath
+00:31:20
+So let's… let me give an… maybe an example. So what we did is, what we want…
+Isaac Flath
+00:31:25
+We came into this,
+Isaac Flath
+00:31:29
+we came into this saying we want to be able to retrieve things. And what we did is we found a dataset online.
+Isaac Flath
+00:31:37
+And we said, let's retrieve recipes here, that's gonna make our chatbot better. Now.
+Isaac Flath
+00:31:44
+If, for example, we found a dataset, and the dataset has 90% of the recipes, or 100% of the recipes, or 98% of the recipes are all, things that contain meat.
+Isaac Flath
+00:31:58
+But we're trying to…
+Isaac Flath
+00:32:00
+create a feature or a product that serves vegans, it doesn't matter how good our RAG system is, that dataset's not gonna help us.
+Isaac Flath
+00:32:09
+Because the data's just not the right data. And…
+Isaac Flath
+00:32:13
+basically don't trust anybody. You have to look at the data, because
+Isaac Flath
+00:32:18
+And in this case, we filtered for
+Isaac Flath
+00:32:22
+like, the top… the most… the longest recipes, and that's gonna be good for some and good for others, but the question is, is like, is this data even helpful?
+Isaac Flath
+00:32:33
+Based on what we're trying to accomplish.
+Isaac Flath
+00:32:35
+Does that make sense?
+Anubha Saxena
+00:32:38
+Makes sense, it makes perfect sense. Sorry if I'm keeping you distracted for so long, but I think that if I'm, evaluating the normal
+Anubha Saxena
+00:32:49
+like, the LLM pipeline, and I have created, like, synthetic dataset, I might also want to do this exercise there as well.
+Isaac Flath
+00:32:58
+Just to… Yes, you would definitely do it on synthetic data.
+Anubha Saxena
+00:33:01
+Okay, and if it is,
+Anubha Saxena
+00:33:04
+If it is online data set, like, real user data set.
+Anubha Saxena
+00:33:10
+we still would want to do this, right? Just to get a feeling of what we are evaluating against.
+Isaac Flath
+00:33:18
+Yeah, and I find if you… it's… if you do it on a real user data set, it's like, you might be surprised by what… how users are using your tool. Like, you might see it's like,
+Isaac Flath
+00:33:31
+you might look, and you're like, well, they're not asking good questions. And it's like, well, that's what they're… that's how they're using it, and then…
+Isaac Flath
+00:33:38
+if they're not using it how you expect, you want to understand, like, how are they using it? What are they asking for? And then there's lots of things. You can say, like, oh, well, let's just try and make it so it works for what they're asking for, maybe let's make it clear how they're supposed to use the product.
+Isaac Flath
+00:33:53
+Maybe we need to do query rewriting. But yeah, understanding…
+Isaac Flath
+00:33:58
+Like, how they're using it and what they're using it for,
+Isaac Flath
+00:34:03
+And looking at this, this, this very carefully is… Super helpful.
+Anubha Saxena
+00:34:10
+Makes sense. Thank you.
+Isaac Flath
+00:34:14
+Yeah, no problem.
+Isaac Flath
+00:34:19
+So, okay, so I've responded with the prompts that I used to create the viewer and the notebook. They aren't anything super crazy, I honestly just kind of, like, transcribed them on the fly without too much thought.
+Isaac Flath
+00:34:32
+If you give more thought to them, you can get better.
+Isaac Flath
+00:34:35
+Ones, but,
+Isaac Flath
+00:34:40
+Yeah, I mean, I've got a whole course on… on how to create better prompts, so…
+Isaac Flath
+00:34:45
+You can check that out if you want.
+Isaac Flath
+00:34:47
+So question. So this is about creating the right dataset for RAG, right? Yeah, exactly. So, if you find a dataset
+Isaac Flath
+00:34:55
+You might find a dataset online that you can use. In this case, we found a Kaggle one that we could use. You might have synthetic data.
+Isaac Flath
+00:35:03
+that you're creating, and then, in this case, yeah, I've got this dataset, I want to know… I filtered for the longest things, I want to know what's in it, is this the right dataset for the product, is this applicable to me? Maybe I need to find,
+Isaac Flath
+00:35:17
+like, based on this, maybe I say, like, hey, you know what? I really need to filter for time to make of less than 60 minutes for my product, or I need to filter for steps less than 10, or something.
+Isaac Flath
+00:35:32
+And so now I might have an idea of, like, okay, well, let me try a different slice of this.
+Isaac Flath
+00:35:37
+and see if I can… better get a dataset that represents, you know, what I might want,
+Isaac Flath
+00:35:44
+What might be helpful to my chatbot for responding?
+Isaac Flath
+00:35:56
+Any other questions?
+Isaac Flath
+00:36:04
+Alright.
+Isaac Flath
+00:36:07
+So, for building the RAG pipeline, I'm gonna share a lot of resources, because I've thought about this quite a bit.
+Isaac Flath
+00:36:17
+And I'll put all of them in HeathyChat.
+Isaac Flath
+00:36:22
+And you can access… all of them for free, so I don't feel bad plugging them.
+Isaac Flath
+00:36:32
+And I'll walk through… But they all are.
+Isaac Flath
+00:36:42
+Alright, so this first one here…
+Isaac Flath
+00:36:45
+If you're really interested in understanding the details of how keyword search specifically works,
+Isaac Flath
+00:36:52
+You can read through this.
+Isaac Flath
+00:36:55
+This covers all the details about, like, why you might want keyword search, when keyword search is really good, because there are things that keyword search is better than anything else at still. It's not…
+Isaac Flath
+00:37:06
+Keyword search is not dead, you know? So,
+Isaac Flath
+00:37:11
+this covers a little bit of that, and then it covers really in detail how… how it works, how to code it, how all of this… how all of this is. You can use this as context to ask for more information, and it really dives into
+Isaac Flath
+00:37:25
+In quite a lot of detail how a really good BM25 keyword search works. So if you're interested in the details, you can check this out.
+Isaac Flath
+00:37:35
+This is a video that covers largely the same content in a presentation format.
+Isaac Flath
+00:37:42
+And so, if you're interested in listening to it, you know, like.
+Isaac Flath
+00:37:47
+here, I'm going on about bigrams and trigrams, and you know, by the end, I'm…
+Isaac Flath
+00:37:52
+You know, talking about putting it all together, these lookups, calculating the scores. So if you're interested in more video form, that's a good one.
+Isaac Flath
+00:38:03
+Kind of the next step is there's this Retrieval 101 post that I made, and this talks about, some of the challenges and why you might want more than keyword search. And so,
+Isaac Flath
+00:38:14
+What this is about is you… it walks step-by-step of, like, okay, I want to create a keyword search, but I also need semantic search. So how do I combine those? Do what's called a hybrid search, and then how do I add a re-ranker on top of that? Which, a re-ranker is something that gives you more accuracy for a multi-stage retrieval.
+Isaac Flath
+00:38:34
+You can see there's a companion repo in here. In this case, instead of implementing it from scratch here, I'm setting it up, you know, from LanceDB. I'm actually pulling it from my blog, which maybe those posts have moved, but I'm pulling it from the blog.
+Isaac Flath
+00:38:51
+A lot of this is based on, like, Ben Clavier's work, who's fantastic, so you can click on this.
+Isaac Flath
+00:38:59
+And you can see a whole video where he walks through it and has this in detail. You might recognize him. He hosted this in a previous course that he did. And so, this is a write-up, and again, it covers in great detail and goes through the whole thing, how to do chunking and everything.
+Isaac Flath
+00:39:19
+And, there's lots of resources for learning further, so you're welcome to check that out.
+Isaac Flath
+00:39:25
+This is a full RAG course that I built recently. This is… this kind of explains, like, why it matters, what it is.
+Isaac Flath
+00:39:32
+If you use this, you get a discount. However, you can access 100% of it for free.
+Isaac Flath
+00:39:37
+So, if you,
+Isaac Flath
+00:39:43
+If you're in here, this… the way this works is it… it's very incremental course.
+Isaac Flath
+00:39:48
+The first three chapters, which is actually all of the keyword search that we're talking about here, is completely free. You can submit and everything. After that, all the content's still free, you just can't submit, we're just not going to run the code for you and check your answers, because that does cost some money. So that's not free, but you can still access all the lessons.
+Isaac Flath
+00:40:08
+In the content. And you'll see, like, every single, lesson here.
+Isaac Flath
+00:40:14
+is going to implement just one thing. And so you'll slowly go through…
+Isaac Flath
+00:40:20
+And build, you know, the entire… Yeah, build the entire thing.
+Isaac Flath
+00:40:28
+And so, yeah, it covers keyword search, 3 chapters on keyword search, semantic search, chunking, re-ranking, a little bit on evaluation, not as detailed as this course, of course.
+Isaac Flath
+00:40:39
+Augmented generation, agentic, it covers slightly. It shows an example of multimodal search, using images for that.
+Isaac Flath
+00:40:48
+So, yeah, lots of free content for RAG, I'd highly recommend checking them out.
+Isaac Flath
+00:40:54
+If you don't code at all, and you want to get into it.
+Isaac Flath
+00:40:57
+This boot.dev is actually pretty nice, because while it has this, retrieval course, it also has, like, beginning…
+Isaac Flath
+00:41:03
+Python courses and stuff like that.
+Isaac Flath
+00:41:05
+It's not that expensive, so…
+Isaac Flath
+00:41:10
+So yeah, lots of resources to, to check out, and you're welcome to, you know, ping me on Discord and ask any questions as you go through any or all of them.
+Isaac Flath
+00:41:25
+Cool.
+Isaac Flath
+00:41:30
+Alright, so, generating synthetic queries. So…
+Isaac Flath
+00:41:37
+We talked about this a little bit last week, where you often want to build tuples.
+Isaac Flath
+00:41:43
+And the reason you build two pools
+Isaac Flath
+00:41:45
+was, I think Hamil talked about this, the reason you want to build tuples is you get much more diverse and rich synthetic data than if you just say, give me 10 examples of synthetic queries.
+Isaac Flath
+00:41:58
+And those tuples were you…
+Isaac Flath
+00:42:02
+Thought about different dimensions, and you gave it specific combinations, and then you made tuples of different combinations, and then you had it use those to create, like, kind of a lot of diverse queries.
+Isaac Flath
+00:42:15
+And that, process kind of still holds true today, or not today, but it holds true in this process as well, of you want to ground the synthetic data in something.
+Isaac Flath
+00:42:25
+You don't really want to,
+Isaac Flath
+00:42:32
+you don't really want to just say, hey, give me examples of RAG queries, and just do that. You are going to have a lot more luck if you
+Isaac Flath
+00:42:40
+Yeah, if you ground it. So let's…
+Isaac Flath
+00:42:43
+jump over. We'll start with ChatGPT, just to show a simple example of one, and then we can talk more about
+Isaac Flath
+00:42:50
+I'm doing it here. So…
+Isaac Flath
+00:42:53
+Actually, let me grab a recipe. So, we might… we're going to show one example here.
+Isaac Flath
+00:42:59
+So we might look at our processed here.
+Isaac Flath
+00:43:04
+I'll scroll through, find something…
+Isaac Flath
+00:43:08
+Full text. Okay, let's grab the full text of this.
+Isaac Flath
+00:43:15
+I'm just gonna… Copy that.
+Isaac Flath
+00:43:19
+And go over here, and I can start with just,
+Isaac Flath
+00:43:25
+Let's just start making an idea, so we can say, like, okay, We can have, instructions.
+Isaac Flath
+00:43:36
+And we can think about what we want.
+Isaac Flath
+00:43:39
+And what we want is we want to have this recipe, so let me see here, recipe…
+Isaac Flath
+00:43:45
+Let's call this the source recipe.
+Isaac Flath
+00:43:49
+So this is what's gonna kind of ground our generation a little bit. We've got all that.
+Isaac Flath
+00:43:54
+And what are our instructions?
+Isaac Flath
+00:44:02
+We'll just put this here, I'm just gonna go to the bottom.
+Isaac Flath
+00:44:08
+And I might say… I've provided a recipe above.
+Isaac Flath
+00:44:16
+I would like you to pull out a few…
+Isaac Flath
+00:44:20
+Specific facts that are covered in this recipe.
+Isaac Flath
+00:44:26
+For example, it might be… The temperature of something, or, how to do something for your
+Isaac Flath
+00:44:39
+For cooking?
+Isaac Flath
+00:44:41
+The goal of this is gonna be, something like trivia, where some people are gonna ask questions, and we're gonna provide answers, and so I want you to come up with a few facts that can be answered with this recipe.
+Isaac Flath
+00:44:54
+Not the best prompt, but, you know, it's a start, and so you can… Like, see? Okay.
+Isaac Flath
+00:45:01
+I've gotten a start, is this reasonable?
+Isaac Flath
+00:45:06
+Okay, so I look, the recipe calls for, like, hmm, so this isn't exactly what I wanted.
+Isaac Flath
+00:45:13
+And so, great, so I can iterate. And so I… now I might look and see, like, okay, I didn't get what I was expecting. What I was expecting is something that could… that could answer, like, the cake is baked at 350, like, what would the question be?
+Isaac Flath
+00:45:27
+And so, I might, I might revise the prompt a little bit, if I can.
+Isaac Flath
+00:45:37
+Try again.
+Isaac Flath
+00:45:39
+Hope I can edit, perfect.
+Isaac Flath
+00:45:47
+So, we'll just kind of do a little bit of iteration.
+Isaac Flath
+00:45:52
+The facts I'm looking for are gonna be more…
+Isaac Flath
+00:45:56
+You know, universal things about cooking?
+Isaac Flath
+00:46:00
+Not this recipe.
+Isaac Flath
+00:46:02
+So, it might be how you prepare a specific ingredient, but it's not gonna be things that are, like, super unique to this recipe. I want general…
+Isaac Flath
+00:46:13
+like… General facts that you might glean about cooking from this recipe, that this recipe could serve as evidence.
+Isaac Flath
+00:46:24
+And I think just starting with a single example, before trying to scale up.
+Isaac Flath
+00:46:33
+I cannot copy-paste from chat. Ask the host.
+Isaac Flath
+00:46:38
+I am not the host, I will…
+Isaac Flath
+00:46:43
+Let, Hamil deal with that.
+Isaac Flath
+00:46:47
+Otherwise, I can post it in the Discord, after the session. My memory is pretty horrible, so I'll probably forget, so just ping me and remind me if I don't. How's that?
+Isaac Flath
+00:47:01
+But yeah, I can paste it in the Discord after.
+Isaac Flath
+00:47:06
+Okay.
+Isaac Flath
+00:47:09
+I want general transferable cooking facts or techniques that someone could infer or learn from this recipe, even though…
+Isaac Flath
+00:47:15
+Even if they never made this exact cake, okay.
+Isaac Flath
+00:47:19
+You should always preheat your oven before baking, so the cake rises evenly.
+Isaac Flath
+00:47:25
+I might say…
+Isaac Flath
+00:47:28
+Like, that one might be a little too basic. Like, I don't know that there's a whole lot of people that don't realize you should preheat your oven.
+Isaac Flath
+00:47:34
+Some might say that's not good.
+Isaac Flath
+00:47:38
+Cake doneness can be tested by pressing lightly on the center. If it springs back, or tester comes out clean, it's done. That could be good. How do I… like, I could see someone asking…
+Isaac Flath
+00:47:54
+Let's see here… I could see someone asking,
+Isaac Flath
+00:48:00
+how do I tell if my cake is done? That seems like a reasonable question. And so maybe I want to say, okay.
+Isaac Flath
+00:48:09
+This is a fact. I'm gonna use this.
+Isaac Flath
+00:48:12
+Cooling cakes completely before stacking or frosting.
+Isaac Flath
+00:48:16
+This might be,
+Isaac Flath
+00:48:20
+This might be a question, like, do I have to wait for it to cool to put on the frosting? I don't know, when I'm cooking cake, I just want to get it done as fast as possible, because I want to eat it, so… seems like something I would ask, like, can I just slap it on there? Start eating?
+Isaac Flath
+00:48:33
+That might be helpful.
+Isaac Flath
+00:48:38
+Let's see… adding liquids gradually helps achieve a smooth, you know, banner…
+Isaac Flath
+00:48:47
+Beating on low speeds first.
+Isaac Flath
+00:48:51
+Maybe that'd be useful. Maybe someone's like me who makes a mess in the kitchen all the time, they might say, like, how do I not make a mess?
+Isaac Flath
+00:48:58
+I don't know that it would prevent me from making a mess, but, you know. So, the idea, though, is you're trying to find,
+Isaac Flath
+00:49:07
+find pieces of information that are grounded. So, like, I could say, cake doneness can be tested by pressing on the center. Like, this feels like a nice, a nice fact that I might be able to test if the rag is. So if somebody asks, I might say, if somebody asks, how do I tell if my cake is done?
+Isaac Flath
+00:49:24
+Maybe I want my rag system…
+Isaac Flath
+00:49:28
+To return this recipe, because the answer's inside this recipe.
+Isaac Flath
+00:49:36
+Okay, there is… the links in Discord. Okay, great. I don't know why I clicked on the Discord, but…
+Isaac Flath
+00:49:43
+Perfect.
+Isaac Flath
+00:49:49
+And so this is the point of the fact. I now have something where I can start creating a really great data set. I can say my query is gonna be…
+Isaac Flath
+00:49:59
+how do I know if my cake is done? And if somebody asks that question.
+Isaac Flath
+00:50:03
+I want rag… I want to know, does RAG return this recipe, which answers the question? So that could be one option.
+Isaac Flath
+00:50:12
+Is this making sense? Any questions about, like, what we're doing? Like, how we're thinking about how we can use this data?
+Isaac Flath
+00:50:28
+People are quiet today, and I don't know if it's because I'm explaining it really well, or because I've really lost everybody.
+Isaac Flath
+00:50:35
+I never know. But I'll assume that, everybody's with me.
+Robert Lavigne
+00:50:41
+You're all good, you're all good.
+Isaac Flath
+00:50:46
+Alright, good, good. Let's see, you're doing it to test the output, right? Yeah, I wanna, I want to,
+Isaac Flath
+00:50:54
+I want to create some synthetic data.
+Isaac Flath
+00:50:57
+Oh yeah, I get that. I'm on the East Coast as well. It's a, it's getting late.
+Isaac Flath
+00:51:06
+Oh, 12 AM. Wow, you're dedicated. That's great. Okay. Yeah, so we're trying to create, a dataset so we can tell you the output. If I type in a query that says,
+Isaac Flath
+00:51:23
+How is… how do I tell if my cake is done?
+Isaac Flath
+00:51:27
+we need something to know, like, well, if it returns this recipe, we know it's right. We…
+Isaac Flath
+00:51:32
+Otherwise, it could return any recipe, and how do I know if that's what we wanted or not? We don't really know. We have to then look and say, what's a good query? This data set, I know, can answer this query. This rag problem can be solved with this fact, because it's in this recipe.
+Isaac Flath
+00:51:52
+In the office from 6am to 7.30pm today. Oof, okay. I forgive you.
+Isaac Flath
+00:51:59
+That sounds painful.
+Isaac Flath
+00:52:02
+It's a long day.
+Isaac Flath
+00:52:05
+How many of these sorts of questions will we need?
+Isaac Flath
+00:52:09
+I'll give you the super satisfying answer, it depends. I would say start with,
+Isaac Flath
+00:52:18
+Maybe start with 15 or 20, I don't know, maybe Hamel has some different, different advice. I think start with,
+Isaac Flath
+00:52:25
+looking through, trying to create some of these, understanding, like, what facts are in the dataset, are they useful, what questions can it answer?
+Isaac Flath
+00:52:35
+I think that's super…
+Isaac Flath
+00:52:37
+you know, super valuable activity. I would start with that, and then grow it over time.
+Hamel Husain
+00:52:42
+Yeah, I mean, you want to basically try to poke holes in your application, so don't try to look for…
+Hamel Husain
+00:52:48
+There's no such thing as, like, a magic number.
+Hamel Husain
+00:52:53
+In any place in this class.
+Hamel Husain
+00:52:56
+We, you know, like, you might remember some magic numbers, like, look at 100 traces, but that's just to push you to look at at least 100.
+Hamel Husain
+00:53:05
+But you… it's kind of the same thing, you kind of want to see if you can…
+Hamel Husain
+00:53:10
+sort of get to, like, theoretical saturation, in a way, with, like, different examples, and try to poke holes in your own application. Keep in mind, like, okay, so…
+Hamel Husain
+00:53:21
+Isaac is using a… sort of public dataset.
+Hamel Husain
+00:53:27
+you know, for these, like, recipes that he got off of Kaggle. A lot of times, just keep in mind, like, your application, you're going to want to use your data, and you're going to want to invert that data in the similar way that Isaac is doing here.
+Hamel Husain
+00:53:40
+We just don't have someone's real data in their company, so that's what we're doing. So you're gonna wanna do that, and you're gonna want to, like.
+Hamel Husain
+00:53:49
+the data analysis that Isaac showed earlier, where he did kind of the exploratory data analysis of the different kinds of recipes.
+Hamel Husain
+00:53:58
+That should also try to inform you on the different… like, give you certain hypotheses of, like, how you might want to test… stress test your app.
+Hamel Husain
+00:54:08
+So you kind of have to keep looking, and just iterate, and be skeptical the whole time, and try to figure out
+Hamel Husain
+00:54:16
+What are different ways you could poke holes in your app?
+Hamel Husain
+00:54:25
+By the way, the step that Isaac did, in the beginning with the… doing the data analysis.
+Hamel Husain
+00:54:33
+It's very useful.
+Hamel Husain
+00:54:36
+in terms of, like, it's just another way of looking at data at an aggregate level.
+Hamel Husain
+00:54:42
+It's a bit more advanced, in the sense…
+Hamel Husain
+00:54:45
+it's kind of this whole realm of, like, data analytics, data science. It is a skill that you want to
+Hamel Husain
+00:54:54
+The more evals you do, you'll want to hone that skill, but that could be an entire class on its own of how to do data analytics, so we can't necessarily go into that, but just to sort of give you an idea.
+Hamel Husain
+00:55:08
+Of how you might do that.
+Isaac Flath
+00:55:13
+I will… I will say, I think what I did in this class, I hope that you all learned to do that. I gave… I… I transcribed one prompt.
+Isaac Flath
+00:55:21
+to AI, and it generated that notebook in one shot, and then I read through and looked at the plots. So, I do agree, you should develop that skill.
+Isaac Flath
+00:55:31
+But AI can help a lot, so, like, don't be… intimidated, I guess.
+Isaac Flath
+00:55:38
+Hope I didn't just contradict you, but I think it's, like, I think AI can create lots of graphs, create lots of things, and so…
+Hamel Husain
+00:55:46
+It's good. Like, we don't want to scare people away. I just wanted to give them some background of what was going on. But yeah, it's good to, like… the main thing is, like, if you use an AI to do anything, you have to look at it carefully and understand, like, what it's saying. Don't just adopt it.
+Hamel Husain
+00:56:06
+you know, just like anything else that we teach in this class, in terms of checking the AI.
+Isaac Flath
+00:56:15
+Yeah, and I think… I think all this… all the AI stuff, like, the way I think about it is, whether I'm doing… working with an agent, or a RAG system, or a chatbot, or a workflow, anytime using AI, whether it's an LLM, or linear regression, or a random force, like, it doesn't matter.
+Isaac Flath
+00:56:33
+Like, the number one thing, and it's even more true with LLMs and agents, the number one thing I can do to improve the performance is make sure better information goes in.
+Isaac Flath
+00:56:45
+I'm probably not gonna fine-tune an LLM. You might, there's some use cases for it, but it's much more… it's much more rare. I'm definitely not gonna train an LLM from scratch for almost anything, and it's like…
+Isaac Flath
+00:56:59
+so what you put into these prompts and with these systems, whether it comes from RAG, or whether it comes from a tool call, or an MCP server, or whether it's a system prompt, like, that's, like, to me, one of the most important things you can do to make the system better.
+Isaac Flath
+00:57:13
+So, like… I spend all.
+Hamel Husain
+00:57:15
+Hey, Isaac, so Anub is… Anub is asking me, do you have any recommendations for people to learn more about ML and data science?
+Hamel Husain
+00:57:23
+Like, what are the best ways to start? I actually don't quite have a good answer off the top of my head. Do you happen to have something that you think about for beginners?
+Isaac Flath
+00:57:36
+No, actually. I don't have a great one, maybe we should make one.
+Isaac Flath
+00:57:48
+Sorry, that's…
+Hamel Husain
+00:57:49
+Yeah, no, yeah.
+Hamel Husain
+00:57:51
+I don't have a great one, either.
+Hamel Husain
+00:57:54
+I'll keep thinking about it.
+Isaac Flath
+00:57:59
+Yeah, I would say, as a starting point at least, though, like, lean on…
+Isaac Flath
+00:58:04
+Lean on AI and ask it lots of questions. It's, it's tough, because it's like the, the get, just be curious and ask about everything is kind of true, but it takes a while before it really…
+Isaac Flath
+00:58:17
+You know, like, makes sense.
+Isaac Flath
+00:58:20
+It's like, why is that… like, why did it stick out to me that there was, like, a line going across the top? There seemed to be, like, a gap in these points.
+Isaac Flath
+00:58:30
+At digging into those.
+Isaac Flath
+00:58:36
+So, yeah, I would lean on AI.
+Hamel Husain
+00:58:39
+Like, machine learning is, like, a subfield, and data science is, like, a really broad term, and there's analytics, which is really, like, different.
+Hamel Husain
+00:58:49
+It's related, but different. So, yeah, I'll have to think on it.
+Isaac Flath
+00:58:55
+Anubha, did you want to add to that?
+Anubha Saxena
+00:58:58
+Yeah, so, in my company, we have, like, a lot of software engineers, and I think in the industry, we have… we lack AI engineers in particular, right?
+Anubha Saxena
+00:59:10
+So, I was just thinking that these tips and tricks, like, the confusion matrix was quite new to me, and learning about it.
+Anubha Saxena
+00:59:19
+I mean, it is interesting, and I think it is good to have that knowledge. I was just trying to understand how we can scale this with the software engineers. Does everyone need to have this information? Or…
+Anubha Saxena
+00:59:33
+Are there, like, any key pieces in your experience which, like, you said that you can make, like, a list of things that you should know, or it is good to know, which will help you do the evals and data analysis easily?
+Hamel Husain
+00:59:52
+Yeah, it's…
+Isaac Flath
+00:59:52
+It's tricky.
+Hamel Husain
+00:59:54
+I can try, I can try to answer this one. So, I would start with the things in the course reader, and if they feel a bit…
+Hamel Husain
+01:00:03
+maybe, if they feel unapproachable for any reason, please ask questions, but also please do put the course reader in chat GPT. Create a GPT.
+Hamel Husain
+01:00:12
+You can also probably do it in learning mode.
+Hamel Husain
+01:00:15
+to kind of…
+Hamel Husain
+01:00:16
+help explain things in a lot of different ways. You know, certainly we'll try, but it's worth doing that. And that's, like, the place to start.
+Hamel Husain
+01:00:26
+In the limit? So, like, it is the case that, like, you can do evals and be really effective without being a data scientist, but in the limit, it's kind of… you're becoming a data scientist.
+Hamel Husain
+01:00:37
+That is the truth.
+Hamel Husain
+01:00:39
+So… Yeah, it's kind of…
+Hamel Husain
+01:00:46
+Yeah, I mean, that's just the truth. Like, if you… you know, it is good to do some of these things, and you can get better by doing more data analysis, but…
+Hamel Husain
+01:00:55
+there's a lot of layers to the onion, and sort of, like, you know, there's being able to write code, there's a very specific slice of the technology stack that's focused on data. You know, you could focus on that, get good at that. You could also focus on statistics.
+Hamel Husain
+01:01:14
+There's also some machine learning concepts. So, like, this evals is, like, a mixture of a little bit of statistics, a little bit of data science, a little bit of machine learning, little bit of software. So I would just start with the course reader.
+Hamel Husain
+01:01:28
+And there's a lot of different branching out points that you can go to dive deeper, but I would just… to make it…
+Hamel Husain
+01:01:35
+tractable, I would start with the course reader, and, like, focus on those concepts.
+Hamel Husain
+01:01:41
+Because there's, like, a lot of surface area.
+Anubha Saxena
+01:01:44
+I kind of, like the exercises, that we have in… at the end of, the chapters. These are really insightful, along with the answers and everything, so yeah.
+Isaac Flath
+01:02:00
+I'm just trying an experiment. I'm asking, asking AI to tell me what questions I should ask. I don't know if this'll…
+Isaac Flath
+01:02:06
+yield great results, but I'm kind of curious.
+Isaac Flath
+01:02:10
+But yeah, it's… it's difficult. It's like, even what metrics to… to pick, it's like…
+Isaac Flath
+01:02:17
+I think a lot of times it's like, oh, what metrics should I pick to evaluate it? And it sometimes feels like a pure technical question.
+Isaac Flath
+01:02:24
+But it's not always, you know? It's… it's often also a little bit of a product question. How should I measure it? Kind of dictates how things are gonna be, like, what… that's… that's…
+Isaac Flath
+01:02:35
+Partially about system performance, but, you know, partially it's about…
+Isaac Flath
+01:02:40
+what you want the system to do, so I completely agree that it's like a mixture of… Everything.
+Isaac Flath
+01:02:55
+So, on that, while this is trying to figure out what questions to ask me… Oh, here we go.
+Isaac Flath
+01:03:13
+Okay, so this did not give me quite the cope, what I was hoping for.
+Isaac Flath
+01:03:19
+So it gives some, like, okay, let's look at the time and temperature, extract temperature values and units.
+Isaac Flath
+01:03:25
+What are the minimax ranges, exact durations? So this is kind of a start, I don't think this is great.
+Isaac Flath
+01:03:31
+Okay, histogram of cooking time, separate histogram extracted. I might then try to say,
+Isaac Flath
+01:03:41
+Like, I like the graphs.
+Isaac Flath
+01:03:44
+Cause, like, this feels like… Histogram of cooking time.
+Isaac Flath
+01:03:50
+That sounds interesting, maybe you know what a histogram is, maybe not, doesn't really matter. Box violin plots, timed by cuisine. It's like, okay, these seem like specific things I could do.
+Isaac Flath
+01:04:02
+I like the grass that'll be informative.
+Isaac Flath
+01:04:06
+But can you explain for each, in one sentence, what it might tell me?
+Isaac Flath
+01:04:16
+And why that might matter.
+Isaac Flath
+01:04:19
+to my recipe.
+Isaac Flath
+01:04:21
+Chat bot.
+Isaac Flath
+01:04:23
+Product?
+Isaac Flath
+01:04:25
+How does making That graph, and understanding that data.
+Isaac Flath
+01:04:33
+Matter? See if we can… Get anything useful out of it.
+Isaac Flath
+01:04:42
+Cause, yeah, you need to, just seeing this is not… Not helpful, okay.
+Isaac Flath
+01:04:54
+Shows the time budget distribution, so you can tailor suggesting the defaults.
+Isaac Flath
+01:04:59
+Common over set points by context.
+Isaac Flath
+01:05:03
+Yeah, I mean, this… I would say this is, like, kind of interesting to look at, it might be helpful, but it's not…
+Isaac Flath
+01:05:09
+Not the best guide.
+Isaac Flath
+01:05:14
+I will say the notebook that I created was… I didn't give it any direction, so I think that's a fine starting point, but the course reader is… is really, really fantastic, so… I agree, that's good.
+Isaac Flath
+01:05:27
+So, the next thing was, we understood… Art, what's going into it?
+Isaac Flath
+01:05:32
+We analyzed it, we figured out how to create these synthetic… synthetic queries, kind of the idea.
+Isaac Flath
+01:05:39
+These queries are created, you can see this is the salient fact, that's the fact that we had, and you can see that there's queries. What internal temperature should I aim for? Well, that was created because of this
+Isaac Flath
+01:05:54
+Salient fact that was extracted from the recipe. And so, you have… you have these queries of synthetic data that's grounded.
+Isaac Flath
+01:06:02
+For this RAG system. And I, again, ideally, this is real… this is real data. Okay.
+Isaac Flath
+01:06:11
+So, you want to measure this.
+Isaac Flath
+01:06:13
+And, the README mentions two metrics, primarily, recall and precision.
+Isaac Flath
+01:06:23
+And so, these are really important metrics to understand. I think precision is another one that's very helpful to understand, so we'll just talk about all three of them. Recall is kind of, I think, I think the most common.
+Isaac Flath
+01:06:35
+And really what recall is, is it's the percent of, like, relevant results achieved. So, in this case,
+Isaac Flath
+01:06:45
+We might say, in this case, we say, we have this query.
+Isaac Flath
+01:06:50
+And we have this source recipe.
+Isaac Flath
+01:06:53
+And we have… oops.
+Isaac Flath
+01:06:57
+Where'd it go?
+Isaac Flath
+01:07:00
+Oh, we have… let me find this…
+Isaac Flath
+01:07:03
+In this case, okay, we have this, this query. This was after we created it, we ran these results. We have the search query, we have the target recipe, so it was supposed to return this one, and then did it? It absolutely did.
+Isaac Flath
+01:07:18
+And so, in this case, we would say, this query?
+Isaac Flath
+01:07:22
+had a good recall, because we had one… we retrieved 5 IDs.
+Isaac Flath
+01:07:28
+And the one we were looking for is in what we returned. And so, it's kind of measuring… and maybe you wanted to return 5 of them, maybe you wanted to return 3 relevant ones, it depends on the use case, but we're saying, of all the things that were relevant, that we wanted to return, what percentage of them did we return?
+Isaac Flath
+01:07:47
+This is really important for…
+Isaac Flath
+01:07:52
+Making sure you're inclusive of things. So,
+Isaac Flath
+01:07:57
+For example, like, one of the clients that I work with, works with,
+Isaac Flath
+01:08:03
+Giving flashcards to medical students.
+Isaac Flath
+01:08:07
+And…
+Isaac Flath
+01:08:08
+it's very important that you don't miss questions that are going to be on their test, you know? It's very important. They'd rather study and have a little too many extra cards than be missing information.
+Isaac Flath
+01:08:19
+And so… High recall is important, because you want to make sure that, that you're not missing anything.
+Isaac Flath
+01:08:27
+Oftentimes in… if you're doing retrieval, or RAG for, like, a medical context, you definitely want a really high recall, because you don't want to miss a diagnosis. You never want to tell someone they're healthy when they're not. That's… that's… that's very not good.
+Isaac Flath
+01:08:43
+And so, that's what recall is. It's, basically, like.
+Isaac Flath
+01:08:50
+The number of relevant results, Retrieved?
+Isaac Flath
+01:08:57
+Over.
+Isaac Flath
+01:08:58
+The, total relevant.
+Isaac Flath
+01:09:02
+And so in this case, I say I… Retrieved one relevant result.
+Isaac Flath
+01:09:08
+out of one total relevant result, it's there. Now, if we wanted two results, and only one showed up, that would tell us that we successfully returned one out of the two in that case.
+Isaac Flath
+01:09:19
+And so recall would be lower.
+Isaac Flath
+01:09:22
+In the case of, like, movie descriptions, if I search for…
+Isaac Flath
+01:09:28
+You know, a dinosaur movie? How many… did we return all of the dinosaur movies? What are the ones we wanted to return? What's the recall on that?
+Isaac Flath
+01:09:37
+Does that… let's see, okay, question.
+Isaac Flath
+01:09:42
+In the dataset, how many…
+Isaac Flath
+01:09:45
+How do you know how many relevant recipes are in the database to measure recall?
+Isaac Flath
+01:09:51
+In this case, we're only looking for it to return 1, this one to measure it, and so,
+Isaac Flath
+01:10:01
+We feel like it should return at least this recipe, because we created the query based on a fact that we extracted from that specific recipe.
+Isaac Flath
+01:10:12
+There could definitely be other recipes in there that match the same query.
+Isaac Flath
+01:10:18
+And over time, you might want to say, For this particular query, here's…
+Isaac Flath
+01:10:27
+3 or 4 or 5, recipes, and if it returns any of them, that's okay. In this case, we're just saying we want this specific one.
+Isaac Flath
+01:10:39
+And so, yes, so creating that dataset can be…
+Isaac Flath
+01:10:43
+Can be tricky. Now, in this case, it returns it, so I might say, hey, let me look at these other recipes that are returned.
+Isaac Flath
+01:10:53
+Yeah, the query, we pulled out a fact, we were doing that in ChatGPT, and then we created a query off of that.
+Isaac Flath
+01:11:02
+We're auditing to measure the recall. Correct, yes.
+Isaac Flath
+01:11:06
+And so, in this case, we're saying… I might say, you know what, what temperature I set my oven to, etc. What temperature should I set my oven to?
+Isaac Flath
+01:11:17
+I might now look at what is… what are these 4 other recipes that were returned?
+Isaac Flath
+01:11:23
+And maybe I can make variations of this query. Maybe I… maybe that's what temperature I set my oven to is really important.
+Isaac Flath
+01:11:32
+For sweet yeast-based bread.
+Isaac Flath
+01:11:35
+So I want to have lots of different variations of it, and make variations of the question, and that, like, return different ones to make it more stable if I'd like.
+Isaac Flath
+01:11:45
+Using retrieval to improve your retrieval dataset can be helpful.
+Isaac Flath
+01:11:52
+We can see the names.
+Isaac Flath
+01:11:55
+what temperature I set my oven to, and we can see it returned… Retrieve names that look good.
+Isaac Flath
+01:12:03
+I would be a little bit interested to look at this recipe. This is, again, you want to, like, constantly look at it.
+Isaac Flath
+01:12:09
+I would be interested to look, because I see… oh, interesting. It retrieved bread. It retrieved bread. It retrieved bread. It retrieved bread. It…
+Isaac Flath
+01:12:20
+Retrieve chocolate chip cookies. That seems odd, you know? Like, why is that? Is it that…
+Isaac Flath
+01:12:29
+this fifth one is not relevant, or is that fifth one actually also relevant? I don't know. So, you want to look at that. Now, again.
+Isaac Flath
+01:12:38
+Looking at it in this format, it's no fun.
+Isaac Flath
+01:12:40
+And so, we can make this a little bit easier on ourself, again, with a…
+Isaac Flath
+01:12:50
+Another one of these, and I'm…
+Isaac Flath
+01:12:54
+Say the same thing over and over in this session, but, it's kind of the truth.
+Isaac Flath
+01:13:03
+We can…
+Isaac Flath
+01:13:08
+see if this actually works. We can create our own little viewer, so I'm gonna… it says drag and drop.
+Isaac Flath
+01:13:14
+our retrieval raw JSON output here.
+Isaac Flath
+01:13:31
+Cool.
+Isaac Flath
+01:13:34
+We can look at some of this, and I can now kind of look through what are the failures, what are the misses. I can see…
+Isaac Flath
+01:13:44
+It's missed at 1.
+Isaac Flath
+01:13:47
+But it did good at 3 and at 5. So what is this at 1, at 3, and at 5? So, recall at 1 says, if I were to only return one result.
+Isaac Flath
+01:14:00
+In this case, if I was only going to return one result, would I have returned the right result?
+Isaac Flath
+01:14:06
+And in this case, no, because the first result was 5 bin artisan bread.
+Isaac Flath
+01:14:11
+Now, in this case, do I consider that a miss or not?
+Isaac Flath
+01:14:15
+Well, maybe the information's also in this one, and I might want to, correct my dataset to say, you know what, this at 1 actually should be correct, and I want to improve my dataset.
+Isaac Flath
+01:14:28
+because it's also a right answer, and my dataset was wrong. Maybe I say, like, no, I really… this one answers it way better, that's really what I want.
+Isaac Flath
+01:14:35
+At 3 says, okay, is it in there?
+Isaac Flath
+01:14:41
+the top 3. In this case, the answer is yes. Is it in the top 5? In this case, the answer is yes. And so that's the difference between, you know, 1, 3, and 5.
+Isaac Flath
+01:14:51
+And so, I can kind of see what's the original query, search query. If you're doing any kind of query writing,
+Isaac Flath
+01:15:01
+You know, what was the fact that was pulled out? What was the target?
+Isaac Flath
+01:15:06
+What was the MRR, which we'll talk about here?
+Isaac Flath
+01:15:11
+And again, just create a nice data viewer. This was, again, I made a prompt, it was just like, look at this JSON file, and this is just a lot nicer to look at.
+Isaac Flath
+01:15:21
+Which means you'll probably look at it more.
+Isaac Flath
+01:15:26
+Okay, so does recall make sense?
+Isaac Flath
+01:15:31
+Here it's calling it hit at 1, hit at 3, and hit at 5.
+Isaac Flath
+01:15:36
+Okay.
+Isaac Flath
+01:15:38
+So, okay, so what is MRR? MRR is the mean reciprocal Rank.
+Isaac Flath
+01:15:45
+And so, a reciprocal is you take a number and…
+Isaac Flath
+01:15:50
+you kind of reverse the fraction. So in this case.
+Isaac Flath
+01:15:54
+We can say the second result
+Isaac Flath
+01:15:58
+Was, was the correct one.
+Isaac Flath
+01:16:02
+And so, the reciprocal rank of that, of 2 over 1, is 1 over 2.
+Isaac Flath
+01:16:09
+So I just say 1 over whatever the first relevant result was, and that is its reciprocal rank. So in this case, its second place, 1 over 2 is 0.5, that is its reciprocal rank.
+Isaac Flath
+01:16:25
+Let's look at another example here that's not on 2.
+Isaac Flath
+01:16:30
+Oh, so here.
+Isaac Flath
+01:16:32
+We were looking for a result, and it wasn't in any of the 5, and so the reciprocal rank is zero, because it wasn't returned at all.
+Isaac Flath
+01:16:42
+In this case,
+Isaac Flath
+01:16:46
+It was first place. 1 over the rank of 1 gives a 1, that's the reciprocal rank.
+Isaac Flath
+01:16:59
+Here we go. The correct result was returned at rank number 4, it was the fourth one returned, so the reciprocal rank is 0.25, because 4th rank is 1 over the rank of 4, 1 fourth is .25. That is the reciprocal rank.
+Isaac Flath
+01:17:16
+To get the mean reciprocal rank, you take the mean, or the average of all of them, and that gives you a mean reciprocal rank. So this is, like, a measure of, did it return it, but also, like, how high on the list was it?
+Isaac Flath
+01:17:30
+Which is… which is very helpful.
+Isaac Flath
+01:17:34
+Returning the result every single time in the fifth position is not nearly as good as returning it every time in the first position. Recall at 5 will say…
+Isaac Flath
+01:17:44
+You did great, because it was always in the fifth position. Mean reciprocal rank will say you didn't do well, because those results should have been 1st and not fifth. It kind of distinguishes between that order.
+Isaac Flath
+01:18:01
+It is worth it.
+Hamel Husain
+01:18:03
+You might be wondering, like, what metric should be… sorry for interrupting you.
+Isaac Flath
+01:18:07
+Oh, yeah, no, go on.
+Hamel Husain
+01:18:08
+She might be wondering, like.
+Hamel Husain
+01:18:10
+what metrics should you use? Like…
+Hamel Husain
+01:18:13
+Should you use, like, MRR? Should you use, Recall F5, Precision F5? It depends on your application and how it works.
+Hamel Husain
+01:18:20
+Right, so… if your application… if your RAG pipeline is going to,
+Hamel Husain
+01:18:28
+you know, take the first N documents, And do something with that?
+Hamel Husain
+01:18:35
+So, like, usually there's a, like, different stages of a RAG pipeline.
+Hamel Husain
+01:18:40
+You might be optimizing for recall at first, to try to get as many documents as possible.
+Hamel Husain
+01:18:47
+are not as possible, but that are relevant, and then out of those… out of, like, the first stage, you didn't want to find… you want to, like, filter it down further before giving it to the LLM, and then you might care more about, precision. And this is, like, outlined in the, course reader as well.
+Hamel Husain
+01:19:05
+Of, like, kind of, like, focusing on recall and then precision. You know, some applications have…
+Hamel Husain
+01:19:14
+Various idiosyncrasies, like, oh, we can only have
+Hamel Husain
+01:19:19
+Five documents that we can retrieve.
+Hamel Husain
+01:19:22
+I've worked on cases like that. Our, you know, users can only see a maximum of whatever, like.
+Hamel Husain
+01:19:31
+100 documents.
+Hamel Husain
+01:19:33
+And you have to, like, see, okay, depending on the stage of the pipeline you're on, or whatever you're doing, you have to try to mimic
+Hamel Husain
+01:19:41
+what is happening in production, and try to find the right metric. So, that can be, you know, either MRR, that could be, you know, precision 8K, recall AK. It depends, like, what
+Hamel Husain
+01:19:53
+Stage of the pipeline you're measuring.
+Hamel Husain
+01:19:57
+You know, like, MRR will measure
+Hamel Husain
+01:20:01
+Like, if you… you know, things that rank higher, like, if your relevant documents rank higher.
+Hamel Husain
+01:20:08
+The reason that matters is, like, if you need to cut things off. So, if you don't know, like, what your K is, and you want to…
+Hamel Husain
+01:20:18
+You know, cut it off at, like, some K.
+Hamel Husain
+01:20:23
+Your ability to do that is…
+Hamel Husain
+01:20:27
+You know, better if everything is ranked
+Hamel Husain
+01:20:30
+Like, at the top, because then you can, like, cut it off.
+Hamel Husain
+01:20:33
+You can, you know, be more aggressive with the cutoff.
+Hamel Husain
+01:20:37
+But some applications, it doesn't matter as much, or it doesn't matter at all. You have a second stage in the pipeline that does, like, more filtering. So, there's a lot of stuff going on there.
+Hamel Husain
+01:20:49
+Information retrieval, search engines is, like, a whole…
+Hamel Husain
+01:20:54
+sort of bachelor's degree, or in master's degree, you could do a PhD in, like, whatever. So there's a lot there. It's just… these are some things to think about.
+Isaac Flath
+01:21:07
+Yeah, there's… there's, there's entire, companies that that's all they do is information retrieval. So, it's…
+Isaac Flath
+01:21:13
+So I think that's why evals is so,
+Isaac Flath
+01:21:18
+hard to get right, is because it's, like, every single area of evals
+Isaac Flath
+01:21:24
+It's like a full discipline of its own.
+Isaac Flath
+01:21:27
+You know, and to do evals well, you kind of touch all of them at the same time.
+Isaac Flath
+01:21:36
+Yeah, so, I agree with, everything Hamel said, of course.
+Isaac Flath
+01:21:42
+And, yeah, so… so think about… I guess what I would encourage you to do is think about, like, for each step, what's… what's important to you.
+Isaac Flath
+01:21:51
+You know, and measure it in different ways, and slice it up, and say.
+Isaac Flath
+01:21:58
+If you see, these are all misses.
+Isaac Flath
+01:22:01
+Like… This is a miss.
+Isaac Flath
+01:22:04
+like, try and figure out, like, okay, I know it failed. Now, it kind of comes back to a little bit of, like, why did it fail?
+Isaac Flath
+01:22:12
+Is it because the other answers are better?
+Isaac Flath
+01:22:17
+You know? Is it because…
+Isaac Flath
+01:22:20
+I have… if I'm doing an agent, is it because, like, some tool call failed and it just returned random results? Is it because…
+Isaac Flath
+01:22:28
+I have a bug in my pipeline, is it because…
+Isaac Flath
+01:22:33
+If I have a multi-stage thing, is it because it failed, at the first stage of it, or in the last stage of it? Like, where did it fall off? So, the more you can dive in and say.
+Isaac Flath
+01:22:44
+Why, the better.
+Isaac Flath
+01:22:47
+And then for metrics, I think…
+Isaac Flath
+01:22:52
+Your final metric, as Hamel said, is dependent on what you're doing in your application. There's precision, there's regrow, there's MRR, but you can also make your own metric, and I think that's something that you can consider as well, if you get really custom. I would not start there.
+Isaac Flath
+01:23:08
+But I'm just saying that you might say, it's really important to me that the first relevant… like, I'm gonna return 10 results.
+Isaac Flath
+01:23:18
+And I want a high recall.
+Isaac Flath
+01:23:20
+But it's really important that there's at least one really, really, really relevant result, one relevant result, either in the first or the second place.
+Isaac Flath
+01:23:30
+In which case, you can say, like, hey, well, I can calculate the reciprocal rank, and I can calculate the recall, and I can either show those separately, or I can find some way to, like, mash those together, like, penalize the recall in some way, if… if it's top two. So you can get creative on, like, what's important to your users.
+Isaac Flath
+01:23:50
+And find some way to have it more reflect
+Isaac Flath
+01:23:55
+What might be important to user experience?
+Isaac Flath
+01:24:01
+How much of the RAG process is outright dev and QA, such as test cases versus evals?
+Isaac Flath
+01:24:09
+Meaning, would you assume a degree of QA-level test cases would be in play?
+Isaac Flath
+01:24:15
+To iron out how much of the functionality of the data pool Prior to how the LLM…
+Isaac Flath
+01:24:23
+infers on it.
+Isaac Flath
+01:24:25
+So, I think it's like…
+Isaac Flath
+01:24:27
+You can unmute if I don't answer the question right, but I think it's, like, if you have RAG and then an LLM,
+Isaac Flath
+01:24:35
+it's, it's like a two-stage process, right? Like, if you've decided, I'm gonna do an LLM, but the LLM can't be successful unless I have RAG, because it needs more information.
+Isaac Flath
+01:24:46
+then…
+Isaac Flath
+01:24:47
+A lot of times, it comes back to the open coding and the axial coding. When you do that, that we talked about in previous weeks, and that Hamel talks about in the course,
+Isaac Flath
+01:24:58
+You wanna know, like, Well, what's the failure?
+Isaac Flath
+01:25:02
+Maybe the failure is that the LLM got the right information, and it just answered it wrong.
+Isaac Flath
+01:25:08
+Maybe it's that it didn't get the engine at all. And so…
+Isaac Flath
+01:25:13
+Doing that open coding and that axial coding and kind of thinking through and understanding, like.
+Isaac Flath
+01:25:18
+what actually happened, what was the problem, and then eventually Axial Code, like, categorizing it.
+Isaac Flath
+01:25:26
+I think comes down to… to that. You know, you set up a simple RAG pipeline, but that's what's gonna tell you whether to fix it or not, like, what to work on.
+Isaac Flath
+01:25:36
+I think that's kind of the crux of it all.
+Isaac Flath
+01:25:39
+The development of a RAG system.
+Isaac Flath
+01:25:43
+Can get as complicated as you want it to, or as you need it to, ideally.
+Isaac Flath
+01:25:47
+If I was to build a RAG system into a new product.
+Isaac Flath
+01:25:53
+Honestly, the first thing I would start with is I would start something like Mixed Bread, or Cohere, or LanceTB, or Weeviate, and use their API as a starting point.
+Isaac Flath
+01:26:07
+And… see, maybe that's good enough. If I need to reduce cost, I can try and go to, like, a heavier dev process with some customization. If I…
+Isaac Flath
+01:26:16
+need, if I need it cheaper, if I need it better, or if there's something specific.
+Isaac Flath
+01:26:22
+But I wouldn't…
+Isaac Flath
+01:26:24
+I guess I wouldn't recommend, like, doing a heavy dev unless you have done open and axial coding on your full system.
+Isaac Flath
+01:26:31
+And seeing that… that is one of your biggest problems.
+Isaac Flath
+01:26:36
+Do you have anything more to say, Emma?
+Robert Lavigne
+01:26:39
+Maybe if I can elaborate on the question, just to be a bit clearer.
+Robert Lavigne
+01:26:43
+So let's assume that we have 3 tiers here in play.
+Robert Lavigne
+01:26:47
+One is just the data pull. So let's say it's either a SQL gets generated, data comes back, or a vector search based on a, you know, the match, right? So regardless, some form of system does a data pull via, let's just say SQL for the time being. So.
+Robert Lavigne
+01:27:04
+the LLM agent would be either pulling from a SQL list or generating the SQL on the fly. So there's…
+Robert Lavigne
+01:27:11
+the aspect of the RAG agent that, you know, would be focusing on the pull, right? And I would assume that there's a certain degree of QA, standard QA.
+Isaac Flath
+01:27:23
+You know, from a developer mindset that would be done there.
+Robert Lavigne
+01:27:27
+and you would… some of those evals would be covered, I guess, in, you know, is the data getting pulled? Because I'm looking at some of these numbers, you know, as an example of, does something pull up earlier in the stack versus later, and stuff like that.
+Robert Lavigne
+01:27:41
+Some of that could be inferred, but some of that could be right in your actual algorithm that controls how the vector determines what the top spot is, as an example, right?
+Robert Lavigne
+01:27:52
+Does that kind of make sense? I'm trying to get a sense for… you know, if you're just waiting until the end to just do it on an eval, you might be missing some of the fundamental bugs, and it's kind of like what Hamel was saying earlier. Catch the error as early in the process as possible, and I think there's some errors that we're not necessarily catching if we don't have visibility into the
+Robert Lavigne
+01:28:10
+unit tests of the actual RAG tool itself. Does that make more sense?
+Isaac Flath
+01:28:17
+Yeah, I mean, I definitely think, I'd love Hamil to chime in, too. I definitely think you should, be looking at this. I tend to look at the, the system and say, like, okay, well, where's the first error? Maybe the first error is…
+Isaac Flath
+01:28:33
+is the RAG pipeline. Maybe the first error is an agent call after the RAG pipeline. And if the first error that's happening is…
+Isaac Flath
+01:28:43
+the retrieval, then that's where I'm gonna spend all my time, because if the retrieval, if there's bad input going in.
+Isaac Flath
+01:28:51
+All the failures after probably aren't…
+Isaac Flath
+01:28:54
+I mean, those all might stem from the rag being wrong. So, yeah, I think…
+Isaac Flath
+01:28:59
+I think diving in where the problem is, having unit tests at the RAG, if the RAG is really bad, and that's the main problem, then just getting more and more specific and diving into just the RAG.
+Isaac Flath
+01:29:10
+Is good, especially, like, if you have something… because you can probably iterate if you're just looking at that piece.
+Isaac Flath
+01:29:16
+But I guess the question is, to me is, okay…
+Isaac Flath
+01:29:20
+What's more important to work on? Is it the RAG piece? The retrieval piece? Is it some other agent piece? Is it the…
+Isaac Flath
+01:29:27
+System prompt, and that's where it's like…
+Isaac Flath
+01:29:31
+That's where, I guess, that overall analysis is, and then, yeah, I would say, if RAG is the biggest problem, then definitely dive in.
+Isaac Flath
+01:29:39
+To a lot of detail there.
+Robert Lavigne
+01:29:42
+And kind of to your point there, all four of those tiers have a certain degree of quality assurance needs, like your system prompt iterating that the system prompt is done properly. What are your…
+Robert Lavigne
+01:29:53
+test cases that you might run over a gradual amount of time over multiple prompts to further develop a prompt and check that the prompt adheres to quality standards or whatever, right? So, I think the idea of evals
+Robert Lavigne
+01:30:06
+as we've been discussing, is very much, you know, via the traces for the lack of term, but I'm really realizing how much of the eval mindset is, as you say, throughout the entire pipeline, and you need to have
+Robert Lavigne
+01:30:20
+you know, that spectrum of visibility as to, you know, where is the fix? Because to your point, if the rag is fixed properly, then maybe the prompt doesn't have to be as finicky, or, you know, the test cases don't have to be as finicky, because, you know, the RAG's doing it properly, right? Does that… elaborate on that a bit?
+Hamel Husain
+01:30:37
+I mean…
+Isaac Flath
+01:30:38
+Yeah, I mean…
+Hamel Husain
+01:30:39
+Look, like, if… I'm not sure that you can say…
+Hamel Husain
+01:30:44
+That the prompt has to be less finicky because the rag is working?
+Hamel Husain
+01:30:49
+That… I'm not sure that makes sense.
+Robert Lavigne
+01:30:52
+No, that's a fair point.
+Hamel Husain
+01:30:54
+Because, like, RAG is about retrieval of context, so, like, if you're not retrieving the context, it should be the case.
+Hamel Husain
+01:31:00
+Most of the time, that is just not gonna work.
+Robert Lavigne
+01:31:03
+I'm thinking more in terms of validators that you might have in the system prompt to make sure that certain messages are there. You know, if, let's say, your RAG pipeline has built-in detection, you know, you would catch those things algorithmically as opposed to inferred.
+Robert Lavigne
+01:31:25
+Sorry, I didn't mean to… Yeah, too much.
+Isaac Flath
+01:31:28
+No, no, no, this is good. So I guess…
+Isaac Flath
+01:31:32
+just one overall thing is that I think every single part of the system, it doesn't really matter how good your system is, the prompt, the rag, the tool calls, the…
+Isaac Flath
+01:31:43
+The UX, the response, the personality, like, every single part of that
+Isaac Flath
+01:31:49
+can be improved if you put time into it, and you put focus into it. And so, one of them is… comes down to, like, well, how do you prioritize? And that's one of the points of…
+Isaac Flath
+01:31:58
+you know, open and axial coding, because you can devote your time at any of them and make them better. But, you know, sometimes they're good enough, and sometimes it's not.
+Isaac Flath
+01:32:08
+Like, if you improve your product…
+Hamel Husain
+01:32:09
+I would say that, like.
+Isaac Flath
+01:32:10
+Amo's point, but the rag is there, like…
+Hamel Husain
+01:32:12
+RAG is a weak point in a lot of systems, because it is, like, a very complicated…
+Robert Lavigne
+01:32:19
+Yes, and most of them are extremely lazy in how they implement it.
+Hamel Husain
+01:32:23
+Yeah, and so it tends to be a common place that needs help, for sure. I mean, you shouldn't just jump to conclusions, you should do your own analysis and say, like, oh, okay, like, the retrieval is a place that needs the most attention.
+Hamel Husain
+01:32:39
+But yeah, it does tend to be very common. Getting retrieval right is hard.
+Hamel Husain
+01:32:44
+Like, searching… getting the information that's relevant is hard.
+Hamel Husain
+01:32:49
+I mean, it can be hard, it depends on the data and the problem and the use case.
+Hamel Husain
+01:32:56
+you know, Yeah.
+Hamel Husain
+01:33:00
+You want, especially in domains where you need to have recent data, there's data that overrules other data.
+Robert Lavigne
+01:33:08
+Yeah.
+Hamel Husain
+01:33:09
+Things like that. There's things that… there's, like, conflicting data.
+Hamel Husain
+01:33:15
+That becomes a lot harder, and you have to engineer that carefully, and that becomes, like, you're building a search… like, you're kind of exiting
+Hamel Husain
+01:33:24
+LLM land and AI land, and you're thinking about, how do I build a good search engine? There's some AI…
+Robert Lavigne
+01:33:31
+Well, to a degree, that's what we're talking about now, right? This is our new search engine, so how do we optimize our use of the search engine, right?
+Hamel Husain
+01:33:38
+Yeah.
+Hamel Husain
+01:33:39
+And so I highly recommend, like, if you want… it sounds like you may be interested in RAG and other people. A good way to get intuition is actually
+Hamel Husain
+01:33:49
+take Isaac's course.
+Robert Lavigne
+01:33:51
+Yeah.
+Hamel Husain
+01:33:52
+One rag.
+Robert Lavigne
+01:33:52
+I was actually going to…
+Hamel Husain
+01:33:54
+No, it's a different kind of course. It's a… it's not like… you know Maven has a lot of videos? Like, this course has a lot of videos, you sit there and watch the videos or whatever. Isaac's one is on this platform called boot.dev. You wanna pull it up real quick? Isaac?
+Isaac Flath
+01:34:07
+Yep.
+Robert Lavigne
+01:34:09
+And that link, I believe, was one of the links that we had.
+Hamel Husain
+01:34:12
+Yeah, yeah, that's one of the links. I like it, I actually like this course a lot because it's not expensive at all. I think it's, like, I don't know, $40 a month or something, I don't know, maybe less than that.
+Hamel Husain
+01:34:24
+this platform, and you can, like, take as many courses as you want it, but it's, like, it's not too many videos, and it's like, you run code, and it's kind of like a book. It's basically like an interactive book, where you sort of…
+Hamel Husain
+01:34:37
+It tells you…
+Hamel Husain
+01:34:38
+what leads you through some exercises, and then, like, you do the homework. But you don't have to do a lot of the setup.
+Hamel Husain
+01:34:45
+Which is where a lot of people get stuck with writing code, like, it has an environment where you can just, like, write code.
+Robert Lavigne
+01:34:51
+And you can, like, run commands and, like.
+Hamel Husain
+01:34:54
+Verify that you understand?
+Robert Lavigne
+01:34:57
+Well, you're not polluting your own, own build spaces.
+Hamel Husain
+01:34:59
+Yeah, and then, like, what I recommend if you're gonna do this…
+Hamel Husain
+01:35:02
+Just have, like, ChatGPD open, and then, like, you know…
+Hamel Husain
+01:35:09
+Just ask questions while you're doing this. It can be a good way to, like, bootstrap your way into it.
+Isaac Flath
+01:35:15
+Another way… If you're doing…
+Robert Lavigne
+01:35:17
+Go for it, Nasa.
+Isaac Flath
+01:35:18
+Another way, if you're doing the course, is, like, there's a, AI thing here, a prompt, it says, boost the bear. Oh, okay. You can say, you can say, like, I don't…
+Hamel Husain
+01:35:29
+Oh, I didn't know, I didn't realize I had this, Isaac.
+Robert Lavigne
+01:35:32
+Yeah, so it's using that page.
+Isaac Flath
+01:35:33
+Yeah, right.
+Isaac Flath
+01:35:35
+It's using the page, and there's context, and it's got, like, a Socratic prompt. Okay. So, you could say, I'm confused on,
+Isaac Flath
+01:35:43
+Why…
+Robert Lavigne
+01:35:44
+the RAG system in its own right.
+Isaac Flath
+01:35:48
+Yeah, pretty much. That's right.
+Hamel Husain
+01:35:51
+Yeah, you can also click this button here on your browser, and that kind of is, like, really cool. I don't know if you've ever tried doing that, but…
+Isaac Flath
+01:35:57
+This one?
+Hamel Husain
+01:35:58
+No, the one that I circled in green. Does it not show up on your.
+Robert Lavigne
+01:36:01
+Well, the plus sign?
+Isaac Flath
+01:36:03
+Oh!
+Hamel Husain
+01:36:03
+Wilson.
+Isaac Flath
+01:36:04
+No, I have not.
+Hamel Husain
+01:36:05
+Oh, you should totally do that, it's like…
+Hamel Husain
+01:36:08
+It's like a… it's like one of the best.
+Robert Lavigne
+01:36:11
+I have no clue. I've just learned from that myself, thank you.
+Isaac Flath
+01:36:16
+Yeah, so you can see this, has a… it's got a little bit of a personality to it, but, let me make this a little bigger. You can see you've just implemented this, it knows that you just implemented this, and what are you trying to do? The formula sometimes gives too much weights for railroads, too little weights.
+Isaac Flath
+01:36:34
+So it kind of, like, explains the why, and so,
+Isaac Flath
+01:36:38
+Yeah, this is a good chatbot to use for this particular thing, but yeah, ChatGPT works too.
+Robert Lavigne
+01:36:45
+Well, this has…
+Isaac Flath
+01:36:46
+Three are complete.
+Robert Lavigne
+01:36:47
+personality.
+Isaac Flath
+01:36:50
+That's right, that's not the personality, and basically, there's a Socratic prompt, and it pulls in some stuff, and they're working to improve it to pull in, like, information about, like.
+Isaac Flath
+01:36:58
+maybe things you've struggled with in the past, so it can, like, try and influence, like, how it explains things, or, like… so they're working on stuff like that. That's really cool, but…
+Robert Lavigne
+01:37:06
+You've definitely sold me, I'm gonna be signing up for it. Now, you were saying, just from a pitch point of view, first 3 are free, and then after that, it's a pay-as-you-go type of thing?
+Isaac Flath
+01:37:15
+Well, so first three are fully free, in terms of, like, you can run the assignments, you can do this, all this stuff.
+Isaac Flath
+01:37:22
+However, if you go here…
+Isaac Flath
+01:37:27
+I will just prove it to you in an incognito window.
+Isaac Flath
+01:37:33
+you can continue in guest mode, and you can see I cannot click and enter the quiz or the assignment, or whatever it is, and I don't have the chatbot, but I have the entire assignment context.
+Robert Lavigne
+01:37:46
+Okay, so I can learn something. So, I can have…
+Isaac Flath
+01:37:49
+Exactly. Now, I'm not… like, if you want to pay the money, you could… Oh, no, I'm not telling you… I'm just saying.
+Robert Lavigne
+01:37:54
+Exactly. For those…
+Isaac Flath
+01:37:56
+I'm just saying.
+Robert Lavigne
+01:37:57
+That's the water.
+Isaac Flath
+01:37:59
+Yeah, the interactivity is what you pay for. The information is not. The information is all… all free the whole course. You get the interactivity the first three chapters, so I would do that, and then continue on, and if you like the interactivity, pay. If you don't, just, like.
+Isaac Flath
+01:38:14
+Keep the knowledge, you know, so…
+Robert Lavigne
+01:38:17
+I appreciate all you do, Isaac. Thank you. I'll… sorry, I didn't mean to turn this into a lengthy conversation, but…
+Isaac Flath
+01:38:24
+Oh, I love talking about retrieval, this is great.
+Robert Lavigne
+01:38:27
+No, that's good.
+Hamel Husain
+01:38:28
+I hadn't…
+Robert Lavigne
+01:38:29
+Gem of the course, in my opinion.
+Hamel Husain
+01:38:34
+So it might be a good time to wrap things up. I think we're a little bit over, but that's okay. Unless you have anything else you wanna…
+Hamel Husain
+01:38:42
+Discuss.
+Isaac Flath
+01:38:44
+No, actually, the metrics was the last thing I wanted to talk about, so… Yeah, that's everything. That's great.
+Isaac Flath
+01:38:53
+So, thanks, everybody.
+Hamel Husain
+01:38:54
+Thank you.
+Isaac Flath
+01:38:55
+I will see you in a couple days for the last homework.
+Hamel Husain
+01:38:59
+Alright, thanks.
+Isaac Flath
+01:39:01
+Bye.
