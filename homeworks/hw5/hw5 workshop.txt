@@ -1,0 +1,1878 @@
+Isaac Flath
+00:00:22
+Hey, how's it going?
+Hamel Husain
+00:00:23
+Hold on a sec, let me just get it.
+Hamel Husain
+00:00:26
+Connected.
+Hamel Husain
+00:00:34
+Can you hear me?
+Isaac Flath
+00:00:36
+Yep, I can hear you.
+Hamel Husain
+00:00:40
+I think this time we'll have you kind of… I'll try to, like, minimize questions.
+Hamel Husain
+00:00:45
+There was, like, tons of… When I was looking at the recording, it was like… Maybe too many interruptions?
+Isaac Flath
+00:00:54
+Okay.
+Hamel Husain
+00:00:54
+like, field the questions. How do you feel about that?
+Isaac Flath
+00:00:57
+I'm good either way. I mean, there's less content in this homework, but, I mean, we could kind of get through it, and then…
+Isaac Flath
+00:01:05
+do questions, you know, most questions at the end. Obviously, if somebody's like, I don't understand what you're doing right now, that seems like a good thing to raise, but…
+Isaac Flath
+00:01:13
+Makes sense. Okay.
+Isaac Flath
+00:01:17
+And, you know, if I can get through it fairly quick, and if we have more time, I'll just… we can look at the data. That's what we're here for.
+Hamel Husain
+00:01:23
+Yeah.
+Hamel Husain
+00:01:26
+Nice joke.
+Hamel Husain
+00:01:27
+Alright, welcome back, everybody! This is the last… Session of the course.
+Hamel Husain
+00:01:35
+So, today we have Isaac.
+Hamel Husain
+00:01:39
+Who is going to… he's been doing live walkthroughs of the homework.
+Hamel Husain
+00:01:43
+Isaac already has recorded walkthroughs of the homework, but he's doing a different flavor live, where he's using AI.
+Hamel Husain
+00:01:50
+kind of, like, leaning on AI.
+Hamel Husain
+00:01:53
+to help…
+Hamel Husain
+00:01:54
+do the homework as much as possible? Like, how would you do that, if you're interested in that kind of thing?
+Hamel Husain
+00:02:00
+Targeted at people who may not be as familiar with coding?
+Hamel Husain
+00:02:05
+So I'll hand it off to Isaac.
+Isaac Flath
+00:02:09
+Alright, cool.
+Isaac Flath
+00:02:10
+So,
+Isaac Flath
+00:02:12
+Just as a little bit of a recap, week 1 and 2, the first session, we did weeks one and two, where we looked at,
+Isaac Flath
+00:02:22
+We looked at creating a prompt, what you might look at there, how do you create some synthetic data, kind of getting started with that, getting started with error analysis, looking at the data for both open and axial coding.
+Isaac Flath
+00:02:36
+We then moved into… the next session was on LLM as a judge. How do you look at, kind of, the data going in, the data going out? How do you think about this? How do you measure it? And last week, we really talked a lot about,
+Isaac Flath
+00:02:52
+the RAG use case, and evaluating that, processing it, all that kind of stuff, synthetic data for that.
+Isaac Flath
+00:03:01
+And so then this week is the, last homework.
+Isaac Flath
+00:03:05
+And, that's what we're gonna do here. Go ahead and ask questions in,
+Isaac Flath
+00:03:12
+you know, Discord, or… or ask questions in the Zoom chat, and then Hamel will raise them. We're gonna get through some of the material, and then have some more time for questions, you know, at the end, but if there's anything that you don't understand that I'm doing right now,
+Isaac Flath
+00:03:27
+you know, as I do it, please ask those so that we can… Clarify those.
+Isaac Flath
+00:03:34
+Alright, let me find… share button…
+Isaac Flath
+00:03:41
+Perfect.
+Isaac Flath
+00:03:43
+Alright, everyone should see my screen.
+Isaac Flath
+00:03:46
+So this is in Homeworks, Homework 5, and this is the README for Homework 5.
+Isaac Flath
+00:03:52
+And so, every conversation as a trace contains one failure, so,
+Isaac Flath
+00:03:59
+Mostly important to understand is what data's provided. There's,
+Isaac Flath
+00:04:04
+Labeledraces.json, which is a list of 100 traces.
+Isaac Flath
+00:04:08
+There's, okay, a conversation ID, a bunch of messages, so a chat back and forth, maybe an agent.
+Isaac Flath
+00:04:14
+We'll see.
+Isaac Flath
+00:04:16
+What was the last success state and the first failure rate? So we'll look at that.
+Isaac Flath
+00:04:21
+And what that means here in a bit, but let's skim it. Okay, so we've got some states.
+Isaac Flath
+00:04:27
+So, we have a parse request, and this is kind of… Ideally, if you're doing evals.
+Isaac Flath
+00:04:33
+you know, if you did evals from the start, you kind of defined these already, so you would already be familiar. If you're coming in and doing it on a product that, maybe is new to your team, or you're looking at something else, or you're consulting, these are things you might have to define. Like, what are all the things that happen in your agent?
+Isaac Flath
+00:04:50
+Llm interprets the message, Okay, there's a planning step, deciding which tools to invoke.
+Isaac Flath
+00:04:58
+There's generating arguments for the customer.
+Isaac Flath
+00:05:03
+There's, you know, a tool to get recipes, to get a search tool.
+Isaac Flath
+00:05:08
+Let's see, there's… okay, there's customer profile tools. I know I did not go in order.
+Isaac Flath
+00:05:12
+Generating arguments, for the recipeDB.
+Isaac Flath
+00:05:16
+Oh, there's a web search tool?
+Isaac Flath
+00:05:20
+Okay, there's, like, a final answer and delivering response. Okay, so this seems like it's a, like, the gist here is, like, once you understand a little bit here, you can think, see, like, alright, so it's… it's gonna get some customer information and profile, I don't know what exactly, we'll look at the traces, maybe it's getting stuff like what kinds of,
+Isaac Flath
+00:05:40
+dietary restrictions they have. Maybe they have, like, a profile page, it can do some web search, it can pull recipes from a database,
+Isaac Flath
+00:05:48
+So that's cool.
+Isaac Flath
+00:05:50
+And so, what do we need to do?
+Isaac Flath
+00:05:52
+Familiarize yourself with the JSON structure.
+Isaac Flath
+00:05:55
+Okay, so we familiarized ourselves a little bit with this.
+Isaac Flath
+00:05:59
+Let's look at the JSON structure. We got this, but let's look at the JSON.
+Isaac Flath
+00:06:05
+We can look at… data… Labeledraces.json? Okay.
+Isaac Flath
+00:06:12
+So, now we can see a little bit more. We have our conversation ID.
+Isaac Flath
+00:06:18
+And we see these messages,
+Isaac Flath
+00:06:24
+If you've been in the last few, you could probably see where this is going. It's not the nicest format to read it in.
+Isaac Flath
+00:06:30
+So, what I did, and I won't make you, you know, watch the agent do this.
+Isaac Flath
+00:06:39
+But what I did is I said, create a self-contained HTML file. Hopefully you guys aren't tired of seeing that, like, 3 times every session. I told it where the JSON was, I'm like, I just want to view this JSON file in a nice way. I described what I wanted.
+Isaac Flath
+00:06:56
+from this, I gave it all the states.
+Isaac Flath
+00:07:00
+It gave me some stuff.
+Isaac Flath
+00:07:06
+I said I couldn't load it, I gave it the error.
+Isaac Flath
+00:07:09
+I didn't understand something. I was like, why do I need… it was telling me to start a server. I was like, why do I need that? Can't it just read the file?
+Isaac Flath
+00:07:18
+It explained…
+Isaac Flath
+00:07:20
+a bit, and I said, like, well, I could just add an input for you to upload it, instead of starting a whole server, and I was like, okay, yeah, let's just do the upload box.
+Isaac Flath
+00:07:29
+And it did it.
+Isaac Flath
+00:07:32
+So, this is the whole thing I did, is 4 prompts.
+Isaac Flath
+00:07:37
+To get it created.
+Isaac Flath
+00:07:39
+And this created, this… this here.
+Isaac Flath
+00:07:43
+Let's pretend like we haven't seen that transition matrix yet.
+Isaac Flath
+00:07:47
+And so here I can look through, and I can see them. This may not even… this isn't, like, the perfect one, like, this tool called ParseRequest might be nice to see that differently. But, you know, this gives us a little bit nicer way to read the JSON, so now we can see.
+Isaac Flath
+00:08:01
+We have… Start and an end…
+Isaac Flath
+00:08:05
+And we can see what vegetarian meal… okay, so now we… inside of this chat, we have these traces that are…
+Isaac Flath
+00:08:11
+Parsing a request, it's planning some tool calls, It's… now it's failing.
+Isaac Flath
+00:08:20
+And then it carries on, so it tried to continue, even though there was a failure.
+Isaac Flath
+00:08:24
+And etc. So these are the… these are the conversations.
+Isaac Flath
+00:08:30
+So I think we're familiar with roughly what it is. Let's see what else we're supposed to do.
+Isaac Flath
+00:08:36
+We want to build a transition matrix.
+Isaac Flath
+00:08:39
+And to do that, we count how many times from last success to first failure.
+Isaac Flath
+00:08:44
+So… And we visualize that in the heat map.
+Isaac Flath
+00:08:50
+This is the… Heat map provided.
+Isaac Flath
+00:08:56
+And this is a really useful thing,
+Isaac Flath
+00:08:59
+for kind of a simple visualization, it's kind of, like, unreasonably helpful to look at. And what this is, is that…
+Isaac Flath
+00:09:07
+For example, we can see that, like, what was the last successful thing that happened in this trace?
+Isaac Flath
+00:09:14
+And in this case, let's pick this 10, because that's the biggest number.
+Isaac Flath
+00:09:19
+For 10… there was 10 traces where the last thing that succeeded was planned tool calls, and then the first thing that fails was generate recipe args.
+Isaac Flath
+00:09:30
+So, that's interesting, so we might want to dive into that.
+Isaac Flath
+00:09:34
+This 9, the last thing that was successful is it looked up to get the customer profile, cool.
+Isaac Flath
+00:09:41
+And then it failed to get recipes.
+Isaac Flath
+00:09:45
+So that's interesting.
+Isaac Flath
+00:09:47
+Okay.
+Isaac Flath
+00:09:48
+Great. So we can look at this.
+Isaac Flath
+00:09:52
+And this tells us, like, okay, well, maybe there's something between these steps, maybe one of these steps fail, like, why are these all lit up?
+Isaac Flath
+00:10:01
+Very red.
+Isaac Flath
+00:10:04
+So that's what that is.
+Isaac Flath
+00:10:08
+And then we just want to analyze it, you know? Which… which fails? Do clusters happen? Any… anything surprising? And this is just mostly, like, get curious.
+Isaac Flath
+00:10:17
+Write notes, write things you observe, etc.
+Isaac Flath
+00:10:21
+I wanted not just to…
+Isaac Flath
+00:10:26
+look at this, but, like, once I see this, I can see patterns, but then I might want to, like.
+Isaac Flath
+00:10:31
+actually look at the traces and look at the data underneath, and that's why I created this.
+Isaac Flath
+00:10:37
+So this is the view where…
+Isaac Flath
+00:10:40
+I can click on one of the boxes, and I can see, okay, here are the 10 traces.
+Isaac Flath
+00:10:47
+That fell in here, and I can just kind of look through them, if I'd like, just to understand a little bit more.
+Isaac Flath
+00:10:53
+Before we do that, we can go ahead and look and see if we see any trends here.
+Isaac Flath
+00:11:02
+What I see here is we have a 10, a 9,
+Isaac Flath
+00:11:06
+an 8, 7, 7, 7… like, okay, so the first thing that sticks out is over here, there's, like, very light colors.
+Isaac Flath
+00:11:15
+Very few things that are going wrong over here.
+Hamel Husain
+00:11:18
+So tell me what happened here. You, you said you…
+Hamel Husain
+00:11:21
+you wanted… you exported a self-contained HTML file, and then, from that code.
+Isaac Flath
+00:11:28
+Exactly, yes, I created a…
+Hamel Husain
+00:11:29
+Do you prefer doing that, let's say…
+Hamel Husain
+00:11:32
+You know, versus a notebook? Just out of curiosity.
+Isaac Flath
+00:11:36
+I find that I have, for looking at simple stuff, or JSON files or CSV, I kind of…
+Isaac Flath
+00:11:45
+tend to like it, because it's sometimes making… I find sometimes making, like, display widgets in…
+Isaac Flath
+00:11:53
+Notebooks can be tricky at times. I know you're, like, really good at them, so if you are, great.
+Hamel Husain
+00:12:01
+No, I kinda like this, self-contained HTML thing, actually, to be honest.
+Isaac Flath
+00:12:06
+But my plan is, after I look at this and get a high level, I was gonna create a notebook, and then, look at some of the things, in more detail as well. So, I don't think it's one or the other.
+Isaac Flath
+00:12:18
+But yeah, this is kind of a high level, so basically what I see is, like.
+Isaac Flath
+00:12:23
+Two columns, going pretty well.
+Isaac Flath
+00:12:26
+Lots of dark colors.
+Isaac Flath
+00:12:29
+Lots of good stuff, so… What do these have in common?
+Isaac Flath
+00:12:34
+We have our failure traces, okay, we're…
+Hamel Husain
+00:12:37
+And is this Monster UI? It looks very monster… it's somewhat Monster UI-ish, kind of. Or maybe I'm just making it up in my mind. To be honest, I didn't even look, but I'm sure… I don't think this is Monster UI. Okay. I don't think so, but…
+Isaac Flath
+00:12:51
+Could be.
+Isaac Flath
+00:12:55
+So, I guess what I'm seeing here is I think, like, okay, so we have something about generating recipe arguments.
+Isaac Flath
+00:13:04
+Generating customer arguments.
+Isaac Flath
+00:13:08
+Getting a customer profile, getting recipes.
+Isaac Flath
+00:13:12
+So, like, can I try a thread through these? And sometimes you can't… maybe things are completely isolated, and maybe things can be… and they're… they truly are separate issues. Sometimes they come together.
+Isaac Flath
+00:13:24
+I find it a little suspicious right off the bat.
+Isaac Flath
+00:13:31
+that, okay, Git probably means I'm looking something up, right? I'm getting something.
+Isaac Flath
+00:13:37
+If I get the customer profile, that's probably in my own database, I would guess.
+Isaac Flath
+00:13:42
+If I'm getting recipes.
+Isaac Flath
+00:13:45
+you know, that could be from the web, or it could be from my own database. I would think it's probably from the web, because there's a separate… from my database, because there's a separate git web info.
+Isaac Flath
+00:13:56
+So this immediately, I'm like, Why would getting customer profile information and getting recipes from my database
+Isaac Flath
+00:14:03
+have the highest number of failures. I would expect getting random information from the web to be harder, because, like, I can control. So, like, maybe this isn't even an LLM issue at all, maybe it's an issue with querying our database, or maybe our tool doesn't have the right definition for querying our database. So that's kind of interesting.
+Isaac Flath
+00:14:21
+And then, we also see… Generating…
+Isaac Flath
+00:14:28
+Going from this planning step, it's gonna plan the tool calls, and then gen customer args and gin recipeArgs are both extremely high.
+Isaac Flath
+00:14:37
+And that seems suspicious,
+Isaac Flath
+00:14:43
+So, these are kind of things that I might start to just think about. Like, why…
+Isaac Flath
+00:14:49
+are there common threads? You know, like, I could think about them in isolation, but at first I want to say, like, okay, maybe I should be looking at some sort of database issue, maybe I need to look at this planning step, maybe this planning step has some…
+Isaac Flath
+00:15:01
+bad information about, like, the tools. Like, maybe we misdefined our tool calls, or maybe we updated and removed an argument and didn't remove it from the prompt. Maybe that's why planning to getting our database info is really bad.
+Isaac Flath
+00:15:14
+I don't know, but…
+Isaac Flath
+00:15:17
+now that I kind of have some possible ideas in mind, I would just read some of these. I'd say, like, well, 10 is the biggest category.
+Isaac Flath
+00:15:25
+So I need a gluten-free dinner idea for 4.
+Isaac Flath
+00:15:29
+I can look through… So it parses the request,
+Isaac Flath
+00:15:35
+And it plans the tool calls.
+Isaac Flath
+00:15:38
+It gets… tries to generate recipe args, okay.
+Isaac Flath
+00:15:45
+So, that's just something to look at.
+Isaac Flath
+00:15:48
+Vegetarian high-profile meal. Okay, so this is, like…
+Isaac Flath
+00:15:52
+a very different kind of query, I guess.
+Isaac Flath
+00:15:57
+You can see parse, plan, GenRecipe args.
+Isaac Flath
+00:16:01
+This was unable to generate recipe search parameters.
+Isaac Flath
+00:16:08
+for the request.
+Isaac Flath
+00:16:11
+And I think this is often what you want to do, is just, like, look through some of them, to start to get an idea. A healthy breakfast using oatmeal.
+Isaac Flath
+00:16:23
+I'll analyze your request to identify your preferences in the main ingredient. And so, as I'm looking through this, the first thing that's coming to my mind is I'm lacking in information in these traces.
+Isaac Flath
+00:16:35
+This is kind of going beyond the homework. The homework was just to look at the transition matrix, but, you know, while I'm here. So I look at this, and I say, like, okay, well, we have this tool called Polish Requests and Plan Tools. All I see is it, like, worked, worked, failed.
+Isaac Flath
+00:16:50
+I really want to know, like, well, what was passed into this tool call, and what came out? Like, I want to be able to, like, click on this.
+Isaac Flath
+00:16:57
+and see, like, what… what actually happened. Playing tool calls, like, maybe I don't need to see it all the time, but I'd like to say, like.
+Isaac Flath
+00:17:04
+this worked, like, how can I… like, I want to right-click this or something and see, okay, well, what was the plan? Like, what plan was created? Does that plan even make sense?
+Isaac Flath
+00:17:13
+And so, I think this is a good start.
+Isaac Flath
+00:17:16
+And we don't have all this information in the traces, but I look at this, and this is a really good start.
+Isaac Flath
+00:17:24
+And where I'm saying, like, you know.
+Isaac Flath
+00:17:27
+I need to figure out how I can drill into these more.
+Isaac Flath
+00:17:30
+like, unable to generate recipe arguments from the provider request, like, that seems odd. Like, well, I… it's hard for me to know what happened if I can't see
+Isaac Flath
+00:17:39
+the plan.
+Isaac Flath
+00:17:41
+So, cool, so we know we need some more information.
+Hamel Husain
+00:17:43
+There's a question in the chat. Yeah. So, like, let's say this particular circle right there, what does that mean? It failed when going from plan tool calls to gen recipe arcs? Is that the right way to interpret that?
+Isaac Flath
+00:17:56
+Exactly. So we can see that this… I'm clicking on this 10, so all these over here are those 10 traces. We see that 10 matches this 10.
+Isaac Flath
+00:18:04
+And here we see… User, the assistant responded successfully, the parse request happened successfully, planned tools happened successfully.
+Isaac Flath
+00:18:15
+And then, gin recipeArgs had an error here.
+Isaac Flath
+00:18:19
+So we can say…
+Hamel Husain
+00:18:20
+I think the underrated part about what you're showing is how you created this interface, sort of, on the fly right now.
+Hamel Husain
+00:18:27
+And… There is no off-the-shelf tool that does what you're…
+Hamel Husain
+00:18:32
+Showing, but you just created it in, like… A minute.
+Hamel Husain
+00:18:37
+Yeah, I mean, it's actually, it's pretty good.
+Isaac Flath
+00:18:40
+Yeah, I think it took… it took me less than 5, just because the agent takes some time. But yeah, I mean…
+Isaac Flath
+00:18:46
+And the thing is, is, like, with how little time it took.
+Isaac Flath
+00:18:49
+If all I did was do this, and an hour later, I delete it, like, it was worth it. Like, 100% worth it.
+Isaac Flath
+00:18:57
+Like, could you imagine spending an hour
+Isaac Flath
+00:19:03
+Literally, like, scrolling through this and trying to understand, like, what are these success rates?
+Isaac Flath
+00:19:09
+Like, going from, like… and I see people actually do this sometimes, where they're like, oh, these 10, these plan tool calls to Gen Recipe ARGs, and they go over here, and they're like, okay, well, it was plan tool calls.
+Isaac Flath
+00:19:24
+And then they might try and find these, and they say, like, okay, well, let me try and, like.
+Isaac Flath
+00:19:30
+Like, I honestly see people do this, where they're looking for, like, the failures, and they scroll up. It's like, it's so painful, you know? You're just much better off spending, like, 3 minutes making a little interface for yourself.
+Hamel Husain
+00:19:44
+I really like this, like…
+Hamel Husain
+00:19:46
+arc you have of creating self-contained HTML files, so I feel like that's a little bit…
+Hamel Husain
+00:19:51
+unique to Isaac, but I really like it.
+Hamel Husain
+00:19:54
+I think we talked about this. It's, like, very portable, you can, like, give it to your colleague, they can just, like, open it.
+Hamel Husain
+00:20:01
+They don't have to, like, install anything. It's pretty… It's pretty cool.
+Isaac Flath
+00:20:08
+Yeah, and I think… I don't think, like, these are the… these are necessarily, like, the end, but,
+Isaac Flath
+00:20:15
+what I like is that it doesn't mean… like, if you can't code, and you don't feel like you know how to…
+Isaac Flath
+00:20:23
+build an interface. You don't have to, like, submit a ticket and wait for an engineer to be prior… like, you can just do it, you know?
+Isaac Flath
+00:20:35
+And then, you know, you're probably going to get a better output, even when you get someone, because, like, you can then go and say, like, hey, I like this. This is kind of big, like, I hate scrolling, and I wish I could, like, drill into these.
+Isaac Flath
+00:20:47
+But this is what I want. And that's a pretty good, like, ask for someone to help you build something.
+Isaac Flath
+00:20:54
+So, yeah.
+Isaac Flath
+00:20:58
+Okay.
+Isaac Flath
+00:21:00
+So, we've kind of understood it, we've kind of looked, we have a better idea what we want with our interface. Maybe you have the ability to fix it yourself. If so, do it. If not, that's okay, you just have something in the back pocket to improve upon. Now I want to kind of, like, dive a little bit more into my…
+Isaac Flath
+00:21:22
+A little bit more into my… like, okay, sorry, sorry. So, like, this is interesting, too. I can't help but looking… looking at these traces when they're in front of me. That's… that's what you should do. Any specific ingredients you'd like to include in your dinner? No beans, please? Great! I'll keep beans out of an option. Let me know if you have any other trace preferences.
+Isaac Flath
+00:21:40
+And then it just stops? Like, what…
+Isaac Flath
+00:21:44
+I feel like this should have given a recipe without beans.
+Isaac Flath
+00:21:48
+Now, we're not really focusing on that, because we had a failure a little bit higher up in this git recipes, but it seems kind of weird that the git recipes failed.
+Isaac Flath
+00:21:59
+It failed, so it asked them for information and then didn't give them anything.
+Isaac Flath
+00:22:04
+So, like, that's something I'd keep in mind. So I was just thinking about things.
+Isaac Flath
+00:22:10
+Okay, before I distract myself too much, I'll quit looking at the data.
+Isaac Flath
+00:22:14
+Okay.
+Isaac Flath
+00:22:16
+So,
+Isaac Flath
+00:22:19
+So the next thing, I wanted to try and… I want to try and see if I can understand some of these. Like, I mentioned that…
+Isaac Flath
+00:22:26
+you know, there's get customer, get recipes, like, it was a little suspicious that this is, like, clustered.
+Isaac Flath
+00:22:32
+like, if I saw, like, 2s everywhere across the board, like, 1 to 3 on every cell, all the way over, I would say, like, oh, that's kind of weird, it feels like I've got just, like, lots of little issues to fix in lots of paces.
+Isaac Flath
+00:22:44
+It doesn't really feel like that to me, because it's like…
+Isaac Flath
+00:22:51
+Like, I've got these, like, few columns that have almost all of the errors.
+Isaac Flath
+00:22:58
+And I'd like to know why that is.
+Isaac Flath
+00:23:03
+And so this is where I might go to a Jupyter notebook.
+Isaac Flath
+00:23:08
+To try and understand that a little bit more.
+Isaac Flath
+00:23:11
+And by Jupyter Notebook, I mean, let's… You can either, write it yourself.
+Isaac Flath
+00:23:20
+Or we can use an agent to do it.
+Isaac Flath
+00:23:23
+And I'm gonna go ahead and transcribe.
+Isaac Flath
+00:23:28
+Please look in the Homework 5
+Isaac Flath
+00:23:30
+data labeled underscore traces dot JSON file. I want to read that into a Jupyter notebook.
+Isaac Flath
+00:23:37
+What I'm interested in… is… Patterns in, like… What's causing failures?
+Isaac Flath
+00:23:48
+I made a transition matrix, and I looked at it, and in this transition matrix, I noticed that, like.
+Isaac Flath
+00:23:54
+Get customer profile, get recipes, were all very high.
+Isaac Flath
+00:24:00
+I was thinking maybe that's, like, some sort of, like, database querying or connection issue,
+Isaac Flath
+00:24:07
+like, Gen Recipe Args had some high stuff, I'm not sure what that is. Getting web info seemed to be successful a lot, which tells me, like, it's not necessarily just a tool calling thing, because it can successfully reach the web. But anyway, these are just, like, thoughts, and I want you to help me think through these.
+Isaac Flath
+00:24:25
+And do some analysis, group them in different ways, if there's any visuals,
+Isaac Flath
+00:24:31
+create some text that, you know, might explain some of these, like, clusters in it.
+Isaac Flath
+00:24:38
+In the, in the heat maps.
+Isaac Flath
+00:24:40
+And,
+Isaac Flath
+00:24:43
+Yeah, let me, just give me something to help think through these, transitions, which are kind of from the last failure state to the new failure state in that JSON file.
+Isaac Flath
+00:24:54
+And so, we'll see what it comes up with.
+Isaac Flath
+00:25:05
+This might take a bit, so this might be a good, good time for questions.
+Isaac Flath
+00:25:09
+If there are any…
+Hamel Husain
+00:25:14
+I've been answering them in the chat.
+Isaac Flath
+00:25:16
+Oh, great.
+Hamel Husain
+00:25:18
+Is there… one question was, do you…
+Hamel Husain
+00:25:21
+Do you find that these tool calls fail in certain ways, in your experience? Like…
+Hamel Husain
+00:25:28
+Arguments being wrong, the tool itself having some kind of, like.
+Hamel Husain
+00:25:33
+bugging it, etc. Any kind of things that you…
+Hamel Husain
+00:25:37
+Or is it, like, all over the map? I said that it was all over the map, in my experience, but…
+Isaac Flath
+00:25:42
+Yeah, I think it's all over the map. I think, like, when I… when I find if…
+Isaac Flath
+00:25:47
+I find when it's most consistent is when something is, like, brand new, like, just a brand new AI feature. It's very common, I think, that people just haven't read the prompts, and, like, the tool call instructions and stuff are just wrong in the prompts.
+Isaac Flath
+00:26:01
+And so, like, there's usually one iteration of, like, reading the prompt and just fixing it. But yeah, then it's kind of all over the map.
+Isaac Flath
+00:26:12
+I know it sounds obvious to just, like, read the prompt that AI creates for you, but it doesn't.
+Hamel Husain
+00:26:17
+No, a lot of people don't read it. A lot of people do not read the prompts.
+Isaac Flath
+00:26:20
+So…
+Isaac Flath
+00:26:22
+There's, like, a… there's a first round of, like, just read it, and then you fix a lot of really obvious things.
+Hamel Husain
+00:26:37
+I'm really curious to see if this notebook comes out with anything good.
+Isaac Flath
+00:26:41
+I have not tried to generate a notebook based on this JSON before.
+Hamel Husain
+00:26:45
+Yeah.
+Isaac Flath
+00:26:46
+I usually try and do dry runs, but in this case, I didn't, so we'll see.
+Hamel Husain
+00:26:58
+I think data analysis is… Like, the hidden gem of AI.
+Hamel Husain
+00:27:05
+Like, it's pretty… like…
+Hamel Husain
+00:27:07
+people get, like, really excited about coding, but I think this niche… there's, like, this niche of, like, data analytics.
+Hamel Husain
+00:27:14
+That is a little bit underrated.
+Isaac Flath
+00:27:17
+Yeah, it's, it's like,
+Isaac Flath
+00:27:21
+It's like everything seems to come back to this data analysis, data analytics, because it's like…
+Isaac Flath
+00:27:26
+that's what tells you what to do. You know, like, should I be building this feature or not? Should I be…
+Isaac Flath
+00:27:34
+like, what should I be worried? Like, it all comes back to, like, you do data analytics to figure out what you're supposed to do, basically.
+Hamel Husain
+00:27:40
+Network X, which makes me slightly skeptical, like…
+Hamel Husain
+00:27:44
+The complexity that might be there, but let's see.
+Isaac Flath
+00:27:48
+Yeah, spatial distance.
+Hamel Husain
+00:27:52
+Hmm.
+Isaac Flath
+00:27:52
+Cosine distances… yeah, this is making me a little skeptical, I'm not gonna lie.
+Isaac Flath
+00:27:58
+There's a lot there. It's okay, we'll try it, and then we'll iterate.
+Isaac Flath
+00:28:10
+Oh, you know what? Okay.
+Isaac Flath
+00:28:13
+I'm gonna get rid of this exception, because if we don't have widgets, I want it to… Tell me.
+Isaac Flath
+00:28:21
+Like, all this stuff, okay.
+Hamel Husain
+00:28:23
+Yeah, AI loves to do this defensive nonsense.
+Isaac Flath
+00:28:26
+Like, and sometimes it's okay, usually it's not. Like, I… if it doesn't have the tools it needs, it can just tell me, and I'll give it the tools it needs.
+Isaac Flath
+00:28:36
+I don't know why it would need…
+Hamel Husain
+00:28:38
+This, like, try… this aggressive try-catch is, like, some kind of… Weird.
+Hamel Husain
+00:28:45
+post-training… Thing that's been baked into the model, like, it's really hard to steer them out of this…
+Hamel Husain
+00:28:53
+You know, over-eager try-catch stuff.
+Isaac Flath
+00:28:58
+Yeah, I have a couple things in my normal AgentsMD that is, like, there's a few things on this earth that I hate more, and then config files is one, and then error handling is another.
+Isaac Flath
+00:29:11
+Alright, so let's see here…
+Hamel Husain
+00:29:14
+I don't know, man, they shouldn't really be using NetworkX.
+Hamel Husain
+00:29:18
+Might be worth… Telling it… not to.
+Isaac Flath
+00:29:22
+What's…
+Hamel Husain
+00:29:23
+Why the hell would it? What?
+Hamel Husain
+00:29:25
+I don't think you'd want to do network analysis.
+Hamel Husain
+00:29:28
+Okay, graph node, number of edges…
+Hamel Husain
+00:29:32
+Oh, yeah. Okay, I guess, like, transition count… I guess, kind of makes sense, maybe. It wants to…
+Hamel Husain
+00:29:41
+He wants to graph?
+Hamel Husain
+00:29:43
+It has a graph.
+Hamel Husain
+00:29:46
+Huh.
+Hamel Husain
+00:29:47
+Yeah, it's kind of interesting, potentially. I don't know, I'm curious now.
+Isaac Flath
+00:29:51
+Yeah.
+Isaac Flath
+00:29:53
+Boop.
+Isaac Flath
+00:29:54
+In general, I would say,
+Isaac Flath
+00:29:58
+If you think you need a graph database or a graph structure, you probably don't, and so you… that's why it's, like, immediately a red flag.
+Hamel Husain
+00:30:06
+Yeah, that's why this is definitely a red flag. That's why, yeah, when we see graph database, Isaac and I are like, no, this is not good.
+Hamel Husain
+00:30:14
+Or even graph, structure.
+Hamel Husain
+00:30:17
+Like, maybe not.
+Hamel Husain
+00:30:29
+I guess you could tell it… can you select that whole thing and say, can you please install the libraries or something?
+Hamel Husain
+00:30:36
+You can tell AI.
+Hamel Husain
+00:30:37
+Oh, no.
+Isaac Flath
+00:30:39
+I wanted to add the air handling in.
+Isaac Flath
+00:30:44
+Please install if… Are missing a depth.
+Isaac Flath
+00:30:56
+So…
+Isaac Flath
+00:30:58
+I'll iterate a little bit, and if I, don't get to somewhere, then I'll go back up, I'll change the prompt, and I'll ask it to keep things very, very simple, and have it, created again. I'm a little skeptical that this is gonna work,
+Isaac Flath
+00:31:12
+And you don't want to spend too much time trying to get it to work.
+Isaac Flath
+00:31:16
+If you try a few things and it doesn't, then it's probably not gonna… just prompting it more probably isn't gonna help.
+Isaac Flath
+00:31:22
+I'm gonna help.
+Hamel Husain
+00:31:23
+Is it actually able to run those notebook sales for you?
+Isaac Flath
+00:31:27
+It should be able to, yeah.
+Hamel Husain
+00:31:29
+It said, like, installing and running notebook cells, which is interesting.
+Isaac Flath
+00:31:33
+Yeah, it tried, but there was a failure here.
+Hamel Husain
+00:31:39
+You saw a failure?
+Isaac Flath
+00:31:41
+Well, it tried to do this run…
+Hamel Husain
+00:31:43
+Yeah, right, yeah.
+Isaac Flath
+00:31:44
+Has an X, I think it means failure.
+Isaac Flath
+00:31:48
+Okay, so we see BIMF, BIN Python…
+Isaac Flath
+00:31:54
+So I'm just gonna help it here. Network X.
+Hamel Husain
+00:32:12
+I guess you are… wait,
+Hamel Husain
+00:32:18
+Are you still installing the right VM? Because… is it a local VM that you have in this directory?
+Isaac Flath
+00:32:26
+It should be…
+Hamel Husain
+00:32:29
+Because… This message down here makes me think it's in, like, your root environment.
+Hamel Husain
+00:32:38
+You see that?
+Isaac Flath
+00:32:40
+Oh, yeah.
+Isaac Flath
+00:32:43
+I'll just install it here. So pip is the way you install packages.
+Isaac Flath
+00:32:47
+It says I'm still missing iPy widgets.
+Isaac Flath
+00:32:53
+So I'm just gonna do pip install iPywidgets.
+Isaac Flath
+00:32:59
+And it's trying to do this here, but I gave up on it. Okay, so we successfully got our dependencies installed with pip.
+Isaac Flath
+00:33:09
+Let's see what it's doing. It uses file, it loaded it…
+Isaac Flath
+00:33:16
+Figuring out the memory footprint of the file is definitely excessive.
+Hamel Husain
+00:33:20
+Yeah, it, like, even the import thing of, like.
+Hamel Husain
+00:33:24
+Confirming that the import happened, that was excessive.
+Isaac Flath
+00:33:28
+Yeah, for sure. And, like, honestly, looking at this, I would,
+Isaac Flath
+00:33:34
+I'll probably start over and have it really simplify this notebook, because.
+Isaac Flath
+00:33:39
+Like, I look at this, and I'm like, I don't understand this enough.
+Isaac Flath
+00:33:42
+And so, I'll probably, like, run it through, see what it creates, look at the charts, see if there's just any quick value without spending too much time on it.
+Isaac Flath
+00:33:55
+And then I can, you know, try and create another one that's more targeted, because I think…
+Isaac Flath
+00:34:00
+spending too much time in this, knowing how overcomplicated this is, I don't feel like it's gonna be worth a huge amount of my time.
+Isaac Flath
+00:34:08
+But let's see here. Okay, first two messages, it got them.
+Isaac Flath
+00:34:15
+Two extractions… what is it doing here?
+Hamel Husain
+00:34:19
+Yeah, this is like, okay, this is producing the transition matrix, like the node, the… whatever.
+Isaac Flath
+00:34:27
+Yep.
+Isaac Flath
+00:34:29
+Doing it.
+Hamel Husain
+00:34:30
+edges.
+Isaac Flath
+00:34:32
+Okay. This is saying here are the top, you know.
+Isaac Flath
+00:34:36
+Top failures, percentage-wise, so 31%.
+Isaac Flath
+00:34:41
+Coming from Plan Tool Calls.
+Isaac Flath
+00:34:51
+Yeah, so I got scanned through this… Doesn't seem that useful.
+Isaac Flath
+00:34:57
+Great.
+Isaac Flath
+00:34:58
+So let's start over here.
+Isaac Flath
+00:35:00
+Let's see, drastically simplify.
+Isaac Flath
+00:35:03
+I'll just voice transcribe. Drastically simplify. I don't need Network X, I don't need anything fancy, I don't need the transition matrix, I want to analyze with just pandas, that's the only dependency. Just looking at tables.
+Isaac Flath
+00:35:17
+Load something minimal, I'm gonna delete almost everything in this notebook for you to start over. Just load in the JSON and do a little bit of analysis with just pandas in a super minimal, simple way, so that I am comfortable jumping in and being hands-on.
+Isaac Flath
+00:35:38
+So we'll do this.
+Isaac Flath
+00:35:39
+I'm gonna delete it.
+Isaac Flath
+00:35:43
+And I think this is actually, like, you know, it would have been cool if it just worked, but I'm actually not that upset that it didn't work.
+Isaac Flath
+00:35:51
+Because… I think it's pretty important to know that When you see this complication.
+Isaac Flath
+00:35:59
+And I'm like, I can't understand this.
+Isaac Flath
+00:36:02
+It seems way overkill. It went far beyond me.
+Isaac Flath
+00:36:08
+Usually the best thing to do is just to, like, delete it and take a step back and simplify. It's usually not the best call.
+Isaac Flath
+00:36:16
+to…
+Isaac Flath
+00:36:18
+just keep prompting it, and keep asking it to fix it, and keep giving it errors, and keep doing it.
+Isaac Flath
+00:36:26
+You can. You can kind of keep prompting it and see where you get.
+Isaac Flath
+00:36:31
+keep vibe coding, so to speak. In my experience, I don't tend to learn a whole lot from it.
+Isaac Flath
+00:36:37
+And I usually just end up frustrated, so…
+Isaac Flath
+00:36:43
+If you get the vibes that it's, like, gone too far off the… off the wheels, and you look a little bit…
+Isaac Flath
+00:36:50
+It's better to, like, pair it back than… Try to go.
+Isaac Flath
+00:37:02
+Any other questions while we're waiting for the new one?
+Hamel Husain
+00:37:08
+Hmm… I don't see any questions in the chat, really.
+Hamel Husain
+00:37:20
+I guess, like, one question might be.
+Hamel Husain
+00:37:24
+I'm just trying to put myself in the shoes.
+Hamel Husain
+00:37:26
+Of a student.
+Hamel Husain
+00:37:28
+What is the best way one should develop the sense of whether something is too complicated or not? Do you think you need to learn all the fundamentals, like.
+Hamel Husain
+00:37:37
+Okay, you know it's… like, we know it's too complicated, because we've done this manually so many times ourselves, like, before AI.
+Hamel Husain
+00:37:44
+Like, we just know right away that, like, okay, this doesn't make any sense. Like, why is there so much code? Why is there so many dependencies?
+Hamel Husain
+00:37:53
+Do you think someone starting anew can develop that sense without
+Hamel Husain
+00:38:00
+Going through the same journey we did, or what is your feeling?
+Isaac Flath
+00:38:04
+Yeah, I mean, learning some of the fundamentals is helpful, for sure. There's no denying that learning more is valuable, you know, of anything. But yeah, I think so. I think… I think when you…
+Isaac Flath
+00:38:18
+try to look and see, like, what is the point of this stuff here? We identified that Network X was doing this graph stuff.
+Isaac Flath
+00:38:27
+If you… you could use AI to ask about it, and if it's like, I don't understand this at all.
+Isaac Flath
+00:38:34
+Like, it makes no sense to me.
+Isaac Flath
+00:38:37
+Then you took too big of a step.
+Isaac Flath
+00:38:40
+And you should kind of get rid of it.
+Isaac Flath
+00:38:45
+if you see something, and you're like, I kinda see where it might be going with that, that could be interesting. I don't really understand it, but like…
+Isaac Flath
+00:38:54
+Okay, it's trying to… it's trying to make some sort of chart.
+Isaac Flath
+00:38:58
+That's cool. Then you might want to understand it. So, yeah, it's very much, I guess an intuition thing about, like.
+Isaac Flath
+00:39:08
+I feel like it's okay if AI is… if you use AI and it gets, like, one or two steps ahead of you.
+Isaac Flath
+00:39:15
+It's still okay, because you can learn, you can…
+Isaac Flath
+00:39:18
+dive into it, you can ask questions, you can learn. If you ever look and think, like, wow, it's, like, 15 steps ahead of me.
+Isaac Flath
+00:39:27
+Then you should probably just delete the notebook, and ask it to do a smaller step.
+Isaac Flath
+00:39:36
+And what you'll see is this first prompt, I didn't really set myself up for very good success, because I just said, like, do a bunch of stuff.
+Isaac Flath
+00:39:45
+And so, when I created this error, the way I said is I said, okay, first, drastically simplify. I said, I don't need… and I said some specific things I didn't need.
+Isaac Flath
+00:39:59
+And I said I don't need the transition matrix, because I already looked at that. And then I said what I did want. I want pandas. That's the only dependency.
+Isaac Flath
+00:40:10
+Just looking at tables. Load something minimal.
+Isaac Flath
+00:40:14
+And so…
+Isaac Flath
+00:40:16
+I think, if it gets too far ahead, where you're like, I don't understand any of this, and I just, like, I ran the stuff, and I saw, and I was like, I don't know what these things are doing, this isn't helpful.
+Isaac Flath
+00:40:26
+That's when you say, okay, I need to be definitely more in control than that, and think about, well, what might I want? And I can go back to the heat maps that we… the heat map that we had.
+Isaac Flath
+00:40:40
+Here is the…
+Isaac Flath
+00:40:42
+Here. We can go back to here and say, like, okay, well, what… what would I want to see?
+Isaac Flath
+00:40:47
+And one of the things I want to see, and we'll see if the notebook creates it, otherwise we'll create it.
+Isaac Flath
+00:40:53
+is I wanna see, like, it seems like the first 3… Letters?
+Isaac Flath
+00:41:00
+of the, of these codes are meaningful.
+Isaac Flath
+00:41:04
+Meaning gin, gin, gin.
+Isaac Flath
+00:41:09
+Git, get, get.
+Isaac Flath
+00:41:12
+So, like, what if I grouped by those first 3 letters?
+Isaac Flath
+00:41:15
+And you can ask very specifically for that, and, have quite a lot of success getting that. And so, I think it's, like, try to get more specific with what you want, and yeah, if it feels like it's just, like, just beyond you, that's totally fine. If you feel like it's, like.
+Isaac Flath
+00:41:32
+Way beyond you, depending on wherever you're at, then you probably just want to delete it and work your way up there incrementally.
+Isaac Flath
+00:41:43
+And maybe you say, like, I don't understand Network X.
+Isaac Flath
+00:41:47
+like, what, what value would I get? Like, what would this tell… what could this potentially tell me about it, and have it explained? And even if you don't use it, then you're like, okay, well, I know what network X is now.
+Isaac Flath
+00:41:57
+And so, I guess we can do that. I'll just jump over to, like…
+Isaac Flath
+00:42:07
+I'll jump over to Ann.
+Hamel Husain
+00:42:12
+It's taken quite a long time.
+Isaac Flath
+00:42:15
+Yeah, it really is. I don't know if they're having issues here. So I might say, like, if I'm like, oh, I don't know what…
+Isaac Flath
+00:42:22
+What is NumPy?
+Isaac Flath
+00:42:25
+Like, maybe Seabourn.
+Isaac Flath
+00:42:29
+Well, I see solaces, okay. So we can say something like…
+Isaac Flath
+00:42:35
+I created a notebook to analyze,
+Isaac Flath
+00:42:39
+This transition heat map, and, like, failure transitions.
+Isaac Flath
+00:42:43
+I'm trying to do something simple, and there's some imports I don't understand. Could you explain, like, what NumPy and Pandas are for in Python? And, like, why…
+Isaac Flath
+00:42:55
+why those might be helpful for analysis, and what kinds of things I would be interested in learning if I were using those tools.
+Isaac Flath
+00:43:08
+Oh, looks like my transcription got cut off.
+Isaac Flath
+00:43:17
+And so I guess just being a little curious, let's see here… Fast…
+Isaac Flath
+00:43:22
+arrays and matrices and math operations. That could be useful.
+Isaac Flath
+00:43:28
+Pandas is structured data, like spreadsheets and tables. That sounds exactly what I'm looking for.
+Isaac Flath
+00:43:34
+Manipulating tabular data, filtering and aggregating and grouping data, Pivot tables and cross-tabulations.
+Isaac Flath
+00:43:43
+Time… time series, maybe not so much, but…
+Isaac Flath
+00:43:47
+Cool, so that's… that's good. Pandas can count transitions between states and create frequency tables, that sounds useful.
+Isaac Flath
+00:43:55
+NumPy handles underlying math for probability and rates.
+Isaac Flath
+00:43:59
+And they both work with visualization libraries really well, Matpotlib and Seabourn, which I can see it imported.
+Isaac Flath
+00:44:06
+So, I would say… if I see that, start with doing that, asking AI this thing,
+Isaac Flath
+00:44:17
+get kind of curious, understand what these are for, and then now I can say, like, oh.
+Isaac Flath
+00:44:23
+That might give you enough to do pandas. It will be…
+Isaac Flath
+00:44:27
+a long process, but I think… I think you can use AI to ask lots of questions about, like.
+Isaac Flath
+00:44:33
+Why would I want this?
+Isaac Flath
+00:44:38
+I don't know, what do you think, Hamel? Does that make sense?
+Hamel Husain
+00:44:43
+Sorry, I was, can you repeat.
+Isaac Flath
+00:44:45
+Oh, that's okay.
+Isaac Flath
+00:44:46
+I was saying that, like, if you see stuff, one thing you can do that you don't understand is you can ask AI to, like.
+Isaac Flath
+00:44:53
+Explain things.
+Hamel Husain
+00:44:55
+Oh, right.
+Isaac Flath
+00:44:55
+tell you what the dependencies are for and why, and that hopefully that means that, like, you can…
+Isaac Flath
+00:45:00
+Like, learn and start to…
+Hamel Husain
+00:45:02
+start to learn enough that, like, okay, this sounds like something I might want versus not. Yeah.
+Isaac Flath
+00:45:06
+And develop that intuition.
+Hamel Husain
+00:45:09
+Yeah.
+Isaac Flath
+00:45:09
+It's always good to, like, try to understand everything, and don't be…
+Hamel Husain
+00:45:13
+seduced by complexity, right? So some people get seduced by complexity.
+Hamel Husain
+00:45:19
+Very easily, they'll see, graph.
+Hamel Husain
+00:45:21
+That sounds really cool, and my data is like a graph. They're like, you can convince… you can easily convince yourself that you need a graph.
+Hamel Husain
+00:45:30
+And you can say, oh, this is so beautiful, it's like a graph.
+Hamel Husain
+00:45:34
+But… don't do that.
+Hamel Husain
+00:45:36
+That's actually… it's a trap that a lot of engineers fall into, often.
+Hamel Husain
+00:45:43
+And so just be really parsimonious about
+Hamel Husain
+00:45:49
+what complexity you take on is, like, a good idea. It'd be, like, be very skeptical of complexity at all. And say, like, oh, is there a simpler way that I can think of doing this? And, like, do I really need it?
+Hamel Husain
+00:45:59
+Because you want to be able to have the code be as minimal as possible so that you can understand everything. And you don't want any, like, magic.
+Hamel Husain
+00:46:08
+Okay, using AMP to create a notebook. I've never done that.
+Isaac Flath
+00:46:11
+I'm nervous.
+Hamel Husain
+00:46:12
+That would be very interesting.
+Isaac Flath
+00:46:13
+I haven't either.
+Hamel Husain
+00:46:14
+Okay, let's see. It'll be good.
+Isaac Flath
+00:46:16
+Just waiting.
+Isaac Flath
+00:46:20
+See, now I know, I'm like, keep it simple.
+Isaac Flath
+00:46:24
+Simple. Pandas, tables… groupings… I'm gonna say,
+Isaac Flath
+00:46:32
+Group by, like, first 3 characters…
+Isaac Flath
+00:46:37
+of states, and other types, simple analysis.
+Isaac Flath
+00:46:44
+I actually have no idea if AMP does, notebooks or not.
+Hamel Husain
+00:46:49
+Yeah, we'll see.
+Hamel Husain
+00:46:51
+So those people know, like, AMP is one of our favorite
+Hamel Husain
+00:46:55
+AI assistants, both Isaac and I.
+Hamel Husain
+00:46:59
+I think we both feel like it's slightly underrated.
+Isaac Flath
+00:47:03
+Yeah, I would say the only downside is you just need to open up your pocketbook.
+Hamel Husain
+00:47:08
+It is expensive. Yeah, it is a little bit expensive, for sure.
+Hamel Husain
+00:47:16
+Okay, you can do it in parallel?
+Isaac Flath
+00:47:18
+Yeah, sure, why not?
+Isaac Flath
+00:47:20
+We'll do a little live experiment.
+Hamel Husain
+00:47:27
+You could also do the new cursor… oh, you're not in cursor, don't worry about it.
+Hamel Husain
+00:47:32
+Cursor has this, like, new composer thing.
+Hamel Husain
+00:47:36
+which is, like, this new iteration of Composer lets you do, like, a lot of…
+Hamel Husain
+00:47:41
+things in parallel. You can, like, try, like, 4 models in parallel.
+Hamel Husain
+00:47:45
+on, like.
+Isaac Flath
+00:47:46
+Oh man, doesn't this look great already?
+Hamel Husain
+00:47:49
+Oh, is it done?
+Isaac Flath
+00:47:50
+This is AMP, yeah.
+Hamel Husain
+00:47:52
+Oh, this looks so good already, because it's just 3 imports. It was like it was listening to our conversation.
+Isaac Flath
+00:47:59
+You see how excited we are with, like, less stuff, not more? It's… it's crazy. Yeah.
+Isaac Flath
+00:48:04
+Okay.
+Isaac Flath
+00:48:07
+Oh my god, this is actually really good, like, each cell is nice and small.
+Hamel Husain
+00:48:12
+Yeah.
+Isaac Flath
+00:48:18
+Okay, conversions as fails, 0% success rate.
+Hamel Husain
+00:48:21
+is kind of weird, right? Is that something is wrong?
+Isaac Flath
+00:48:23
+I think that is legitimately what the data has, though. So I think it must… the labeled traces must be, like, filtered for the failures.
+Hamel Husain
+00:48:31
+Yeah, okay.
+Hamel Husain
+00:48:32
+I see him.
+Isaac Flath
+00:48:33
+But, yeah, that would normally not be good.
+Isaac Flath
+00:48:37
+I don't know why my camera's not working, but it's okay.
+Hamel Husain
+00:48:41
+Yeah, you got blurred out.
+Isaac Flath
+00:48:48
+So the last success date, plan tool calls.
+Isaac Flath
+00:48:52
+So, going from the planning to the next step is a big failure mode.
+Isaac Flath
+00:48:57
+So why would that be? So the planning step could be really bad.
+Isaac Flath
+00:49:01
+Or, it could be that…
+Hamel Husain
+00:49:11
+Here you go. Cool. You're back.
+Isaac Flath
+00:49:12
+The plan tool calls, the planning step could just be really bad, or it could be that… it could be very high because every step starts with planning, and then, like, just things sail a lot, I don't know. So that's interesting.
+Isaac Flath
+00:49:27
+First failure states, okay, you're getting the recipes and the gin recipe. So, like, this is… this is interesting. I didn't actually think about this. I was thinking about the first three that I mentioned, but it's interesting that both things around the recipes are failing. The peripheral stuff doesn't fail as much.
+Isaac Flath
+00:49:51
+Interesting.
+Isaac Flath
+00:50:03
+Yeah, so, like, the Git request, the ones that start with Git, there's 50 failures of those, then Jen is 35, so, like, I don't even need to worry about these 3 for sure.
+Isaac Flath
+00:50:13
+the first failure states. I mean, we might need to look at the plan, because that's… that comes before, but this makes me deeply suspicious. Like, why are there so many failures with GET requests, where that should just be… that should be easy, that's just getting… that's just pulling data. Like, why is that failing?
+Isaac Flath
+00:50:36
+So this created the transition matrix.
+Isaac Flath
+00:50:47
+Okay, so that failed, so I'm gonna… I'm curious about what's going on here.
+Isaac Flath
+00:50:55
+So we can take and go .columns.
+Isaac Flath
+00:51:11
+So there's a failure prefix, but there's not a success prefix, so that's why that failed.
+Isaac Flath
+00:51:28
+So I might look, say, okay…
+Isaac Flath
+00:51:36
+Interesting.
+Isaac Flath
+00:51:42
+So I'm not gonna worry about that too much here. I could… Failures DF doesn't have it. We can see up here why it doesn't have it. It's because we put it in a different data frame.
+Isaac Flath
+00:51:52
+So… We could potentially add…
+Isaac Flath
+00:52:03
+Might be risky, but… Let's see here… first failure, so we could…
+Isaac Flath
+00:52:13
+could try adding it in. I don't actually know if this will work, I haven't relived to the data frame, but…
+Isaac Flath
+00:52:21
+Oh.
+Isaac Flath
+00:52:23
+So we'll come back to that in a minute.
+Isaac Flath
+00:52:26
+Message count analysis…
+Isaac Flath
+00:52:32
+So it's not very interesting, because they all failed.
+Isaac Flath
+00:52:34
+Top failure combinations.
+Isaac Flath
+00:52:37
+This is just another look of the transition matrix.
+Isaac Flath
+00:52:41
+So, this actually feels a lot better to me than the complicated one, even though the complicated one had some charts and stuff. This kind of simple analysis is actually usually what you need. Is this kind of, like.
+Isaac Flath
+00:52:56
+I know what the top ones are, I know where to look.
+Isaac Flath
+00:52:59
+It's interesting that the Git requests are the Git recipe stuff. I wonder if there's some sort of,
+Isaac Flath
+00:53:06
+Issue in the prompt or the database around recipes,
+Isaac Flath
+00:53:10
+Getting a customer profile, again, that seems like something that should be fairly easy, just like…
+Isaac Flath
+00:53:16
+Pull that in. I also don't even know why we need to get the customer profile.
+Isaac Flath
+00:53:23
+If a customer is asking for a recipe, should that really be a tool?
+Isaac Flath
+00:53:28
+And I would argue that probably not. It probably should just be injected in the prompt for every customer.
+Isaac Flath
+00:53:34
+Depends exactly what profile information we're talking about, but for a recipe bot,
+Isaac Flath
+00:53:43
+if I filled out a profile information about, like, what my preferences are, what I liked recipe-wise, what my allergies are, rather than that being a tool, that probably should just be a workflow that just is put into the prompt, where you just inject all this information. So,
+Isaac Flath
+00:53:59
+Again, we don't have visibility to what these tools are, but this customer profile, you know, this might be a case to say, like.
+Isaac Flath
+00:54:06
+Well, maybe this class of problems shouldn't exist at all, because this should just be part of the prompt, not a tool that the agent may or may not call, because we may always want
+Isaac Flath
+00:54:16
+The profile information for the profile for the customer to be considered when it creates a recipe.
+Isaac Flath
+00:54:25
+Yeah, I mean, this is pretty much what I had for today,
+Isaac Flath
+00:54:33
+I think we got through all of the homework.
+Isaac Flath
+00:54:36
+I think it's kind of the same theme, and I think it's interesting, because…
+Isaac Flath
+00:54:41
+Whether it's an agent, or a rag, or just a chat bot, or whatever, like, the themes are the same, and then basically the themes are, like.
+Isaac Flath
+00:54:51
+You have some data that you need to input.
+Isaac Flath
+00:54:54
+Or a prompt, whatever that is, and you want to look at the data, and you want to look at the prompts that come in.
+Isaac Flath
+00:55:01
+Whatever that is, a CSV or a JSON, or whatever.
+Isaac Flath
+00:55:06
+Or the user query. And if you can, you know, create some way to view those.
+Isaac Flath
+00:55:11
+And create a, self-contained HTML file, an app, whatever you can, to Jupyter Notebook, whatever you can to look at it.
+Isaac Flath
+00:55:20
+And then you'll get some sort of output, and you do the same thing. You create some sort of way to look at those nicely, and you look through, and you just kind of, like, poke around and think, and be curious, and, like, make wild guesses, take as much notes as you want.
+Isaac Flath
+00:55:34
+Not wild guesses, but like, this looks curious, I wonder if this happened. And then go see if you can figure that out.
+Isaac Flath
+00:55:43
+And dive into the ones that you think are, like, intuitively, I think this is most likely.
+Isaac Flath
+00:55:49
+To be the case, and you just kind of start there.
+Isaac Flath
+00:55:52
+And then, yeah, and then you,
+Isaac Flath
+00:55:57
+Kind of try and dive in a little bit more with a notebook or something to figure out, like, what's…
+Isaac Flath
+00:56:03
+What the case… what's going on, and
+Isaac Flath
+00:56:08
+That's kind of the process in, like, every single one of these, and that's kind of the whole trick.
+Hamel Husain
+00:56:15
+I've, given everyone permission to unmute if anyone has a question.
+Isaac Flath
+00:56:21
+Well, great
+Isaac Flath
+00:56:29
+AMP did a really good job with this notebook, man.
+Hamel Husain
+00:56:33
+Yeah, I'm, like, even more impressed with AMP now.
+Isaac Flath
+00:56:35
+Like, completely amp-pilled at this point.
+Isaac Flath
+00:56:40
+Let's see cloud code, nobody's asking questions. This'll be a,
+Isaac Flath
+00:56:46
+a tool exploration session if y'all don't ask questions, which I don't know, maybe you will.
+Hamel Husain
+00:56:50
+So, see, like, yeah, it'll devolve into tools, like,
+Hamel Husain
+00:56:53
+Robert's asking about AMP. AMP is just a coding agent, you can go to it, you can look at it at amp.code.
+Hamel Husain
+00:56:59
+It's, like, very agentic, meaning it'll try to…
+Hamel Husain
+00:57:05
+do more for you. It's like, they… you don't get to choose your model. They have… they're of the philosophy that…
+Hamel Husain
+00:57:13
+You shouldn't have to choose your model. They, like, route the models.
+Hamel Husain
+00:57:17
+And use the right model for the right task.
+Hamel Husain
+00:57:19
+And they have all these features, like, you should just read their docs. It's hard to…
+Hamel Husain
+00:57:24
+Summarize it, but it's just, like, a little bit of a different workflow.
+Hamel Husain
+00:57:28
+It's ex… it's a slightly expensive, like, you pay… there's not a…
+Hamel Husain
+00:57:33
+Per… it's… you pay per token?
+Isaac Flath
+00:57:36
+I would say it's the most expensive of them.
+Hamel Husain
+00:57:40
+It's probably the most expensive, but…
+Hamel Husain
+00:57:42
+Depending on your point of view, it's probably a lot cheaper than your time.
+Hamel Husain
+00:57:47
+It tends to, like, work…
+Hamel Husain
+00:57:50
+In a lot of situations where nothing else works for me.
+Hamel Husain
+00:57:54
+With a lot less effort.
+Isaac Flath
+00:57:57
+Cheaper than my time.
+Hamel Husain
+00:57:58
+That's what I expect.
+Isaac Flath
+00:57:59
+That's what I tell myself.
+Isaac Flath
+00:58:00
+Yeah, that's what we're talking.
+Hamel Husain
+00:58:02
+Oh, yeah.
+Isaac Flath
+00:58:03
+But no, it's good. It's a Cloud Code version.
+Hamel Husain
+00:58:07
+No, okay, this is Cloud Code.
+Isaac Flath
+00:58:09
+Yeah, this is actually pretty good, too.
+Hamel Husain
+00:58:11
+It's not bad at all.
+Isaac Flath
+00:58:12
+I like these graphs I like quite a bit.
+Hamel Husain
+00:58:15
+Yeah, this is pretty decent, actually.
+Hamel Husain
+00:58:18
+Snow shade on Cloud Code here.
+Isaac Flath
+00:58:20
+Meanwhile, GPT-5 and Copilot's just still, still working away.
+Hamel Husain
+00:58:25
+Yeah, this probably failed, I think. Something happened.
+Isaac Flath
+00:58:31
+Actually, yeah, I actually quite like this Claude Cloud Code one.
+Isaac Flath
+00:58:38
+It's interesting, like, oh, this is…
+Hamel Husain
+00:58:39
+Cloud Code has a, like, read and write notebook tool, which supposedly is supposed to give it an edge, but…
+Isaac Flath
+00:58:46
+I think… I think Cloud Code might have done better on this one, man. Like, I think it's the same information, but I like that it was a little bit more visual with it, and, like, this…
+Isaac Flath
+00:58:56
+So…
+Isaac Flath
+00:59:02
+It's interesting, like, it made its own, like, categories.
+Hamel Husain
+00:59:06
+Hmm.
+Isaac Flath
+00:59:11
+Yeah, it, like…
+Isaac Flath
+00:59:15
+Oh, yeah, it tried to make its own categorization for you, which is, you know, good or bad, but…
+Isaac Flath
+00:59:23
+Yeah, I think Clock Cove might have won on this one, actually.
+Isaac Flath
+00:59:27
+I was really impressed by AMP until… But I don't…
+Isaac Flath
+00:59:41
+Okay, yeah, I'm not gonna just dive into tools.
+Hamel Husain
+00:59:45
+But… But if you want to dive into tools, you should definitely take, Isaac's class. We put a…
+Hamel Husain
+00:59:51
+like a…
+Hamel Husain
+00:59:53
+code… a special discount code thingy. Let me just repeat it in the chat, just in case, I know some people came in afterwards.
+Hamel Husain
+01:00:00
+Isaac teaches a really good class on everything AI coding.
+Hamel Husain
+01:00:07
+Definitely check it out.
+Hamel Husain
+01:00:09
+I've been working with Isaac for…
+Hamel Husain
+01:00:13
+It's, like, over 5, 6 years, like, lost count. At this point, worked with him on open source a whole lot, as well, as well as, like, the same companies. He's really talented at what he does. Highly recommend.
+Hamel Husain
+01:00:27
+Following him. If nothing else, like, you should look at his, like, AI Elite Coding.
+Hamel Husain
+01:00:32
+newsletter…
+Hamel Husain
+01:00:35
+Which, like, can save you a lot of time if you're… if you have FOMO about different tools.
+Hamel Husain
+01:00:42
+And you want to just…
+Hamel Husain
+01:00:44
+See what Isaac's reviews are on those tools. I'll put the link to that in the chat as well.
+Hamel Husain
+01:00:50
+Oh, and he has it pulled up on the screen.
+Isaac Flath
+01:00:53
+Yeah, there's tools, but there's other stuff, there's tools, there's FAQs, there's tips, there's talks by, like, here's a talk by Open Hands on here, here's one by Hugo, here's, we built an AI coding agent from scratch, live, just purely with AI.
+Isaac Flath
+01:01:11
+There's gonna be another one up. We actually just yesterday did a talk, an hour and a half, where we, you know, fully with AI, built a, multi-agent, research
+Isaac Flath
+01:01:22
+agent, where, like, had 3 different separate agents that would go do different tasks and, you know, research, do web research stuff, so we built that, fully with AI. So if you're interested in, like.
+Isaac Flath
+01:01:34
+any kind of, like, prototyping and stuff like that, it's pretty helpful, we've got a lot there.
+Isaac Flath
+01:01:42
+Yeah, lots and lots of just… Talks, FAQs, guides… etc.
+Hamel Husain
+01:01:57
+Alright, sounds good. We can go ahead and wrap this up. Thanks, everybody, for attending the very last session of this cohort.
+Hamel Husain
+01:02:04
+And thanks a lot for Isaac for doing another session. Really appreciate it.
+Isaac Flath
+01:02:09
+Yeah, this was, this was great. If, people have any more questions that come up, or comments, or thoughts,
+Isaac Flath
+01:02:16
+Yeah, ping me in the Discord, I'm always happy to, you know, Keep… keep chatting.
+Hamel Husain
+01:02:22
+Alright, thank you.
+Isaac Flath
+01:02:23
+Oh, thanks, bye.

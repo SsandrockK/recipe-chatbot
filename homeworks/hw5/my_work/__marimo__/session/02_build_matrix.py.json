@@ -1,0 +1,316 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.7"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "cb1e90300f402cc5c48589bf1336f52f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"notebook-02-build-transition-matrix\">Notebook 02: Build Transition Matrix</h1>\n<span class=\"paragraph\"><strong>Goal</strong>: Count how many times each (last_success \u2192 first_failure) transition occurs.</span>\n<h2 id=\"what-youll-do\">What You'll Do</h2>\n<ol>\n<li>Load the labeled traces</li>\n<li>Extract (success, failure) pairs</li>\n<li>Build a transition matrix (10x10)</li>\n<li>Group by state prefixes (\"Gen\", \"Get\", etc.)</li>\n<li>Find the most common failure transitions</li>\n</ol>\n<span class=\"paragraph\"><strong>Time</strong>: ~20 minutes | <strong>Cost</strong>: $0</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "984071d0f63b4101c90ab719b125b2ef",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-1-load-the-data-again\">Step 1: Load the Data (Again)</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "0f9fced03a8707ddae8d157b5ec2f02e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-2-extract-transition-pairs\">Step 2: Extract Transition Pairs</h2>\n<span class=\"paragraph\">Each trace has a <code>last_success_state</code> and <code>first_failure_state</code>.\nThis forms a <strong>directed edge</strong> in our transition matrix.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "f6f205bab3bb43f157dfe2b983c2fd8c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-3-count-transitions\">Step 3: Count Transitions</h2>\n<span class=\"paragraph\">Use Counter to tally how many times each transition occurs.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "237a2b348466aba940c6e1f4eb9d644d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-4-build-the-transition-matrix\">Step 4: Build the Transition Matrix</h2>\n<span class=\"paragraph\">Create a 10x10 matrix where:</span>\n<ul>\n<li><strong>Rows</strong> = last_success_state</li>\n<li><strong>Columns</strong> = first_failure_state</li>\n<li><strong>Values</strong> = count of that transition</li>\n</ul>\n<span class=\"paragraph\"><strong>Insight from Workshop</strong>: Isaac noticed that most errors aren't spread evenly - they cluster in specific columns (GetRecipes, GenRecipeArgs).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "8cc6e31030a21c5389676bba5fac0189",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-5-analyze-by-row-last-success\">Step 5: Analyze by Row (Last Success)</h2>\n<span class=\"paragraph\">Which states, when they succeed, lead to the most failures next?</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "a61f1d5a5fab84b2ded7b1d1460baf12",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-6-analyze-by-column-first-failure\">Step 6: Analyze by Column (First Failure)</h2>\n<span class=\"paragraph\">Which states are the most common failure points?</span>\n<span class=\"paragraph\"><strong>Workshop Insight</strong>: Isaac noticed GetRecipes and GenRecipeArgs were highest.\nHe said: \"Why would getting customer profile information and getting recipes from my database have the highest number of failures? I would expect getting random information from the web to be harder, because I can control my own database.\"</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "ba9f1526d12a455d0b68e0d6b1304868",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-7-group-by-state-prefix\">Step 7: Group by State Prefix</h2>\n<span class=\"paragraph\"><strong>Workshop Tip</strong>: Isaac suggested grouping by first 3 characters - \"Gen\", \"Get\", etc.</span>\n<span class=\"paragraph\">This helps answer: \"Do failures cluster around argument <strong>generation</strong> or tool <strong>execution</strong>?\"</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "f00d7ca8fc0fa441b0c52568b8e59e2b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"reflection-questions\">\ud83e\udd14 Reflection Questions</h2>\n<span class=\"paragraph\">Look at the data above and think about:</span>\n<ol>\n<li>\n<span class=\"paragraph\"><strong>Most Common Transitions</strong></span>\n<ul>\n<li>What's the highest count you see?</li>\n<li>Is there a pattern between those common transitions?</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>Gen vs Get</strong></span>\n<ul>\n<li>Do failures happen more during argument <strong>generation</strong> (Gen) or tool <strong>execution</strong> (Get)?</li>\n<li>What might this tell you about the root cause?</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>Recipe vs Customer vs Web</strong></span>\n<ul>\n<li>Which domain has the most failures?</li>\n<li>Why might recipe operations fail more than web searches?</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>Is Planning the Problem?</strong></span>\n<ul>\n<li>Notice <code>PlanToolCalls</code> is a common last success state</li>\n<li>Does this mean planning is bad, or just that it's often the state before something fails?</li>\n</ul>\n</li>\n</ol>\n<span class=\"paragraph\"><strong>Write down your hypotheses!</strong> You'll test them in Notebook 03.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "6ba2e60d8913d0c5e5f8ab3f49c3e2cb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"next-steps\">\u2705 Next Steps</h2>\n<span class=\"paragraph\">You've built the transition matrix and seen the patterns numerically!</span>\n<span class=\"paragraph\"><strong>Next</strong>: Open <code>03_visualize_analyze.py</code> to create the heatmap and do deeper analysis.</span>\n<div class=\"language-bash codehilite\"><pre><span></span><code>marimo<span class=\"w\"> </span>edit<span class=\"w\"> </span>03_visualize_analyze.py\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "f97b4ba02cc4df473bb1b24719054bad",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "391e417c4f3ec44ad458283f3c58e7ae",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Loaded 96 traces\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "PKri",
+      "code_hash": "7817d89fd3e655b2f74b14e939b7f5f3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Extracted 96 transition pairs\n\nFirst 5 pairs:\n  1. ParseRequest \u2192 GetCustomerProfile\n  2. GenCustomerArgs \u2192 GenRecipeArgs\n  3. PlanToolCalls \u2192 GetWebInfo\n  4. PlanToolCalls \u2192 GenRecipeArgs\n  5. GenCustomerArgs \u2192 GetCustomerProfile\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "516488f5c250556f43b45fed9704b125",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Found 31 unique transitions\n\n=== TOP 10 TRANSITIONS ===\n10x  PlanToolCalls \u2192 GenRecipeArgs\n 9x  GetCustomerProfile \u2192 GetRecipes\n 8x  GenCustomerArgs \u2192 GetRecipes\n 7x  GenCustomerArgs \u2192 GetCustomerProfile\n 7x  GetCustomerProfile \u2192 GenRecipeArgs\n 7x  GenRecipeArgs \u2192 GetRecipes\n 6x  PlanToolCalls \u2192 GetRecipes\n 6x  PlanToolCalls \u2192 GenCustomerArgs\n 4x  PlanToolCalls \u2192 GetCustomerProfile\n 3x  GetRecipes \u2192 GenWebArgs\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "5f7d961f9bdf06e3485bfdf5cf635752",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Built 10x10 matrix\nTotal failures recorded: 96\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "cf7a95b4ce097319702500651658f007",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='Kclp-0' random-id='02db1d4b-fcd0-894a-a498-fa0675ea93ad'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:&#92;&quot;ParseRequest&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:1,&#92;&quot;GenCustomerArgs&#92;&quot;:1,&#92;&quot;GetCustomerProfile&#92;&quot;:2,&#92;&quot;GenRecipeArgs&#92;&quot;:1,&#92;&quot;GetRecipes&#92;&quot;:2,&#92;&quot;GenWebArgs&#92;&quot;:0,&#92;&quot;GetWebInfo&#92;&quot;:0,&#92;&quot;ComposeResponse&#92;&quot;:0,&#92;&quot;DeliverResponse&#92;&quot;:0},{&#92;&quot;&#92;&quot;:&#92;&quot;PlanToolCalls&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:6,&#92;&quot;GetCustomerProfile&#92;&quot;:4,&#92;&quot;GenRecipeArgs&#92;&quot;:10,&#92;&quot;GetRecipes&#92;&quot;:6,&#92;&quot;GenWebArgs&#92;&quot;:2,&#92;&quot;GetWebInfo&#92;&quot;:2,&#92;&quot;ComposeResponse&#92;&quot;:0,&#92;&quot;DeliverResponse&#92;&quot;:1},{&#92;&quot;&#92;&quot;:&#92;&quot;GenCustomerArgs&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:7,&#92;&quot;GenRecipeArgs&#92;&quot;:2,&#92;&quot;GetRecipes&#92;&quot;:8,&#92;&quot;GenWebArgs&#92;&quot;:1,&#92;&quot;GetWebInfo&#92;&quot;:1,&#92;&quot;ComposeResponse&#92;&quot;:1,&#92;&quot;DeliverResponse&#92;&quot;:0},{&#92;&quot;&#92;&quot;:&#92;&quot;GetCustomerProfile&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:0,&#92;&quot;GenRecipeArgs&#92;&quot;:7,&#92;&quot;GetRecipes&#92;&quot;:9,&#92;&quot;GenWebArgs&#92;&quot;:0,&#92;&quot;GetWebInfo&#92;&quot;:0,&#92;&quot;ComposeResponse&#92;&quot;:0,&#92;&quot;DeliverResponse&#92;&quot;:0},{&#92;&quot;&#92;&quot;:&#92;&quot;GenRecipeArgs&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:0,&#92;&quot;GenRecipeArgs&#92;&quot;:0,&#92;&quot;GetRecipes&#92;&quot;:7,&#92;&quot;GenWebArgs&#92;&quot;:2,&#92;&quot;GetWebInfo&#92;&quot;:0,&#92;&quot;ComposeResponse&#92;&quot;:1,&#92;&quot;DeliverResponse&#92;&quot;:1},{&#92;&quot;&#92;&quot;:&#92;&quot;GetRecipes&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:0,&#92;&quot;GenRecipeArgs&#92;&quot;:0,&#92;&quot;GetRecipes&#92;&quot;:0,&#92;&quot;GenWebArgs&#92;&quot;:3,&#92;&quot;GetWebInfo&#92;&quot;:2,&#92;&quot;ComposeResponse&#92;&quot;:1,&#92;&quot;DeliverResponse&#92;&quot;:2},{&#92;&quot;&#92;&quot;:&#92;&quot;GenWebArgs&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:0,&#92;&quot;GenRecipeArgs&#92;&quot;:0,&#92;&quot;GetRecipes&#92;&quot;:0,&#92;&quot;GenWebArgs&#92;&quot;:0,&#92;&quot;GetWebInfo&#92;&quot;:0,&#92;&quot;ComposeResponse&#92;&quot;:1,&#92;&quot;DeliverResponse&#92;&quot;:0},{&#92;&quot;&#92;&quot;:&#92;&quot;GetWebInfo&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:0,&#92;&quot;GenRecipeArgs&#92;&quot;:0,&#92;&quot;GetRecipes&#92;&quot;:0,&#92;&quot;GenWebArgs&#92;&quot;:0,&#92;&quot;GetWebInfo&#92;&quot;:0,&#92;&quot;ComposeResponse&#92;&quot;:1,&#92;&quot;DeliverResponse&#92;&quot;:0},{&#92;&quot;&#92;&quot;:&#92;&quot;ComposeResponse&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:0,&#92;&quot;GenRecipeArgs&#92;&quot;:0,&#92;&quot;GetRecipes&#92;&quot;:0,&#92;&quot;GenWebArgs&#92;&quot;:0,&#92;&quot;GetWebInfo&#92;&quot;:0,&#92;&quot;ComposeResponse&#92;&quot;:0,&#92;&quot;DeliverResponse&#92;&quot;:1},{&#92;&quot;&#92;&quot;:&#92;&quot;DeliverResponse&#92;&quot;,&#92;&quot;ParseRequest&#92;&quot;:0,&#92;&quot;PlanToolCalls&#92;&quot;:0,&#92;&quot;GenCustomerArgs&#92;&quot;:0,&#92;&quot;GetCustomerProfile&#92;&quot;:0,&#92;&quot;GenRecipeArgs&#92;&quot;:0,&#92;&quot;GetRecipes&#92;&quot;:0,&#92;&quot;GenWebArgs&#92;&quot;:0,&#92;&quot;GetWebInfo&#92;&quot;:0,&#92;&quot;ComposeResponse&#92;&quot;:0,&#92;&quot;DeliverResponse&#92;&quot;:0}]&quot;' data-total-rows='10' data-total-columns='10' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;ParseRequest&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;PlanToolCalls&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;GenCustomerArgs&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;GetCustomerProfile&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;GenRecipeArgs&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;GetRecipes&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;GenWebArgs&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;GetWebInfo&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;ComposeResponse&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;DeliverResponse&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;string&quot;,&quot;object&quot;]]]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "165514eca05bd3e1f652e38f70859d74",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='Hstk-0' random-id='c08e0edd-98e2-bdb9-c419-c2d54471eacf'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:1,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;PlanToolCalls&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:31},{&#92;&quot;&#92;&quot;:2,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;GenCustomerArgs&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:20},{&#92;&quot;&#92;&quot;:3,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;GetCustomerProfile&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:16},{&#92;&quot;&#92;&quot;:4,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;GenRecipeArgs&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:11},{&#92;&quot;&#92;&quot;:5,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;GetRecipes&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:8},{&#92;&quot;&#92;&quot;:0,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;ParseRequest&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:7},{&#92;&quot;&#92;&quot;:6,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;GenWebArgs&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:1},{&#92;&quot;&#92;&quot;:7,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;GetWebInfo&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:1},{&#92;&quot;&#92;&quot;:8,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;ComposeResponse&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:1},{&#92;&quot;&#92;&quot;:9,&#92;&quot;Last Success State&#92;&quot;:&#92;&quot;DeliverResponse&#92;&quot;,&#92;&quot;Total Failures After&#92;&quot;:0}]&quot;' data-total-rows='10' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Last Success State&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;Total Failures After&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "b2f31a4b6a744e615e16d0704bdb69a2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='iLit-0' random-id='9a15bf98-9baa-6764-8bdd-768a4c0069d8'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:5,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;GetRecipes&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:32},{&#92;&quot;&#92;&quot;:4,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;GenRecipeArgs&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:20},{&#92;&quot;&#92;&quot;:3,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;GetCustomerProfile&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:13},{&#92;&quot;&#92;&quot;:6,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;GenWebArgs&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:8},{&#92;&quot;&#92;&quot;:2,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;GenCustomerArgs&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:7},{&#92;&quot;&#92;&quot;:7,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;GetWebInfo&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:5},{&#92;&quot;&#92;&quot;:8,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;ComposeResponse&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:5},{&#92;&quot;&#92;&quot;:9,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;DeliverResponse&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:5},{&#92;&quot;&#92;&quot;:1,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;PlanToolCalls&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:1},{&#92;&quot;&#92;&quot;:0,&#92;&quot;First Failure State&#92;&quot;:&#92;&quot;ParseRequest&#92;&quot;,&#92;&quot;Total Failures&#92;&quot;:0}]&quot;' data-total-rows='10' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;First Failure State&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;Total Failures&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "f77e518f83d5dc0ec8336a565cb8b057",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"Par\", \"Get\"], [\"Gen\", \"Gen\"], [\"Pla\", \"Get\"], [\"Pla\", \"Gen\"], [\"Gen\", \"Get\"]]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "15287188d564f315efa8c2e3f5033128",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "=== FAILURES GROUPED BY PREFIX ===\n23x  Gen... \u2192 Get...\n18x  Pla... \u2192 Gen...\n12x  Pla... \u2192 Get...\n11x  Get... \u2192 Get...\n10x  Get... \u2192 Gen...\n 5x  Gen... \u2192 Gen...\n 4x  Par... \u2192 Get...\n 3x  Gen... \u2192 Com...\n 2x  Get... \u2192 Com...\n 2x  Par... \u2192 Gen...\n 2x  Get... \u2192 Del...\n 1x  Par... \u2192 Pla...\n 1x  Com... \u2192 Del...\n 1x  Pla... \u2192 Del...\n 1x  Gen... \u2192 Del...\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "a19524902fb1d9670eb7aeb908de3ba0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='TqIu-0' random-id='5e31acf7-8f85-4cd0-edc4-cf55187b1178'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Prefix&#92;&quot;:&#92;&quot;Get&#92;&quot;,&#92;&quot;Count&#92;&quot;:50},{&#92;&quot;Prefix&#92;&quot;:&#92;&quot;Gen&#92;&quot;,&#92;&quot;Count&#92;&quot;:35},{&#92;&quot;Prefix&#92;&quot;:&#92;&quot;Com&#92;&quot;,&#92;&quot;Count&#92;&quot;:5},{&#92;&quot;Prefix&#92;&quot;:&#92;&quot;Del&#92;&quot;,&#92;&quot;Count&#92;&quot;:5},{&#92;&quot;Prefix&#92;&quot;:&#92;&quot;Pla&#92;&quot;,&#92;&quot;Count&#92;&quot;:1}]&quot;' data-total-rows='5' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Prefix&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;Count&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

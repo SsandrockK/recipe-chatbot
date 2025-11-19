@@ -1,0 +1,290 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.7"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "47a2f2cb74a4656a68e2bf72711b1d61",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"notebook-01-explore-labeled-traces\">Notebook 01: Explore Labeled Traces</h1>\n<span class=\"paragraph\"><strong>Goal</strong>: Get familiar with the failure trace data structure and understand what we're analyzing.</span>\n<h2 id=\"what-youll-do\">What You'll Do</h2>\n<ol>\n<li>Load the labeled traces JSON file</li>\n<li>Explore the structure of individual traces</li>\n<li>Understand the 10 pipeline states</li>\n<li>Look at examples of failures</li>\n<li>Get a sense of the data before building the matrix</li>\n</ol>\n<span class=\"paragraph\"><strong>Time</strong>: ~30 minutes | <strong>Cost</strong>: $0 (no API calls!)</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "45ff49367ab13463f83f7e11f2b25a52",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-1-load-the-data\">Step 1: Load the Data</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "5efe1613076faf1b712fc64274c8009f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-2-understand-the-structure\">Step 2: Understand the Structure</h2>\n<span class=\"paragraph\">Let's look at what information each trace contains.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "8de13989e192b6a1aa9b66372d968f83",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-3-browse-individual-traces\">Step 3: Browse Individual Traces</h2>\n<span class=\"paragraph\">Use the slider below to explore different traces and see how they failed.</span>\n<span class=\"paragraph\"><strong>Things to notice</strong>:</span>\n<ul>\n<li>Where did the conversation succeed up to?</li>\n<li>Where did it fail first?</li>\n<li>Can you see the failure in the messages?</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "3b55e615cb674abcba70712a3e3b37d4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-4-understand-the-10-pipeline-states\">Step 4: Understand the 10 Pipeline States</h2>\n<span class=\"paragraph\">Here are the 10 states that the agent goes through:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "3d75405a3feb3c5992bf12009da7095a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"step-5-get-overview-statistics\">Step 5: Get Overview Statistics</h2>\n<span class=\"paragraph\">Let's see some high-level patterns in the data.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "44271f8f660e161783584ae20ead617b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"reflection-questions\">\ud83e\udd14 Reflection Questions</h2>\n<span class=\"paragraph\">Before moving to Notebook 02, think about:</span>\n<ol>\n<li><strong>Which states fail most often?</strong>\n   Look at the failure counts above. Do you notice any patterns?</li>\n<li>\n<span class=\"paragraph\"><strong>Do you see states grouped by what they do?</strong></span>\n<ul>\n<li>States starting with \"Gen\" (Generate arguments)</li>\n<li>States starting with \"Get\" (Execute tools)</li>\n<li>States involving \"Recipe\" vs \"Customer\" vs \"Web\"</li>\n</ul>\n</li>\n<li>\n<span class=\"paragraph\"><strong>From browsing traces, can you guess why failures happen?</strong></span>\n<ul>\n<li>Tool execution errors?</li>\n<li>LLM can't generate proper arguments?</li>\n<li>Missing information?</li>\n</ul>\n</li>\n<li><strong>Are there any states that almost never fail?</strong>\n   What might that tell you?</li>\n</ol>\n<span class=\"paragraph\"><strong>Write down your observations!</strong> You'll use them in Notebook 03.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "2d6b7a0a5f9b0a2d97d487fc1607326c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"next-steps\">\u2705 Next Steps</h2>\n<span class=\"paragraph\">You've now explored the data structure and seen individual failure traces!</span>\n<span class=\"paragraph\"><strong>Next</strong>: Open <code>02_build_matrix.py</code> to build the transition matrix that counts these failures.</span>\n<div class=\"language-bash codehilite\"><pre><span></span><code>marimo<span class=\"w\"> </span>edit<span class=\"w\"> </span>02_build_matrix.py\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "576acf138750216a2e4bde0ff6ad5f52",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "e846ba78498b447eae62b83b8aafa27a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\u2705 Found data file: ../data/labeled_traces.json\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "bbee84b5b3a41281062fb53b18d2bec3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Loaded 96 traces\nData type: <class 'list'>\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Xref",
+      "code_hash": "3fc2184a632d013131a8a80d97f8130b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Keys in each trace:\n  - conversation_id\n  - messages\n  - last_success_state\n  - first_failure_state\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "089a0631324ad0bf2eb88e93aa7ef20e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"example-trace-structure\">Example Trace Structure</h3>\n<span class=\"paragraph\"><strong>Conversation ID</strong>: <code>1373de99-f107-48da-b272-9e47c9b935dd</code></span>\n<span class=\"paragraph\"><strong>Last Success State</strong>: <code>ParseRequest</code>\n<strong>First Failure State</strong>: <code>GetCustomerProfile</code></span>\n<span class=\"paragraph\"><strong>Number of Messages</strong>: 8</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "3c80fb2d58f6cad0598c61426eaa9bb1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='RGSE-0' random-id='2702306a-b990-104f-425f-0ec01bd9a404'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Select trace to view&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='95' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "00246e07202b1adf579facf995e6d63d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"trace-1\">Trace #1</h3>\n<span class=\"paragraph\"><strong>Conversation ID</strong>: <code>000e4b33-6c6d-42c7-9903-9d39e4940112</code></span>\n<span class=\"paragraph\"><strong>Transition</strong>: <code>GenCustomerArgs</code> \u2192 <code>GenRecipeArgs</code></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "af2c1abdcd9ed918a8178291a240b356",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "=== MESSAGES ===\n\nMessage 1:\n  Role: user\n  Content: Suggest a healthy breakfast using oatmeal.\n\nMessage 2:\n  Role: assistant\n  Content: Let me help you find a nutritious oatmeal-based breakfast option.\n\nMessage 3:\n  Role: assistant\n  Content: TOOL_CALL[ParseRequest] Analyzing your request for a healthy oatmeal breakfast.\n\nMessage 4:\n  Role: assistant\n  Content: TOOL_CALL[PlanToolCalls] Planning steps to suggest a healthy oatmeal breakfast.\n\nMessage 5:\n  Role: assistant\n  Content: TOOL_CALL[GenCustomerArgs] Gathering your preferences to tailor the breakfast suggestion.\n\nMessage 6:\n  Role: assistant\n  Content: TOOL_CALL[GenRecipeArgs] Error: unable to generate recipe arguments due to missing dietary restriction information.\n\nMessage 7:\n  Role: assistant\n  Content: If you have any specific dietary preferences or allergies, let me know so I can further personalize your oatmeal breakfast suggestion.\n\nMessage 8:\n  Role: user\n  Content: I'm lactose intolerant and prefer low sugar options.\n\nMessage 9:\n  Role: assistant\n  Content: Thank you for sharing! I'll keep those preferences in mind for your healthy oatmeal breakfast ideas.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "85dc86519c8ea13f77046144e5da2e88",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><table>\n<thead>\n<tr>\n<th>#</th>\n<th>State</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td><strong>ParseRequest</strong></td>\n<td>LLM interprets the user's message</td>\n</tr>\n<tr>\n<td>2</td>\n<td><strong>PlanToolCalls</strong></td>\n<td>LLM decides which tools to invoke</td>\n</tr>\n<tr>\n<td>3</td>\n<td><strong>GenCustomerArgs</strong></td>\n<td>LLM constructs arguments for customer DB</td>\n</tr>\n<tr>\n<td>4</td>\n<td><strong>GetCustomerProfile</strong></td>\n<td>Executes customer-profile tool</td>\n</tr>\n<tr>\n<td>5</td>\n<td><strong>GenRecipeArgs</strong></td>\n<td>LLM constructs arguments for recipe DB</td>\n</tr>\n<tr>\n<td>6</td>\n<td><strong>GetRecipes</strong></td>\n<td>Executes recipe-search tool</td>\n</tr>\n<tr>\n<td>7</td>\n<td><strong>GenWebArgs</strong></td>\n<td>LLM constructs arguments for web search</td>\n</tr>\n<tr>\n<td>8</td>\n<td><strong>GetWebInfo</strong></td>\n<td>Executes web-search tool</td>\n</tr>\n<tr>\n<td>9</td>\n<td><strong>ComposeResponse</strong></td>\n<td>LLM drafts the final answer</td>\n</tr>\n<tr>\n<td>10</td>\n<td><strong>DeliverResponse</strong></td>\n<td>Agent sends the answer</td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\"><strong>Note</strong>: Each trace succeeds through <code>last_success_state</code> and then fails at <code>first_failure_state</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "70fa301d06034c374a6c572e383eef1f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "=== FAILURES BY STATE (First Failure) ===\n32 failures at: GetRecipes\n20 failures at: GenRecipeArgs\n13 failures at: GetCustomerProfile\n 8 failures at: GenWebArgs\n 7 failures at: GenCustomerArgs\n 5 failures at: GetWebInfo\n 5 failures at: ComposeResponse\n 5 failures at: DeliverResponse\n 1 failures at: PlanToolCalls\n\n=== SUCCESS BY STATE (Last Success) ===\n31 last success: PlanToolCalls\n20 last success: GenCustomerArgs\n16 last success: GetCustomerProfile\n11 last success: GenRecipeArgs\n 8 last success: GetRecipes\n 7 last success: ParseRequest\n 1 last success: GenWebArgs\n 1 last success: GetWebInfo\n 1 last success: ComposeResponse\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "b630f25abbba25627106aebe426bd18f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ROlb-0' random-id='3763c4ce-a748-4ce8-8eef-8be5cd3c839f'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;State&#92;&quot;:&#92;&quot;GetRecipes&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:32},{&#92;&quot;State&#92;&quot;:&#92;&quot;GenRecipeArgs&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:20},{&#92;&quot;State&#92;&quot;:&#92;&quot;GetCustomerProfile&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:13},{&#92;&quot;State&#92;&quot;:&#92;&quot;GenWebArgs&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:8},{&#92;&quot;State&#92;&quot;:&#92;&quot;GenCustomerArgs&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:7},{&#92;&quot;State&#92;&quot;:&#92;&quot;GetWebInfo&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:5},{&#92;&quot;State&#92;&quot;:&#92;&quot;ComposeResponse&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:5},{&#92;&quot;State&#92;&quot;:&#92;&quot;DeliverResponse&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:5},{&#92;&quot;State&#92;&quot;:&#92;&quot;PlanToolCalls&#92;&quot;,&#92;&quot;Failure Count&#92;&quot;:1}]&quot;' data-total-rows='9' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;State&quot;,[&quot;string&quot;,&quot;object&quot;]],[&quot;Failure Count&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
